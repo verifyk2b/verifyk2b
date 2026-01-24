@@ -19,8 +19,10 @@
 
 ## Verify
 
-- **Pump.fun:** https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
-- **Solscan (Token):** https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+## Verify
+
+- **Pump.fun:** [Open Pump.fun](https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump)
+- **Solscan (Token):** [Open Solscan](https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump)
 
 ---
 
@@ -29,6 +31,8 @@
 `At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump`
 
 **VERIFY. DON’T TRUST.**
+
+
 
 ---
 
