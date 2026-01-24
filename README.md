@@ -21,18 +21,14 @@
 ## Verify
 
 • Pump.fun:
-  https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 
 • Solscan (Token):
-  https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 
 ---
 
 ## Mint / Buy Address
-
-`At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump`
-
-Mint / Buy Address:
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 
 View on Solscan:
