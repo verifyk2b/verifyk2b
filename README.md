@@ -20,19 +20,33 @@
 
 ## Verify
 
-• Pump.fun:
-https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+<p>
+  <a href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
+    <button>Open Pump.fun</button>
+  </a>
+</p>
 
-• Solscan (Token):
-https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+<p>
+  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
+    <button>Open Solscan (Token)</button>
+  </a>
+</p>
 
 ---
 
 ## Mint / Buy Address
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+<p>
+  <code>At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</code>
+</p>
 
-View on Solscan:
-https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+<p>
+  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
+    <button>View Mint on Solscan</button>
+  </a>
+</p>
+
+<p><strong>VERIFY. DON’T TRUST.</strong></p>
 **VERIFY. DON’T TRUST.**
 
 
