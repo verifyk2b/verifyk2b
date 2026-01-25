@@ -86,9 +86,53 @@
 
 ## Locks (Streamflow)
 
-- **LP Lock:** [View on Streamflow](https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk)
-- **Largest Token Lock:** [View on Streamflow](https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC)
-- **Second Largest Token Lock:** [View on Streamflow](https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf)
+<p>
+  <a href="#" target="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk">
+    <button style="
+      background:#0d0d0d;
+      color:#fff;
+      border:1px solid #666;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      LP Lock (Streamflow)
+    </button>
+  </a>
+</p>
+
+<p>
+  <a href="#" target="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf">
+    <button style="
+      background:#0d0d0d;
+      color:#fff;
+      border:1px solid #666;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      Largest Token Lock
+    </button>
+  </a>
+</p>
+
+<p>
+  <a href="#" target="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf">
+    <button style="
+      background:#0d0d0d;
+      color:#fff;
+      border:1px solid #666;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      Second Largest Token Lock
+    </button>
+  </a>
+</p>
 
 Additional token locks exist via Streamflow and are verifiable on-chain.
 
