@@ -17,7 +17,6 @@
 
 ---
 
-
 ## Verify
 
 <p>
@@ -81,60 +80,62 @@
 <p style="font-weight:bold;">VERIFY. DON’T TRUST.</p>
 
 
-
 ---
 
-## Locks (Streamflow)
+<h2>Locks (Streamflow)</h2>
 
 <p>
-  <a href="#" target="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk">
+  <a href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk" target="_blank">
     <button style="
-      background:#0d0d0d;
+      background:#111;
       color:#fff;
-      border:1px solid #666;
+      border:1px solid #444;
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
       cursor:pointer;
     ">
-      LP Lock (Streamflow)
+      View LP Lock (Streamflow)
     </button>
   </a>
 </p>
 
 <p>
-  <a href="#" target="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf">
+  <a href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC" target="_blank">
     <button style="
-      background:#0d0d0d;
+      background:#111;
       color:#fff;
-      border:1px solid #666;
+      border:1px solid #444;
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
       cursor:pointer;
     ">
-      Largest Token Lock
+      View Largest Token Lock
     </button>
   </a>
 </p>
 
 <p>
-  <a href="#" target="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf">
+  <a href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf" target="_blank">
     <button style="
-      background:#0d0d0d;
+      background:#111;
       color:#fff;
-      border:1px solid #666;
+      border:1px solid #444;
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
       cursor:pointer;
     ">
-      Second Largest Token Lock
+      View Second Largest Token Lock
     </button>
   </a>
 </p>
 
-Additional token locks exist via Streamflow and are verifiable on-chain.
+<p>
+  Additional token locks exist via Streamflow and are verifiable on-chain.
+</p>
+
 
 ---
 
