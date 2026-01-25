@@ -22,31 +22,64 @@
 
 <p>
   <a href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
-    <button>Open Pump.fun</button>
+    <button style="
+      background:#111;
+      color:#fff;
+      border:1px solid #444;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      Open Pump.fun
+    </button>
   </a>
 </p>
 
 <p>
   <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
-    <button>Open Solscan (Token)</button>
+    <button style="
+      background:#111;
+      color:#fff;
+      border:1px solid #444;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      Open Solscan (Token)
+    </button>
   </a>
 </p>
 
 ---
 
 ## Mint / Buy Address
-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+
 <p>
-  <code>At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</code>
+  <code style="font-size:13px;">
+    At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+  </code>
 </p>
 
 <p>
   <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
-    <button>View Mint on Solscan</button>
+    <button style="
+      background:#1a1a1a;
+      color:#fff;
+      border:1px solid #555;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      View Mint on Solscan
+    </button>
   </a>
 </p>
 
-<p><strong>VERIFY. DON’T TRUST.</strong></p>
+<p style="font-weight:bold;">VERIFY. DON’T TRUST.</p>
+
 
 
 ---
