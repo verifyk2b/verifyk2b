@@ -47,7 +47,6 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 </p>
 
 <p><strong>VERIFY. DON’T TRUST.</strong></p>
-**VERIFY. DON’T TRUST.**
 
 
 ---
