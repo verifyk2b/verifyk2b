@@ -140,7 +140,7 @@
 Tokens are permanently burned by sending them to the Solana incinerator.
 This address has no private key and no signing authority. Tokens sent here are irreversible.
 
-**K2B Burn Address (Solana Incinerator):**  
+**K2B Burned (Solana Incinerator):**  
 `1nc1nerator11111111111111111111111111111111`
 
 <a href="https://solscan.io/account/1nc1nerator11111111111111111111111111111111" style="display:inline-block;padding:12px 18px;background:#000 !important;color:#fff !important;text-decoration:none !important;border:2px solid #000 !important;border-radius:10px !important;font-weight:700 !important;">View Burn Address on Solscan</a>
