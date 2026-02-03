@@ -140,11 +140,34 @@
 Tokens are permanently burned by sending them to the Solana incinerator.
 This address has no private key and no signing authority. Tokens sent here are irreversible.
 
-**K2B Burned (Solana Incinerator):**  
-`1nc1nerator11111111111111111111111111111111`
+<h2>K2B Token Burns</h2>
 
-<a href=https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
-style="display:inline-block;padding:12px 18px;background:#000 !important;color:#fff !important;text-decoration:none !important;border:2px solid #000 !important;border-radius:10px !important;font-weight:700 !important;">View Burn Address on Solscan</a>
+<p>
+Tokens are permanently burned by sending them to the K2B burn wallet.
+This address is used exclusively for burns and is not used for transfers
+or operations.
+</p>
+
+<p><strong>K2B Burn Address:</strong></p>
+
+<code>
+C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
+</code>
+
+<br><br>
+
+<a class="btn btn-dark"
+   href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
+   target="_blank" rel="noopener">
+  View Burn Address on Solscan
+</a>
+
+<h4>Supply Notes</h4>
+<ul>
+  <li>Total supply unchanged</li>
+  <li>Circulating supply reduced</li>
+  <li>Mint authority revoked (no re-minting)</li>
+</ul>
 
 Supply note:
 - Total supply unchanged  
