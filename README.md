@@ -36,17 +36,17 @@
 </p>
 
 <p>
-  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
+  <a href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3" target="_blank">
     <button style="
-      background:#111;
+      background:#1a1a1a;
       color:#fff;
-      border:1px solid #444;
+      border:1px solid #555;
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
       cursor:pointer;
     ">
-      Open Solscan (Token)
+      View Burn Address on Solscan
     </button>
   </a>
 </p>
