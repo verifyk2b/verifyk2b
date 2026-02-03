@@ -20,7 +20,7 @@
 ## Verify
 
 <p>
-  <a href="https://pump.fun/At4L287tND4vLSURFeVz2fghbvNgnE76nfFg7gy9pump" target="_blank">
+  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
     <button style="
       background:#1a1a1a;
       color:#fff;
@@ -28,25 +28,23 @@
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
-      cursor:pointer;
-    ">
-      Open Pump.fun
+      cursor:pointer;">
+      🔎 Open Solscan (Token)
     </button>
   </a>
 </p>
 
 <p>
-  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fghbvNgnE76nfFg7gy9pump" target="_blank">
+  <a href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
     <button style="
-      background:#1a1a1a;
-      color:#fff;
-      border:1px solid #555;
+      background:#111;
+      color:#bbb;
+      border:1px solid #444;
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
-      cursor:pointer;
-    ">
-      Open Solscan (Token)
+      cursor:pointer;">
+      ⚠️ Open Pump.fun (Trading UI)
     </button>
   </a>
 </p>
