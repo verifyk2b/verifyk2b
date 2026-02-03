@@ -157,6 +157,8 @@ C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
    target="_blank" rel="noopener">
   View Burn Address on Solscan
 </a>
+  View Burn Address on Solscan
+</a>
 
 <h4>Supply Notes</h4>
 <ul>
