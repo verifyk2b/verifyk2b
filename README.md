@@ -155,10 +155,22 @@ C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
 <a class="btn btn-dark"
    href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
    target="_blank" rel="noopener">
-  View Burn Address on Solscan
-</a>
-  View Burn Address on Solscan
-</a>
+  <p>
+  <a href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
+     target="_blank" rel="noopener noreferrer">
+    <button style="
+      background:#1a1a1a;
+      color:#ffffff;
+      border:1px solid #555;
+      padding:10px 16px;
+      border-radius:6px;
+      font-size:14px;
+      cursor:pointer;
+    ">
+      View Burn Address on Solscan
+    </button>
+  </a>
+</p>
 
 <h4>Supply Notes</h4>
 <ul>
