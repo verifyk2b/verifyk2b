@@ -20,11 +20,11 @@
 ## Verify
 
 <p>
-  <a href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
+  <a href="https://pump.fun/At4L287tND4vLSURFeVz2fghbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener">
     <button style="
-      background:#111;
+      background:#1a1a1a;
       color:#fff;
-      border:1px solid #444;
+      border:1px solid #555;
       padding:10px 16px;
       border-radius:6px;
       font-size:14px;
@@ -36,7 +36,7 @@
 </p>
 
 <p>
-  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fghbvNgnE76nfFg7gy9pump" target="_blank">
+  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fghbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener">
     <button style="
       background:#1a1a1a;
       color:#fff;
@@ -46,11 +46,10 @@
       font-size:14px;
       cursor:pointer;
     ">
-      View Burn Address on Solscan
+      Open Solscan (Token)
     </button>
   </a>
 </p>
-
 ---
 
 ## Mint / Buy Address
