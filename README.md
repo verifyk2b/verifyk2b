@@ -36,7 +36,7 @@
 </p>
 
 <p>
-  <a href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3" target="_blank">
+  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fghbvNgnE76nfFg7gy9pump" target="_blank">
     <button style="
       background:#1a1a1a;
       color:#fff;
