@@ -179,11 +179,6 @@ C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
   <li>Mint authority revoked (no re-minting)</li>
 </ul>
 
-Supply note:
-- Total supply unchanged  
-- Circulating supply reduced  
-- Mint authority revoked (no re-minting)
-
 ---
 
 ## Scope
