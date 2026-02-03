@@ -135,10 +135,6 @@
 <p>
   Additional token locks exist via Streamflow and are verifiable on-chain.
 </p>
-## K2B Token Burns
-
-Tokens are permanently burned by sending them to the Solana incinerator.
-This address has no private key and no signing authority. Tokens sent here are irreversible.
 
 <h2>K2B Token Burns</h2>
 
