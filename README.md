@@ -143,7 +143,8 @@ This address has no private key and no signing authority. Tokens sent here are i
 **K2B Burned (Solana Incinerator):**  
 `1nc1nerator11111111111111111111111111111111`
 
-<a href="https://solscan.io/account/1nc1nerator11111111111111111111111111111111" style="display:inline-block;padding:12px 18px;background:#000 !important;color:#fff !important;text-decoration:none !important;border:2px solid #000 !important;border-radius:10px !important;font-weight:700 !important;">View Burn Address on Solscan</a>
+<a href=https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
+style="display:inline-block;padding:12px 18px;background:#000 !important;color:#fff !important;text-decoration:none !important;border:2px solid #000 !important;border-radius:10px !important;font-weight:700 !important;">View Burn Address on Solscan</a>
 
 Supply note:
 - Total supply unchanged  
