@@ -29,7 +29,7 @@
       border-radius:6px;
       font-size:14px;
       cursor:pointer;">
-      🔎 Open Solscan (Token)
+       Open Solscan (Token)
     </button>
   </a>
 </p>
@@ -44,7 +44,7 @@
       border-radius:6px;
       font-size:14px;
       cursor:pointer;">
-      ⚠️ Open Pump.fun (Trading UI)
+       Open Pump.fun (Trading UI)
     </button>
   </a>
 </p>
