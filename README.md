@@ -149,9 +149,7 @@ or operations.
 <code>
 C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
 </code>
-
 <br><br>
-
 <a class="btn btn-dark"
    href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
    target="_blank" rel="noopener">
