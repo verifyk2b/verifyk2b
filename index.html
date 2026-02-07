@@ -33,50 +33,76 @@ body{
 }
 .hero{
   position:relative;
-  min-height:65vh;
+  min-height:70vh;
   border-radius:18px;
   overflow:hidden;
   background:
-    linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.9)),
-    url("hero.jpg") center/cover no-repeat;
+    radial-gradient(900px 520px at 50% 10%, rgba(122,67,255,.10), transparent 60%),
+    radial-gradient(900px 520px at 50% 95%, rgba(185,255,66,.09), transparent 65%),
+    linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.92));
 }
 .overlay{
   position:absolute;
   inset:0;
   pointer-events:none;
+  z-index:3;
 }
 .center{
   position:relative;
-  z-index:2;
+  z-index:4;
   text-align:center;
-  padding:22px 16px;
+  padding:22px 16px 8px;
+}
+.brand{
+  display:flex;
+  justify-content:center;
+  margin:6px 0 10px;
+}
+.brand img{
+  width:min(420px,86vw);
+  height:auto;
+  display:block;
+  filter:drop-shadow(0 12px 30px rgba(0,0,0,.7));
+}
+.moneyBase{
+  position:absolute;
+  left:50%;
+  bottom:-6px;
+  transform:translateX(-50%);
+  width:min(740px,96%);
+  height:auto;
+  z-index:2;
+  opacity:.98;
+  filter:drop-shadow(0 18px 40px rgba(0,0,0,.75));
+  pointer-events:none;
 }
 h1{
   font-size:14px;
   letter-spacing:.2em;
   text-transform:uppercase;
-  margin-bottom:8px;
+  margin:8px 0 8px;
 }
 .desc{
   font-size:13px;
-  color:rgba(255,255,255,.8);
-  margin-bottom:10px;
+  color:rgba(255,255,255,.82);
+  margin:0 0 10px;
 }
 .tag{
   font-size:12px;
   letter-spacing:.14em;
-  color:rgba(255,255,255,.6);
-  margin-bottom:16px;
+  color:rgba(255,255,255,.62);
+  margin:0 0 14px;
 }
 .slogan{
   font-size:18px;
-  margin-bottom:18px;
+  margin:0 0 16px;
 }
 .buttons{
   display:flex;
   gap:14px;
   justify-content:center;
   flex-wrap:wrap;
+  margin-bottom:10px;
 }
 button{
   border:0;
@@ -103,6 +129,7 @@ button{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:12px;
   padding:12px;
   margin-bottom:10px;
   border-radius:14px;
@@ -118,11 +145,15 @@ small{color:var(--muted)}
   color:rgba(255,255,255,.55);
   margin-top:14px;
 }
+
+/* Falling particles */
 .particle{
   position:absolute;
-  top:-80px;
+  top:-90px;
   pointer-events:none;
   animation:fall linear forwards;
+  opacity:1;
+  z-index:3;
 }
 @keyframes fall{
   to{
@@ -136,71 +167,90 @@ small{color:var(--muted)}
 <body>
 <div class="container">
 
-<div class="hero">
-  <div class="overlay" id="fx"></div>
+  <div class="hero">
+    <div class="overlay" id="fx"></div>
 
-  <div class="center">
-    <h1>STRUCTURE THROUGH VERIFICATION</h1>
-    <div class="desc">K2B is a Solana-based decentralized project. All activity is transparent and verifiable on-chain.</div>
-    <div class="tag">DON’T TRUST. VERIFY.</div>
-    <div class="slogan">Started with krumbs, stayed strong.<br>No shortcuts, no promises.</div>
+    <img class="moneyBase" src="money.png" alt="Money Duffle">
 
-    <div class="buttons">
-      <button class="buy" id="buyBtn">BUY</button>
-      <button class="verify" id="verifyBtn">VERIFY</button>
+    <div class="center">
+      <div class="brand">
+        <img src="logo.png" alt="Krumbs 2 Bricks">
+      </div>
+
+      <h1>STRUCTURE THROUGH VERIFICATION</h1>
+      <div class="desc">K2B is a Solana-based decentralized project. All activity is transparent and verifiable on-chain.</div>
+      <div class="tag">DON’T TRUST. VERIFY.</div>
+      <div class="slogan">Started with krumbs, stayed strong.<br>No shortcuts, no promises.</div>
+
+      <div class="buttons">
+        <button class="buy" id="buyBtn">BUY</button>
+        <button class="verify" id="verifyBtn">VERIFY</button>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="links">
-  <a class="link" href="https://x.com/K2Btoken" target="_blank">
-    <div>X — Primary Broadcast</div>
-    <small>x.com/K2Btoken</small>
-  </a>
-  <a class="link" href="https://discord.gg/YtWwDh8vq" target="_blank">
-    <div>Discord — Community + Verification</div>
-    <small>discord.gg/YtWwDh8vq</small>
-  </a>
-  <a class="link" href="https://t.me/K2BCommunity" target="_blank">
-    <div>Telegram — Community</div>
-    <small>t.me/K2BCommunity</small>
-  </a>
-</div>
+  <div class="links">
+    <a class="link" href="https://x.com/K2Btoken" target="_blank" rel="noopener">
+      <div>X — Primary Broadcast</div>
+      <small>x.com/K2Btoken</small>
+    </a>
+    <a class="link" href="https://discord.gg/YtWwDh8vq" target="_blank" rel="noopener">
+      <div>Discord — Community + Verification</div>
+      <small>discord.gg/YtWwDh8vq</small>
+    </a>
+    <a class="link" href="https://t.me/K2BCommunity" target="_blank" rel="noopener">
+      <div>Telegram — Community</div>
+      <small>t.me/K2BCommunity</small>
+    </a>
+  </div>
 
-<div class="fine">Verification over promises. No guarantees. DYOR.</div>
+  <div class="fine">Verification over promises. No guarantees. DYOR.</div>
 
 </div>
 
 <script>
-const BUY_URL="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
-const VERIFY_URL="https://verifyk2b.github.io/verifyk2b/";
-const fx=document.getElementById("fx");
+const BUY_URL   = "https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
+const VERIFY_URL= "https://verifyk2b.github.io/verifyk2b/";
 
-function drop(imgSrc,count,sizeMin,sizeMax,durMin,durMax){
+const fx = document.getElementById("fx");
+
+function drop(imgSrc, count, sizeMin, sizeMax, durMin, durMax){
   for(let i=0;i<count;i++){
     const p=document.createElement("img");
     p.src=imgSrc;
     p.className="particle";
+
     const size=Math.random()*(sizeMax-sizeMin)+sizeMin;
     p.style.width=size+"px";
-    p.style.left=Math.random()*100+"vw";
+
+    // position inside hero overlay
+    p.style.left=(Math.random()*100)+"%";
+    p.style.top=(-90 - Math.random()*60)+"px";
+
     const dur=Math.random()*(durMax-durMin)+durMin;
     p.style.animationDuration=dur+"s";
+
+    // slight random rotation start
+    p.style.transform="rotate("+(Math.random()*120-60)+"deg)";
+
     fx.appendChild(p);
-    setTimeout(()=>p.remove(),(dur+0.3)*1000);
+    setTimeout(()=>p.remove(), (dur+0.35)*1000);
   }
 }
 
+// BUY = crumbs fall
 document.getElementById("buyBtn").onclick=()=>{
-  drop("crumb.png",36,18,32,1.2,2.0);
-  setTimeout(()=>window.open(BUY_URL,"_blank"),250);
+  drop("crumbs.png", 40, 18, 34, 1.2, 2.0);
+  setTimeout(()=>window.open(BUY_URL,"_blank"), 250);
 };
 
+// VERIFY = money fall
 document.getElementById("verifyBtn").onclick=()=>{
-  drop("duffle.png",22,28,48,1.3,2.4);
-  setTimeout(()=>window.open(VERIFY_URL,"_blank"),250);
+  drop("money.png", 18, 28, 52, 1.3, 2.4);
+  setTimeout(()=>window.open(VERIFY_URL,"_blank"), 250);
 };
 </script>
 
 </body>
 </html>
+```0
