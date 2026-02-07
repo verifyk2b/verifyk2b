@@ -1,236 +1,238 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Krumbs 2 Bricks — Structure Through Verification</title>
-  <meta name="description" content="K2B is a Solana-based decentralized project. All activity is transparent and verifiable on-chain." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    :root{
-      --bg:#050506;
-      --text:#f2f2f2;
-      --muted:#b5b5b5;
-      --green1:#b9ff42;
-      --green2:#4a8a12;
-      --purple1:#7a43ff;
-      --purple2:#2b0a66;
-      --card:rgba(0,0,0,.35);
-      --chip:rgba(255,255,255,.06);
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(800px 500px at 50% 20%,rgba(122,67,255,.12),transparent 60%),
-        radial-gradient(800px 500px at 50% 85%,rgba(185,255,66,.10),transparent 65%),
-        var(--bg);
-      color:var(--text);
-    }
-    .container{max-width:860px;margin:0 auto;padding:18px 14px 28px;}
+<title>Krumbs 2 Bricks — Structure Through Verification</title>
 
-    .hero{
-      position:relative;
-      border-radius:18px;
-      overflow:hidden;
+<meta name="description" content="K2B is a Solana-based decentralized project. All activity is transparent and verifiable on-chain.">
 
-      /* The poster becomes the hero */
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.92)),
-        url("hero.png") center/cover no-repeat;
+<style>
+:root{
+  --bg:#050506;
+  --text:#f2f2f2;
+  --muted:#b5b5b5;
+  --green1:#b9ff42;
+  --green2:#4a8a12;
+  --purple1:#7a43ff;
+  --purple2:#2b0a66;
+}
 
-      /* Prevent giant blank areas */
-      min-height:0;
-      padding:22px 16px 18px;
-    }
+*{box-sizing:border-box}
 
-    /* effects layer */
-    #fx{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      z-index:2;
-    }
+body{
+  margin:0;
+  font-family:system-ui,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    /* text + buttons overlay */
-    .center{
-      position:relative;
-      z-index:3;
-      text-align:center;
+.wrapper{
+  max-width:420px;
+  margin:0 auto;
+  padding:24px 16px 32px;
+}
 
-      /* Put content near the bottom like your poster */
-      padding-top:52vh; /* adjust: 48vh–62vh if needed */
-    }
+.hero{
+  text-align:center;
+}
 
-    h1{
-      font-size:14px;
-      letter-spacing:.2em;
-      text-transform:uppercase;
-      margin:0 0 8px;
-      text-shadow:0 10px 26px rgba(0,0,0,.7);
-    }
-    .desc{
-      font-size:13px;
-      color:rgba(255,255,255,.82);
-      margin:0 0 10px;
-      line-height:1.35;
-      text-shadow:0 10px 26px rgba(0,0,0,.7);
-    }
-    .tag{
-      font-size:12px;
-      letter-spacing:.14em;
-      color:rgba(255,255,255,.62);
-      margin:0 0 14px;
-      text-shadow:0 10px 26px rgba(0,0,0,.7);
-    }
-    .slogan{
-      font-size:18px;
-      margin:0 0 16px;
-      line-height:1.25;
-      text-shadow:0 10px 26px rgba(0,0,0,.7);
-    }
+/* Logo */
+.logo{
+  width:100%;
+  max-width:320px;
+  margin:12px auto 18px;
+  display:block;
+}
 
-    .buttons{
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:6px;
-    }
-    button{
-      border:0;
-      padding:14px 26px;
-      border-radius:14px;
-      font-weight:900;
-      letter-spacing:.08em;
-      cursor:pointer;
-      box-shadow:0 12px 24px rgba(0,0,0,.35);
-    }
-    .buy{background:linear-gradient(180deg,var(--green1),var(--green2));color:#0b0b0b;}
-    .verify{background:linear-gradient(180deg,var(--purple1),var(--purple2));color:#fff;}
+/* Money image */
+.money{
+  width:100%;
+  max-width:360px;
+  margin:0 auto 18px;
+  display:block;
+  filter:drop-shadow(0 16px 40px rgba(0,0,0,.7));
+}
 
-    .links{
-      margin-top:16px;
-      background:var(--card);
-      border-radius:18px;
-      padding:14px;
-    }
-    .link{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:12px;
-      margin-bottom:10px;
-      border-radius:14px;
-      background:var(--chip);
-      text-decoration:none;
-      color:#fff;
-    }
-    .link:last-child{margin-bottom:0}
-    .link small{color:var(--muted)}
-    .fine{
-      text-align:center;
-      font-size:12px;
-      color:rgba(255,255,255,.55);
-      margin-top:14px;
-    }
+/* Text */
+h1{
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin:8px 0;
+}
 
-    /* Falling particles */
-    .particle{
-      position:absolute;
-      top:-90px;
-      pointer-events:none;
-      animation:fall linear forwards;
-      opacity:1;
-      z-index:2;
-      user-select:none;
-    }
-    @keyframes fall{
-      to{transform:translateY(120vh) rotate(240deg);opacity:0;}
-    }
+.desc{
+  font-size:13px;
+  color:rgba(255,255,255,.8);
+  margin:8px 0;
+}
 
-    /* mobile tweak */
-    @media (max-width:420px){
-      .center{padding-top:50vh;}
-      .slogan{font-size:17px;}
-    }
-  </style>
+.tag{
+  font-size:12px;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.6);
+  margin:10px 0 14px;
+}
+
+.slogan{
+  font-size:18px;
+  margin:12px 0 20px;
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin-bottom:22px;
+}
+
+button{
+  border:0;
+  padding:14px 26px;
+  border-radius:16px;
+  font-weight:900;
+  letter-spacing:.08em;
+  cursor:pointer;
+}
+
+.buy{
+  background:linear-gradient(180deg,var(--green1),var(--green2));
+}
+
+.verify{
+  background:linear-gradient(180deg,var(--purple1),var(--purple2));
+  color:#fff;
+}
+
+/* Links */
+.links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.link{
+  background:rgba(255,255,255,.05);
+  padding:14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+small{color:var(--muted)}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:rgba(255,255,255,.5);
+  margin-top:18px;
+}
+
+/* Falling FX */
+.fx{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.particle{
+  position:absolute;
+  top:-60px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(120vh) rotate(240deg);
+    opacity:0;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="hero">
-      <div id="fx"></div>
 
-      <div class="center">
-        <h1>STRUCTURE THROUGH VERIFICATION</h1>
-        <div class="desc">K2B is a Solana-based decentralized project. All activity is transparent and verifiable on-chain.</div>
-        <div class="tag">DON’T TRUST. VERIFY.</div>
-        <div class="slogan">Started with krumbs, stayed strong.<br>No shortcuts, no promises.</div>
+<div class="fx" id="fx"></div>
 
-        <div class="buttons">
-          <button class="buy" id="buyBtn" type="button">BUY</button>
-          <button class="verify" id="verifyBtn" type="button">VERIFY</button>
-        </div>
-      </div>
+<div class="wrapper">
+  <div class="hero">
+    <img src="logo.png" class="logo" alt="Krumbs 2 Bricks">
+    <img src="money.png" class="money" alt="Money">
+
+    <h1>STRUCTURE THROUGH VERIFICATION</h1>
+    <div class="desc">
+      K2B is a Solana-based decentralized project. All activity is transparent and verifiable on-chain.
+    </div>
+    <div class="tag">DON’T TRUST. VERIFY.</div>
+
+    <div class="slogan">
+      Started with krumbs, stayed strong.<br>
+      No shortcuts, no promises.
     </div>
 
-    <div class="links">
-      <a class="link" href="https://x.com/K2Btoken" target="_blank" rel="noopener">
-        <div>X — Primary Broadcast</div>
-        <small>x.com/K2Btoken</small>
-      </a>
-      <a class="link" href="https://discord.gg/YtWwDh8vq" target="_blank" rel="noopener">
-        <div>Discord — Community + Verification</div>
-        <small>discord.gg/YtWwDh8vq</small>
-      </a>
-      <a class="link" href="https://t.me/K2BCommunity" target="_blank" rel="noopener">
-        <div>Telegram — Community</div>
-        <small>t.me/K2BCommunity</small>
-      </a>
+    <div class="buttons">
+      <button class="buy" id="buyBtn">BUY</button>
+      <button class="verify" id="verifyBtn">VERIFY</button>
     </div>
-
-    <div class="fine">Verification over promises. No guarantees. DYOR.</div>
   </div>
 
-  <script>
-    const BUY_URL    = "https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
-    const VERIFY_URL = "https://verifyk2b.github.io/verifyk2b/";
-    const fx = document.getElementById("fx");
+  <div class="links">
+    <a class="link" href="https://x.com/K2Btoken" target="_blank">
+      <div>X — Primary Broadcast</div>
+      <small>x.com/K2Btoken</small>
+    </a>
+    <a class="link" href="https://discord.gg/YtWwDh8vq" target="_blank">
+      <div>Discord — Community + Verification</div>
+      <small>discord.gg/YtWwDh8vq</small>
+    </a>
+    <a class="link" href="https://t.me/K2BCommunity" target="_blank">
+      <div>Telegram — Community</div>
+      <small>t.me/K2BCommunity</small>
+    </a>
+  </div>
 
-    function drop(imgSrc, count, sizeMin, sizeMax, durMin, durMax){
-      for(let i=0;i<count;i++){
-        const p = document.createElement("img");
-        p.src = imgSrc;
-        p.className = "particle";
+  <div class="footer">
+    Verification over promises. No guarantees. DYOR.
+  </div>
+</div>
 
-        const size = Math.random()*(sizeMax-sizeMin)+sizeMin;
-        p.style.width = size + "px";
-        p.style.left = (Math.random()*100) + "%";
-        p.style.top  = (-90 - Math.random()*60) + "px";
+<script>
+const BUY_URL="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
+const VERIFY_URL="https://verifyk2b.github.io/verifyk2b/";
+const fx=document.getElementById("fx");
 
-        const dur = Math.random()*(durMax-durMin)+durMin;
-        p.style.animationDuration = dur + "s";
-        p.style.transform = "rotate(" + (Math.random()*120-60) + "deg)";
+function drop(src,count,sizeMin,sizeMax,durMin,durMax){
+  for(let i=0;i<count;i++){
+    const p=document.createElement("img");
+    p.src=src;
+    p.className="particle";
+    const size=Math.random()*(sizeMax-sizeMin)+sizeMin;
+    p.style.width=size+"px";
+    p.style.left=Math.random()*100+"vw";
+    const dur=Math.random()*(durMax-durMin)+durMin;
+    p.style.animationDuration=dur+"s";
+    fx.appendChild(p);
+    setTimeout(()=>p.remove(),(dur+0.3)*1000);
+  }
+}
 
-        fx.appendChild(p);
-        setTimeout(() => p.remove(), (dur + 0.35) * 1000);
-      }
-    }
+document.getElementById("buyBtn").onclick=()=>{
+  drop("crumbs.png",36,18,30,1.2,2.0);
+  setTimeout(()=>window.open(BUY_URL,"_blank"),200);
+};
 
-    // BUY = crumbs fall
-    document.getElementById("buyBtn").addEventListener("click", () => {
-      drop("crumbs.png", 40, 18, 34, 1.2, 2.0);
-      setTimeout(() => window.open(BUY_URL, "_blank"), 250);
-    });
+document.getElementById("verifyBtn").onclick=()=>{
+  drop("money.png",20,26,46,1.3,2.4);
+  setTimeout(()=>window.open(VERIFY_URL,"_blank"),200);
+};
+</script>
 
-    // VERIFY = money fall
-    document.getElementById("verifyBtn").addEventListener("click", () => {
-      drop("money.png", 18, 28, 52, 1.3, 2.4);
-      setTimeout(() => window.open(VERIFY_URL, "_blank"), 250);
-    });
-  </script>
 </body>
 </html>
