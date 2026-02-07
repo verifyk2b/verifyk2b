@@ -40,7 +40,10 @@
       position:relative;
       border-radius:18px;
       overflow:hidden;
-      min-height:58vh; /* mobile-friendly */
+      /* IMPORTANT: stop the giant blank space */
+      min-height:auto;
+      padding-bottom:18px;
+
       background:
         radial-gradient(900px 520px at 50% 10%, rgba(122,67,255,.10), transparent 60%),
         radial-gradient(900px 520px at 50% 95%, rgba(185,255,66,.09), transparent 65%),
@@ -56,7 +59,7 @@
       position:relative;
       z-index:4;
       text-align:center;
-      padding:14px 16px 10px; /* pulls content up */
+      padding:14px 16px 0;
     }
     .brand{
       display:flex;
@@ -69,14 +72,13 @@
       display:block;
       filter:drop-shadow(0 12px 30px rgba(0,0,0,.7));
     }
+
+    /* Money image is now INSIDE content flow (no absolute positioning) */
     .moneyBase{
-      position:absolute;
-      left:50%;
-      bottom:-24px; /* lowers the base image */
-      transform:translateX(-50%);
+      display:block;
       width:min(740px,96%);
       height:auto;
-      z-index:2;
+      margin:10px auto 6px; /* tight */
       opacity:.98;
       filter:drop-shadow(0 18px 40px rgba(0,0,0,.75));
       pointer-events:none;
@@ -111,7 +113,7 @@
       gap:14px;
       justify-content:center;
       flex-wrap:wrap;
-      margin-bottom:10px;
+      margin:10px 0 0;
     }
     button{
       border:0;
@@ -175,12 +177,6 @@
         opacity:0;
       }
     }
-
-    /* Better spacing on short screens */
-    @media (max-height: 700px){
-      .hero{min-height:54vh}
-      .slogan{font-size:17px}
-    }
   </style>
 </head>
 
@@ -189,14 +185,13 @@
     <div class="hero">
       <div class="overlay" id="fx"></div>
 
-      <!-- Base image (money duffle + stack) -->
-      <img class="moneyBase" src="money.png" alt="Money Duffle" />
-
       <div class="center">
-        <!-- Logo -->
         <div class="brand">
           <img src="logo.png" alt="Krumbs 2 Bricks" />
         </div>
+
+        <!-- put the money image right under logo (no big blank space) -->
+        <img class="moneyBase" src="money.png" alt="Money Duffle" />
 
         <h1>STRUCTURE THROUGH VERIFICATION</h1>
         <div class="desc">
@@ -236,11 +231,8 @@
   </div>
 
   <script>
-    // LINKS
     const BUY_URL    = "https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
     const VERIFY_URL = "https://verifyk2b.github.io/verifyk2b/";
-
-    // FX overlay
     const fx = document.getElementById("fx");
 
     function drop(imgSrc, count, sizeMin, sizeMax, durMin, durMax){
@@ -251,15 +243,11 @@
 
         const size = Math.random()*(sizeMax-sizeMin)+sizeMin;
         p.style.width = size + "px";
-
-        // position inside hero overlay
         p.style.left = (Math.random()*100) + "%";
         p.style.top  = (-90 - Math.random()*60) + "px";
 
         const dur = Math.random()*(durMax-durMin)+durMin;
         p.style.animationDuration = dur + "s";
-
-        // slight random rotation start
         p.style.transform = "rotate(" + (Math.random()*120-60) + "deg)";
 
         fx.appendChild(p);
