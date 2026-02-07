@@ -1,1 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Krumbs 2 Bricks — Structure Through Verification</title>
 
+  <style>
+    :root{
+      --bg:#050506;
+      --text:#f2f2f2;
+      --muted:rgba(255,255,255,.78);
+      --muted2:rgba(255,255,255,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    .wrap{
+      max-width:860px;
+      margin:0 auto;
+      padding:18px 14px 28px;
+    }
+    .card{
+      border-radius:18px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:0 18px 60px rgba(0,0,0,.55);
+      padding:22px 16px 26px;
+      text-align:center;
+    }
+    .logo{
+      display:block;
+      width:min(640px, 92vw);
+      height:auto;
+      margin:6px auto 18px;
+    }
+    .headline{
+      font-size:14px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    .desc{
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.55;
+      margin:0 0 16px;
+    }
+    .core{
+      font-size:14px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted2);
+      margin:0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="card">
+      <!-- IMPORTANT: rename your logo file to EXACTLY "logo.png" and upload it -->
+      <img class="logo" src="logo.png" alt="Krumbs 2 Bricks" />
+
+      <h1 class="headline">STRUCTURE THROUGH VERIFICATION</h1>
+
+      <p class="desc">
+        K2B is a Solana-based decentralized project.<br>
+        All activity is transparent and verifiable on-chain.
+      </p>
+
+      <p class="core">DON’T TRUST. VERIFY.</p>
+    </div>
+  </div>
+</body>
+</html>
