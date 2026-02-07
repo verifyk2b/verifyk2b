@@ -1,1 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Krumbs 2 Bricks — Structure Through Verification</title>
 
+  <style>
+    :root{
+      --bg:#050507;
+      --card:rgba(18,18,22,0.72);
+      --stroke:rgba(255,255,255,0.08);
+      --text:#e9e9ee;
+      --muted:rgba(233,233,238,0.75);
+      --muted2:rgba(233,233,238,0.55);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(70% 60% at 50% 0%, rgba(95, 55, 190, .25) 0%, rgba(0,0,0,0) 60%),
+                  radial-gradient(70% 60% at 50% 100%, rgba(90, 170, 60, .12) 0%, rgba(0,0,0,0) 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+
+    .wrap{
+      max-width: 460px;
+      margin: 0 auto;
+      padding: 20px 14px 28px;
+    }
+
+    .card{
+      border-radius: 26px;
+      border: 1px solid var(--stroke);
+      background: var(--card);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+      overflow: hidden;
+      padding: 22px 18px 26px;
+    }
+
+    /* LOGO — fixed rules so it NEVER “splits” or crops */
+    .logo{
+      display:block;
+      width: 100%;
+      max-width: 360px;   /* controls size on phones */
+      height: auto;       /* keeps proportions */
+      margin: 6px auto 18px;
+      image-rendering: auto;
+    }
+
+    /* Title line */
+    .headline{
+      text-align:center;
+      font-weight: 800;
+      letter-spacing: 0.22em;   /* readable on mobile */
+      text-transform: uppercase;
+      font-size: 14px;          /* mobile-friendly */
+      line-height: 1.25;
+      margin: 0 0 12px;
+      color: rgba(255,255,255,0.92);
+      text-wrap: balance;
+    }
+
+    .desc{
+      text-align:center;
+      margin: 0 auto 14px;
+      max-width: 34ch;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .verifyline{
+      text-align:center;
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: var(--muted2);
+    }
+
+    /* Optional: tighten spacing on very small screens */
+    @media (max-width: 360px){
+      .logo{ max-width: 320px; }
+      .headline{ font-size: 13px; letter-spacing: 0.20em; }
+      .desc{ font-size: 14px; }
+      .verifyline{ font-size: 13px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card">
+      <!-- LOGO -->
+      <img class="logo" src="krumbs2bricks.png" alt="Krumbs 2 Bricks">
+
+      <!-- TEXT -->
+      <h1 class="headline">STRUCTURE THROUGH VERIFICATION</h1>
+
+      <p class="desc">
+        K2B is a Solana-based decentralized project. All activity is transparent
+        and verifiable on-chain.
+      </p>
+
+      <p class="verifyline">DON’T TRUST. VERIFY.</p>
+    </section>
+  </main>
+</body>
+</html>
