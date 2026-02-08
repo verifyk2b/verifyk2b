@@ -7,60 +7,60 @@ body{
   justify-content:center;
 }
 
-/* MOVE EVERYTHING UP */
+/* GLOBAL STACK — PULLED UP + TIGHT */
 .container{
   width:100%;
   max-width:430px;
-  padding:4px 14px 12px;   /* pulled up + tighter */
+  padding:0 14px 8px;     /* almost no top padding */
   text-align:center;
 }
 
-/* LOGO */
+/* LOGO — ANCHOR */
 .logo{
-  width:92%;
-  max-width:380px;
+  width:94%;
+  max-width:390px;
   height:auto;
   display:block;
-  margin:-28px auto 2px;  /* anchor point */
+  margin:-40px auto 0;   /* big upward pull */
   object-fit:contain;
 }
 
-/* TEXT STACK */
+/* TEXT — COMPRESSED */
 .subtitle{
   letter-spacing:.22em;
-  font-size:.8rem;
+  font-size:.78rem;
   color:#d8d8d8;
-  margin:-6px 0 2px;
+  margin:-8px 0 0;
 }
 
 .desc{
   color:#bdbdbd;
-  font-size:.92rem;
-  line-height:1.25;
-  margin:0 0 2px;
+  font-size:.9rem;
+  line-height:1.2;
+  margin:0;
 }
 
 .verify{
-  margin:0 0 2px;
+  margin:0;
   letter-spacing:.18em;
   font-weight:700;
 }
 
-/* CASH IMAGE */
+/* IMAGE — BIG BUT TIGHT */
 .cash{
   width:100%;
   height:auto;
   display:block;
-  margin:-16px auto 4px;  /* follows logo upward */
+  margin:-20px auto 2px; /* follows logo + text tightly */
   object-fit:contain;
 }
 
-/* BUTTONS */
+/* BUTTONS — PULLED UP */
 .buttons{
   display:flex;
-  gap:12px;
-  margin-top:-6px;
-  margin-bottom:6px;
+  gap:10px;
+  margin-top:-10px;
+  margin-bottom:4px;
 }
 
 .btn{
@@ -73,7 +73,6 @@ body{
   text-align:center;
 }
 
-/* BUTTON COLORS */
 .verify-btn{
   background:linear-gradient(180deg,#7c3aed,#4a1dbd);
   color:#fff;
@@ -84,13 +83,13 @@ body{
   color:#000;
 }
 
-/* LINKS */
+/* LINKS — NO WASTE */
 .links{
   text-align:left;
-  font-size:.9rem;
+  font-size:.88rem;
+  line-height:1.2;
   color:#bdbdbd;
-  line-height:1.25;
-  margin-bottom:4px;
+  margin:0;
 }
 
 .links a{
@@ -98,9 +97,9 @@ body{
   text-decoration:none;
 }
 
-/* FOOTER */
+/* FOOTER — TIGHT */
 .footer{
-  font-size:.72rem;
+  font-size:.7rem;
   color:#8a8a8a;
   margin-top:2px;
   text-align:center;
