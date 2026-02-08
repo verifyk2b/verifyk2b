@@ -9,7 +9,7 @@
 - **Token:** K2B (Krumbs 2 Bricks)
 - **Chain:** Solana
 - **Supply:** Fixed 1,000,000,000  
-  - No minting possible beyond fixed supply.
+- No minting possible beyond fixed supply.
 - **Mint authority:** Revoked
 - **Freeze authority:** Revoked
 - **Founder-associated tokens:** Locked via Streamflow with predefined, on-chain release schedules.
