@@ -1,156 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krumbs 2 Bricks</title>
+body{
+  margin:0;
+  background:#000;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+}
 
-  <style>
-    body{
-      margin:0;
-      background:#000;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:#fff;
-      display:flex;
-      justify-content:center;
-    }
+/* MOVE EVERYTHING UP */
+.container{
+  width:100%;
+  max-width:430px;
+  padding:4px 14px 12px;   /* pulled up + tighter */
+  text-align:center;
+}
 
-    .container{
-      width:100%;
-      max-width:430px;
-      padding:10px 14px 16px; /* tight */
-      text-align:center;
-    }
+/* LOGO */
+.logo{
+  width:92%;
+  max-width:380px;
+  height:auto;
+  display:block;
+  margin:-28px auto 2px;  /* anchor point */
+  object-fit:contain;
+}
 
-    /* LOGO (big like poster) */
-    .logo{
-      width:92%;
-      max-width:380px;
-      height:auto;
-      display:block;
-      margin:-6px auto 6px; /* pulls up */
-      object-fit:contain;
-    }
+/* TEXT STACK */
+.subtitle{
+  letter-spacing:.22em;
+  font-size:.8rem;
+  color:#d8d8d8;
+  margin:-6px 0 2px;
+}
 
-    /* TEXT (tight stack) */
-    .subtitle{
-      letter-spacing:.22em;
-      font-size:.82rem;
-      color:#d8d8d8;
-      margin-top:-10px;
-      margin-bottom:4px;
-    }
+.desc{
+  color:#bdbdbd;
+  font-size:.92rem;
+  line-height:1.25;
+  margin:0 0 2px;
+}
 
-    .desc{
-      color:#bdbdbd;
-      font-size:.93rem;
-      line-height:1.28;
-      margin:2px 0 2px;
-    }
+.verify{
+  margin:0 0 2px;
+  letter-spacing:.18em;
+  font-weight:700;
+}
 
-    .verify{
-      margin:0 0 0;
-      letter-spacing:.18em;
-      font-weight:700;
-    }
+/* CASH IMAGE */
+.cash{
+  width:100%;
+  height:auto;
+  display:block;
+  margin:-16px auto 4px;  /* follows logo upward */
+  object-fit:contain;
+}
 
-    /* CASH (big, pulled up) */
-    .cash{
-      width:100%;
-      height:auto;
-      display:block;
-      margin:-14px auto 6px;
-      object-fit:contain;
-    }
+/* BUTTONS */
+.buttons{
+  display:flex;
+  gap:12px;
+  margin-top:-6px;
+  margin-bottom:6px;
+}
 
-    /* BUTTONS */
-    .buttons{
-      display:flex;
-      gap:12px;
-      margin-top:-6px;
-      margin-bottom:10px;
-    }
+.btn{
+  flex:1;
+  padding:12px 0;
+  border-radius:14px;
+  font-size:1.05rem;
+  font-weight:800;
+  text-decoration:none;
+  text-align:center;
+}
 
-    .btn{
-      flex:1;
-      padding:13px 0;
-      border-radius:14px;
-      font-size:1.05rem;
-      font-weight:800;
-      text-decoration:none;
-      text-align:center;
-      display:block;
-    }
+/* BUTTON COLORS */
+.verify-btn{
+  background:linear-gradient(180deg,#7c3aed,#4a1dbd);
+  color:#fff;
+}
 
-    .verify-btn{
-      background:linear-gradient(180deg,#7c3aed,#4a1dbd);
-      color:#fff;
-    }
+.buy-btn{
+  background:linear-gradient(180deg,#a3e635,#4d7c0f);
+  color:#000;
+}
 
-    .buy-btn{
-      background:linear-gradient(180deg,#a3e635,#4d7c0f);
-      color:#000;
-    }
+/* LINKS */
+.links{
+  text-align:left;
+  font-size:.9rem;
+  color:#bdbdbd;
+  line-height:1.25;
+  margin-bottom:4px;
+}
 
-    /* LINKS */
-    .links{
-      text-align:left;
-      font-size:.92rem;
-      color:#bdbdbd;
-      margin-bottom:8px;
-      line-height:1.25;
-    }
+.links a{
+  color:#bdbdbd;
+  text-decoration:none;
+}
 
-    .links a{
-      color:#bdbdbd;
-      text-decoration:none;
-    }
-
-    .footer{
-      margin-top:6px;
-      font-size:.75rem;
-      color:#8a8a8a;
-      text-align:center;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-
-    <img src="krumbs2bricks1.png" class="logo" alt="Krumbs 2 Bricks">
-
-    <div class="subtitle">STRUCTURE THROUGH VERIFICATION</div>
-
-    <div class="desc">
-      K2B is a Solana-based decentralized project.<br>
-      All activity is transparent and verifiable on-chain.
-    </div>
-
-    <div class="verify">DON’T TRUST. VERIFY.</div>
-
-    <img src="krumbsandduffle1.png" class="cash" alt="Cash">
-
-    <div class="buttons">
-      <a class="btn verify-btn"
-         href="https://github.com/verifyk2b/verifyk2b#readme"
-         target="_blank" rel="noopener">VERIFY</a>
-
-      <a class="btn buy-btn"
-         href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank" rel="noopener">BUY</a>
-    </div>
-
-    <div class="links">
-      X: <a href="https://x.com/K2Btoken" target="_blank" rel="noopener">https://x.com/K2Btoken</a><br>
-      Discord: <a href="https://discord.gg/YtWwDh8vq" target="_blank" rel="noopener">discord.gg/YtWwDh8vq</a><br>
-      Telegram: <a href="https://t.me/k2b_community" target="_blank" rel="noopener">t.me/k2b_community</a>
-    </div>
-
-    <div class="footer">
-      Verification over promises. No guarantees. DYOR.
-    </div>
-
-  </div>
-</body>
-</html>
+/* FOOTER */
+.footer{
+  font-size:.72rem;
+  color:#8a8a8a;
+  margin-top:2px;
+  text-align:center;
+}
