@@ -6,263 +6,106 @@
   <title>Krumbs 2 Bricks</title>
 
   <style>
-    :root{
-      --purple1:#7c3aed;
-      --purple2:#4a1dbd;
-      --green1:#a3e635;
-      --green2:#4d7c0f;
-      --text:#e8e8e8;
-      --muted:#bdbdbd;
-    }
-
-    *{ box-sizing:border-box; }
-
     body{
       margin:0;
-      min-height:100vh;
+      background:#000;
       display:flex;
       justify-content:center;
-      background:#000;
+      padding: 12px;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      padding: 18px 12px 40px;
     }
 
-    body:before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background: radial-gradient(circle at 50% 20%, rgba(140,60,255,.18), rgba(0,0,0,.90) 60%, rgba(0,0,0,1) 100%);
+    .frame{
+      width: 100%;
+      max-width: 430px; /* mobile-first */
+      position: relative;
     }
 
-    .wrap{
-      width:100%;
-      max-width: 430px;
-      position:relative;
-      z-index:1;
-    }
-
+    /* Poster image = the exact design */
     .poster{
-      border-radius: 22px;
-      overflow:hidden;
-      position:relative;
-      box-shadow: 0 20px 70px rgba(0,0,0,.85);
-      background:#000;
-    }
-
-    /* Background image (your cash/duffle art) */
-    .poster img.bg{
-      width:100%;
-      height:auto;
+      width: 100%;
+      height: auto;
       display:block;
-      filter: contrast(1.05) saturate(1.05);
+      border-radius: 18px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.85);
     }
 
-    .overlay{
+    /* Click zones (invisible) */
+    .hit{
       position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding: 22px 18px 18px;
-      background: linear-gradient(
-        180deg,
-        rgba(0,0,0,.78) 0%,
-        rgba(0,0,0,.50) 32%,
-        rgba(0,0,0,.45) 65%,
-        rgba(0,0,0,.82) 100%
-      );
-    }
-
-    /* Top logo image */
-    .logo{
-      width: 80%;
-      max-width: 330px;
-      height:auto;
-      margin-top: 6px;
-      margin-bottom: 14px;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.65));
-    }
-
-    .subtitle{
-      letter-spacing:.22em;
-      text-transform: uppercase;
-      font-size: .86rem;
-      color:#d8d8d8;
-      text-align:center;
-      margin-top: 2px;
-    }
-
-    .desc{
-      text-align:center;
-      color: var(--muted);
-      font-size: .96rem;
-      line-height: 1.55;
-      margin: 14px 0 6px;
-      max-width: 360px;
-      text-shadow: 0 2px 10px rgba(0,0,0,.8);
-    }
-
-    .donttrust{
-      margin: 14px 0 10px;
-      letter-spacing:.18em;
-      font-weight: 700;
-      text-transform: uppercase;
-      color:#ededed;
-      text-shadow: 0 2px 10px rgba(0,0,0,.8);
-    }
-
-    .tagline{
-      text-align:center;
-      font-size: 1.18rem;
-      line-height: 1.35;
-      color:#f2f2f2;
-      font-weight: 500;
-      margin: 10px 0 0;
-      text-shadow: 0 2px 10px rgba(0,0,0,.8);
-    }
-
-    /* Controls where buttons sit over the background image */
-    .spacer{
-  flex: 1 1 auto;
-  min-height: 90px;
-    }
-
-    .buttons{
-      width:100%;
-      display:flex;
-      gap: 14px;
-      justify-content:center;
-      margin: 6px 0 14px;
-    }
-
-    .btn{
-      flex: 1 1 0;
-      padding: 14px 0;
+      display:block;
       border-radius: 14px;
-      text-align:center;
-      font-weight: 800;
-      font-size: 1.15rem;
-      text-decoration:none;
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 10px 25px rgba(0,0,0,.45);
+      /* debug by uncommenting next line */
+      /* background: rgba(255,0,0,.25); */
     }
 
-    .btn.verify{
-      color:#fff;
-      background: linear-gradient(180deg, var(--purple1), var(--purple2));
+    /* Buttons area (tuned for your poster proportions) */
+    .hit-verify{
+      left: 8%;
+      top: 72.5%;
+      width: 40%;
+      height: 6.8%;
     }
 
-    .btn.buy{
-      color:#111;
-      background: linear-gradient(180deg, var(--green1), var(--green2));
+    .hit-buy{
+      right: 8%;
+      top: 72.5%;
+      width: 40%;
+      height: 6.8%;
     }
 
-    .links{
-      width:100%;
-      margin-top: 6px;
-      color: #bdbdbd;
-      font-size: .94rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,.8);
+    /* Social links lines */
+    .hit-x{
+      left: 10%;
+      top: 81.5%;
+      width: 80%;
+      height: 3.8%;
+      border-radius: 10px;
     }
 
-    .linkrow{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      margin: 10px 0;
-      opacity:.95;
+    .hit-discord{
+      left: 10%;
+      top: 85.7%;
+      width: 80%;
+      height: 3.8%;
+      border-radius: 10px;
     }
 
-    .icon{
-      width: 20px;
-      text-align:center;
-      opacity:.9;
+    .hit-telegram{
+      left: 10%;
+      top: 89.9%;
+      width: 80%;
+      height: 3.8%;
+      border-radius: 10px;
     }
 
-    .links a{
-      color:#bdbdbd;
-      text-decoration:none;
-      word-break: break-word;
-    }
-
-    .footer{
-      margin-top: 10px;
-      font-size: .78rem;
-      color:#8f8f8f;
-      text-align:center;
-      opacity:.95;
-      text-shadow: 0 2px 10px rgba(0,0,0,.8);
-    }
-
-    @media (max-width: 380px){
-      .logo{ width: 86%; }
-      .tagline{ font-size: 1.08rem; }
-      .spacer{ min-height: 180px; }
-      .btn{ font-size: 1.05rem; }
+    /* Small-screen adjustment */
+    @media (max-width: 360px){
+      .hit-verify, .hit-buy{ top: 73.2%; }
+      .hit-x{ top: 82.2%; }
+      .hit-discord{ top: 86.4%; }
+      .hit-telegram{ top: 90.6%; }
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="poster">
+  <div class="frame">
+    <!-- Exact poster image -->
+    <img class="poster" src="krumbsandduffle1.png" alt="Krumbs 2 Bricks Poster" />
 
-      <!-- Background art you already have in the repo -->
-      <img class="bg" src="krumbsandduffle1.png" alt="K2B background">
+    <!-- Invisible clickable zones -->
+    <a class="hit hit-verify" href="./README.md" target="_blank" rel="noopener" aria-label="Verify (opens README)"></a>
 
-      <div class="overlay">
-        <!-- Logo you already have in the repo -->
-        <img class="logo" src="krumbs2bricks1.png" alt="Krumbs 2 Bricks logo">
+    <a class="hit hit-buy"
+       href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+       target="_blank" rel="noopener" aria-label="Buy on Pump.fun"></a>
 
-        <div class="subtitle">STRUCTURE THROUGH VERIFICATION</div>
+    <a class="hit hit-x" href="https://x.com/K2Btoken" target="_blank" rel="noopener" aria-label="X"></a>
 
-        <div class="desc">
-          K2B is a Solana-based decentralized project.
-          All activity is transparent and verifiable on-chain.
-        </div>
+    <a class="hit hit-discord" href="https://discord.gg/YtWwDh8vq" target="_blank" rel="noopener" aria-label="Discord"></a>
 
-        <div class="donttrust">DON’T TRUST. VERIFY.</div>
-
-        <div class="tagline">
-          Started with krumbs, stayed strong.<br>
-          No shortcuts, no promises.
-        </div>
-
-        <div class="spacer"></div>
-
-        <div class="buttons">
-          <!-- VERIFY = your README -->
-          <a class="btn verify" href="./README.md" target="_blank" rel="noopener">VERIFY</a>
-
-          <!-- BUY = Pump.fun -->
-          <a class="btn buy"
-             href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-             target="_blank" rel="noopener">BUY</a>
-        </div>
-
-        <div class="links">
-          <div class="linkrow">
-            <div class="icon">𝕏</div>
-            <a href="https://x.com/K2Btoken" target="_blank" rel="noopener">https://x.com/K2Btoken</a>
-          </div>
-          <div class="linkrow">
-            <div class="icon">💬</div>
-            <a href="https://discord.gg/YtWwDh8vq" target="_blank" rel="noopener">discord.gg/YtWwDh8vq</a>
-          </div>
-          <div class="linkrow">
-            <div class="icon">✈️</div>
-            <a href="https://t.me/k2b_community" target="_blank" rel="noopener">t.me/k2b_community</a>
-          </div>
-        </div>
-
-        <div class="footer">
-          Verification over promises. No guarantees. DYOR.
-        </div>
-      </div>
-
-    </div>
+    <a class="hit hit-telegram" href="https://t.me/k2b_community" target="_blank" rel="noopener" aria-label="Telegram"></a>
   </div>
 </body>
 </html>
