@@ -63,6 +63,7 @@ body{
   left:50%;
   transform:translateX(-50%);
   width:var(--logo-w);
+  height:auto;
   filter:drop-shadow(0 10px 18px rgba(0,0,0,.7));
   pointer-events:none;
 }
@@ -167,4 +168,52 @@ body{
 
 .btn.verify{
   background:linear-gradient(180deg,#7c3aed,#4a1dbd);
-  color:#fff
+  color:#fff;
+}
+
+.btn.buy{
+  background:linear-gradient(180deg,#a3e635,#4d7c0f);
+  color:#111;
+}
+
+/* =========================================================
+   X LINK
+   ========================================================= */
+.xlink{
+  position:absolute;
+  top:var(--x-top);
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - (var(--side-pad) * 2));
+  text-align:left;
+  color:#bdbdbd;
+  font-size:.95rem;
+  text-shadow:0 2px 10px rgba(0,0,0,.85);
+}
+.xlink a{ color:#bdbdbd; text-decoration:none; }
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <img class="logo" src="krumbs2bricks1.png" alt="Krumbs 2 Bricks">
+
+    <img class="money" src="krumbsandduffle1.png" alt="Money & Duffle">
+    <div class="money-fade"></div>
+
+    <div class="slogan">
+      Started with krumbs, stayed strong.<br>
+      No shortcuts, no promises.
+    </div>
+
+    <div class="buttons">
+      <a class="btn verify" href="/verify/" target="_blank" rel="noopener">VERIFY</a>
+      <a class="btn buy" href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener">BUY</a>
+    </div>
+
+    <div class="xlink">
+      𝕏 <a href="https://x.com/K2Btoken" target="_blank" rel="noopener">https://x.com/K2Btoken</a>
+    </div>
+  </div>
+</body>
+</html>
