@@ -6,74 +6,88 @@
 <title>Krumbs 2 Bricks</title>
 
 <style>
-  body{
-    margin:0;
-    background:#000;
-    display:flex;
-    justify-content:center;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  }
+body{
+  margin:0;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
 
-  .frame{
-    width:100%;
-    max-width:430px;
-    aspect-ratio:9/16;
-    position:relative;
-    background:#000;
-    overflow:hidden;
-  }
+.frame{
+  width:100%;
+  max-width:430px;
+  aspect-ratio:9/16;
+  position:relative;
+  background:#000;
+}
 
-  .hero{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
+/* FULL IMAGE */
+.hero{
+  width:100%;
+  height:auto;
+  display:block;
+}
 
-  .buttons{
-    position:absolute;
-    bottom:10%;
-    left:50%;
-    transform:translateX(-50%);
-    width:calc(100% - 28px);
-    display:flex;
-    gap:12px;
-  }
+/* SLOGAN */
+.slogan{
+  position:absolute;
+  bottom:130px; /* ONLY number you’ll ever adjust */
+  width:100%;
+  text-align:center;
+  color:#f0f0f0;
+  font-weight:700;
+  font-size:1.05rem;
+  line-height:1.2;
+  text-shadow:0 2px 10px rgba(0,0,0,.85);
+}
 
-  .btn{
-    flex:1;
-    padding:12px 0;
-    border-radius:16px;
-    font-weight:900;
-    font-size:1.05rem;
-    text-align:center;
-    text-decoration:none;
-  }
+/* BUTTONS */
+.buttons{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  display:flex;
+  gap:12px;
+}
 
-  .verify{
-    background:linear-gradient(180deg,#7c3aed,#4a1dbd);
-    color:#fff;
-  }
+.btn{
+  flex:1;
+  padding:14px 0;
+  border-radius:16px;
+  font-weight:900;
+  font-size:1.05rem;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 20px 24px rgba(0,0,0,.45);
+}
 
-  .buy{
-    background:linear-gradient(180deg,#a3e635,#4d7c0f);
-    color:#111;
-  }
+.verify{
+  background:linear-gradient(180deg,#7c3aed,#4a1dbd);
+  color:#fff;
+}
+
+.buy{
+  background:linear-gradient(180deg,#a3e635,#4d7c0f);
+  color:#111;
+}
 </style>
 </head>
 
 <body>
   <div class="frame">
-    <img src="hero.png" alt="Krumbs 2 Bricks" class="hero">
+    <img class="hero" src="hero.png" alt="Krumbs 2 Bricks">
+
+    <div class="slogan">
+      Started with krumbs, stayed strong.<br>
+      No shortcuts, no promises.
+    </div>
 
     <div class="buttons">
-      <a class="btn verify"
-         href="https://verifyk2b.github.io/verifyk2b/verify/"
-         target="_blank">VERIFY</a>
-
-      <a class="btn buy"
-         href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">BUY</a>
+      <a class="btn verify" href="https://verifyk2b.github.io/verifyk2b/verify/" target="_blank">VERIFY</a>
+      <a class="btn buy" href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">BUY</a>
     </div>
   </div>
 </body>
