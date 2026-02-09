@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Krumbs 2 Bricks</title>
 
+<style>
+:root{
+  /* ===== CUSTOM METRICS ===== */
+
+  /* logo */
+  --logo-top: -120px;
+  --logo-width: 88%;
+
+  /* money / duffle image */
+  --money-top: 34%;
+  --money-width: 92%;
+
+  /* text */
+  --trust-top: 52%;
+  --slogan-top: 57%;
+
+  /* buttons */
+  --buttons-top: 78%;
+
+  /* footer */
+  --footer-bottom: 2%;
+}
+
+/* ===== BASE ===== */
+body{
+  margin:0;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:#fff;
+}
+
+.frame{
+  width:100%;
+  max-width:430px;
+  aspect-ratio:9/16;
+  position:relative;
+  background:#000;
+  overflow:hidden;
+}
+
+/* ===== LOGO ===== */
+.logo{
+  position:absolute;
+  top:var(--logo-top);
+  left:50%;
+  transform:translateX(-50%);
+  width:var(--logo-width);
+}
+
+/* ===== MONEY IMAGE (NOT BACKGROUND) ===== */
+.money{
+  position:absolute;
+  top:var(--money-top);
+  left:50%;
+  transform:translateX(-50%);
+  width:var(--money-width);
+}
+
+/* ===== TEXT ===== */
+.trust{
+  position:absolute;
+  top:var(--trust-top);
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  text-align:center;
+  letter-spacing:.18em;
+  font-weight:900;
+  font-size:.95rem;
+}
+
+.slogan{
+  position:absolute;
+  top:var(--slogan-top);
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  text-align:center;
+  font-size:1rem;
+  line-height:1.25;
+  color:#e6e6e6;
+}
+
+/* ===== BUTTONS ===== */
+.buttons{
+  position:absolute;
+  top:var(--buttons-top);
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  display:flex;
+  gap:12px;
+}
+
+.btn{
+  flex:1;
+  padding:12px 0;
+  border-radius:16px;
+  font-weight:900;
+  font-size:1.05rem;
+  text-align:center;
+  text-decoration:none;
+}
+
+.verify{
+  background:linear-gradient(180deg,#7c3aed,#4a1dbd);
+  color:#fff;
+}
+
+.buy{
+  background:linear-gradient(180deg,#a3e635,#4d7c0f);
+  color:#111;
+}
+
+/* ===== X LINK ===== */
+.xlink{
+  position:absolute;
+  top:72%;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  font-size:.9rem;
+  color:#bdbdbd;
+}
+
+.xlink a{
+  color:#bdbdbd;
+  text-decoration:none;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  position:absolute;
+  bottom:var(--footer-bottom);
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  text-align:center;
+  font-size:.72rem;
+  color:#8a8a8a;
+}
+</style>
+</head>
+
+<body>
+<div class="frame">
+
+  <!-- LOGO -->
+  <img class="logo" src="krumbs2bricks1.png" alt="Krumbs 2 Bricks">
+
+  <!-- MONEY IMAGE -->
+  <img class="money" src="krumbsandduffle1.png" alt="Money and Duffle">
+
+  <!-- TEXT -->
+  <div class="trust">DON’T TRUST. VERIFY.</div>
+
+  <div class="slogan">
+    Started with krumbs, stayed strong.<br>
+    No shortcuts, no promises.
+  </div>
+
+  <!-- BUTTONS -->
+  <div class="buttons">
+    <a class="btn verify" href="https://github.com/verifyk2b/verifyk2b#readme" target="_blank">VERIFY</a>
+    <a class="btn buy" href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">BUY</a>
+  </div>
+
+  <!-- X LINK -->
+  <div class="xlink">
+    𝕏 <a href="https://x.com/K2Btoken" target="_blank">https://x.com/K2Btoken</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Verification over promises. No guarantees. DYOR.
+  </div>
+
+</div>
+</body>
+</html>
