@@ -6,7 +6,9 @@
 <title>Krumbs 2 Bricks</title>
 
 <style>
-/* ===== BASE ===== */
+/* ===== RESET ===== */
+*{ box-sizing:border-box; }
+
 body{
   margin:0;
   background:#000;
@@ -19,7 +21,7 @@ body{
 .frame{
   width:100%;
   max-width:430px;
-  aspect-ratio:9/16;
+  height:100vh;
   position:relative;
   background:#000;
   overflow:hidden;
@@ -33,17 +35,17 @@ body{
 }
 
 /* ===== VERIFY BUTTON ===== */
-.buttons{
+.button-wrap{
   position:absolute;
   bottom:60px;
-  left:50%;
-  transform:translateX(-50%);
-  width:96%;              /* wider button container */
+  width:100%;
+  padding:0 16px; /* keeps it centered on all devices */
 }
 
-.btn{
+.verify-btn{
+  display:block;
   width:100%;
-  padding:16px 0;         /* taller for authority */
+  padding:16px 0;
   border-radius:18px;
   font-weight:900;
   font-size:1.1rem;
@@ -62,8 +64,8 @@ body{
   <div class="frame">
     <img class="hero" src="hero.png" alt="Krumbs 2 Bricks">
 
-    <div class="buttons">
-      <a class="btn"
+    <div class="button-wrap">
+      <a class="verify-btn"
          href="https://verifyk2b.github.io/verifyk2b/verify/"
          target="_blank" rel="noopener">
         VERIFY
