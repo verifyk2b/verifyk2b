@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Krumbs 2 Bricks</title>
 
+<style>
+  /* =========================================================
+     TUNING (EDIT ONLY THESE)
+     Units:
+       - px = exact move
+       - %  = position based on screen height
+     ========================================================= */
+  :root{
+    /* frame */
+    --frame-w: 430px;
+
+    /* LOGO (krumbs2bricks1.png) */
+    --logo-top: -140px;     /* higher = more negative */
+    --logo-w: 92%;          /* smaller/larger */
+
+    /* BACKGROUND IMAGE (krumbsandduffle1.png) */
+    --bg-y: 64%;            /* bigger = pushes money DOWN in view */
+    --bg-scale: 1.00;       /* 1.00 normal, 1.05 zoom in */
+
+    /* TEXT BLOCK (center stack) */
+    --trust-top: 46%;       /* DON'T TRUST. VERIFY. */
+    --slogan-top: 52%;      /* slogan lines */
+    --trust-size: 0.95rem;
+    --slogan-size: 1.05rem;
+    --slogan-weight: 700;
+
+    /* BUTTONS + X LINK + FOOTER */
+    --buttons-top: 82%;
+    --x-top: 90%;
+    --footer-bottom: 2.2%;
+
+    /* side padding */
+    --side-pad: 14px;
+  }
+
+  /* =========================================================
+     DO NOT EDIT BELOW (layout engine)
+     ========================================================= */
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:#000;
+    display:flex;
+    justify-content:center;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:#fff;
+  }
+
+  .frame{
+    width:100%;
+    max-width:var(--frame-w);
+    aspect-ratio:9/16;
+    position:relative;
+    overflow:hidden;
+    background:#000;
+  }
+
+  .bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center var(--bg-y);
+    transform:scale(var(--bg-scale));
+  }
+
+  .overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      180deg,
+      rgba(0,0,0,.70) 0%,
+      rgba(0,0,0,.50) 36%,
+      rgba(0,0,0,.45) 70%,
+      rgba(0,0,0,.78) 100%
+    );
+  }
+
+  .logo{
+    position:absolute;
+    top:var(--logo-top);
+    left:50%;
+    transform:translateX(-50%);
+    width:var(--logo-w);
+    height:auto;
+    filter:drop-shadow(0 10px 18px rgba(0,0,0,.7));
+    pointer-events:none;
+  }
+
+  .trust, .slogan{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - (var(--side-pad) * 2));
+    text-align:center;
+    text-shadow:0 2px 10px rgba(0,0,0,.85);
+  }
+
+  .trust{
+    top:var(--trust-top);
+    letter-spacing:.18em;
+    font-weight:900;
+    font-size:var(--trust-size);
+    text-transform:uppercase;
+  }
+
+  .slogan{
+    top:var(--slogan-top);
+    font-size:var(--slogan-size);
+    font-weight:var(--slogan-weight);
+    line-height:1.18;
+    color:#f0f0f0;
+  }
+
+  .buttons{
+    position:absolute;
+    top:var(--buttons-top);
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - (var(--side-pad) * 2));
+    display:flex;
+    gap:12px;
+  }
+
+  .btn{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 0;
+    border-radius:16px;
+    font-weight:900;
+    font-size:1.05rem;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.18),
+      0 20px 24px rgba(0,0,0,.45);
+  }
+
+  .btn.verify{
+    background:linear-gradient(180deg,#7c3aed,#4a1dbd);
+    color:#fff;
+  }
+
+  .btn.buy{
+    background:linear-gradient(180deg,#a3e635,#4d7c0f);
+    color:#111;
+  }
+
+  .xlink{
+    position:absolute;
+    top:var(--x-top);
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - (var(--side-pad) * 2));
+    text-align:left;
+    color:#bdbdbd;
+    font-size:.95rem;
+    text-shadow:0 2px 10px rgba(0,0,0,.85);
+  }
+  .xlink a{ color:#bdbdbd; text-decoration:none; }
+
+  .footer{
+    position:absolute;
+    bottom:var(--footer-bottom);
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - (var(--side-pad) * 2));
+    text-align:center;
+    font-size:.72rem;
+    color:#8a8a8a;
+    text-shadow:0 2px 10px rgba(0,0,0,.85);
+  }
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <img class="bg" src="krumbsandduffle1.png" alt="Background">
+    <div class="overlay"></div>
+
+    <img class="logo" src="krumbs2bricks1.png" alt="Krumbs 2 Bricks">
+
+    <div class="trust">DON’T TRUST. VERIFY.</div>
+
+    <div class="slogan">
+      Started with krumbs, stayed strong.<br>
+      No shortcuts, no promises.
+    </div>
+
+    <div class="buttons">
+      <!-- IMPORTANT: use your clean /verify/ page (not GitHub README) -->
+      <a class="btn verify" href="/verify/" target="_blank" rel="noopener">VERIFY</a>
+
+      <a class="btn buy"
+         href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank" rel="noopener">BUY</a>
+    </div>
+
+    <div class="xlink">
+      𝕏 <a href="https://x.com/K2Btoken" target="_blank" rel="noopener">https://x.com/K2Btoken</a>
+    </div>
+
+    <div class="footer">
+      Verification over promises. No guarantees. DYOR.
+    </div>
+  </div>
+</body>
+</html>
