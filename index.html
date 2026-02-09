@@ -6,6 +6,7 @@
 <title>Krumbs 2 Bricks</title>
 
 <style>
+/* ===== BASE ===== */
 body{
   margin:0;
   background:#000;
@@ -14,51 +15,45 @@ body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
+/* ===== FRAME ===== */
 .frame{
   width:100%;
   max-width:430px;
   aspect-ratio:9/16;
   position:relative;
   background:#000;
+  overflow:hidden;
 }
 
-/* FULL IMAGE */
+/* ===== HERO IMAGE ===== */
 .hero{
   width:100%;
   height:auto;
   display:block;
 }
 
-/* BUTTONS */
+/* ===== VERIFY BUTTON ===== */
 .buttons{
   position:absolute;
   bottom:60px;
   left:50%;
   transform:translateX(-50%);
-  width:92%;
-  display:flex;
-  gap:12px;
+  width:96%;              /* wider button container */
 }
 
 .btn{
-  flex:1;
-  padding:14px 0;
-  border-radius:16px;
+  width:100%;
+  padding:16px 0;         /* taller for authority */
+  border-radius:18px;
   font-weight:900;
-  font-size:1.05rem;
+  font-size:1.1rem;
   text-align:center;
   text-decoration:none;
-  box-shadow:0 20px 24px rgba(0,0,0,.45);
-}
-
-.verify{
-  background:linear-gradient(180deg,#7c3aed,#4a1dbd);
   color:#fff;
-}
-
-.buy{
-  background:linear-gradient(180deg,#a3e635,#4d7c0f);
-  color:#111;
+  background:linear-gradient(180deg,#7c3aed,#4a1dbd);
+  box-shadow:
+    0 18px 28px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.18);
 }
 </style>
 </head>
@@ -68,16 +63,10 @@ body{
     <img class="hero" src="hero.png" alt="Krumbs 2 Bricks">
 
     <div class="buttons">
-      <a class="btn verify"
+      <a class="btn"
          href="https://verifyk2b.github.io/verifyk2b/verify/"
          target="_blank" rel="noopener">
         VERIFY
-      </a>
-
-      <a class="btn buy"
-         href="https://pump.fun/coin/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank" rel="noopener">
-        BUY
       </a>
     </div>
   </div>
