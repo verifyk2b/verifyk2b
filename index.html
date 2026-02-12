@@ -34,28 +34,86 @@ body{
   display:block;
 }
 
-/* ===== VERIFY BUTTON ===== */
+/* ===== BUTTON ROW ===== */
 .button-wrap{
   position:absolute;
   bottom:120px;
   width:100%;
-  padding:0 16px; /* keeps it centered on all devices */
+  padding:0 16px;
 }
 
-.verify-btn{
-  display:block;
-  width:100%;
-  padding:16px 0;
+.buttons{
+  display:flex;
+  gap:12px;
+}
+
+/* ===== BASE BUTTON ===== */
+.btn{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  min-height:52px;
+  padding:14px 0;
+
   border-radius:18px;
   font-weight:900;
-  font-size:1.1rem;
-  text-align:center;
+  font-size:1.05rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
   text-decoration:none;
-  color:#fff;
-  background:linear-gradient(180deg,#7c3aed,#4a1dbd);
+
+  border:1px solid rgba(255,255,255,.14);
   box-shadow:
-    0 18px 28px rgba(0,0,0,.55),
-    inset 0 1px 0 rgba(255,255,255,.18);
+    inset 0 1px 0 rgba(255,255,255,.18),
+    0 18px 28px rgba(0,0,0,.55);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease,
+    filter .15s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== VERIFY (PRIMARY TRUST GATE) ===== */
+.btn.verify{
+  background:linear-gradient(165deg,#8b5cf6,#4a1dbd);
+  color:#fff;
+}
+
+/* ===== BUY (SECONDARY ACTION) ===== */
+.btn.buy{
+  background:linear-gradient(165deg,#bef264,#4d7c0f);
+  color:#111;
+}
+
+/* ===== INTERACTIONS ===== */
+.btn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    0 24px 34px rgba(0,0,0,.6);
+}
+
+.btn:active{
+  transform:translateY(1px);
+  filter:brightness(.98);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 12px 18px rgba(0,0,0,.55);
+}
+
+.btn:focus-visible{
+  outline:2px solid rgba(255,255,255,.65);
+  outline-offset:3px;
+}
+
+/* ===== SMALL SCREENS ===== */
+@media (max-width:360px){
+  .btn{ font-size:1rem; min-height:50px; }
 }
 </style>
 </head>
@@ -65,11 +123,19 @@ body{
     <img class="hero" src="hero.png" alt="Krumbs 2 Bricks">
 
     <div class="button-wrap">
-      <a class="verify-btn"
-         href="https://verifyk2b.github.io/verifyk2b/verify/"
-         target="_blank" rel="noopener">
-        VERIFY
-      </a>
+      <div class="buttons">
+        <a class="btn verify"
+           href="https://verifyk2b.github.io/verifyk2b/verify/"
+           target="_blank" rel="noopener">
+          VERIFY
+        </a>
+
+        <a class="btn buy"
+           href="https://pump.fun"
+           target="_blank" rel="noopener">
+          BUY
+        </a>
+      </div>
     </div>
   </div>
 </body>
