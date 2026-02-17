@@ -6,123 +6,131 @@
 <title>Krumbs 2 Bricks</title>
 
 <style>
+/* =========================
+   RESET + THEME
+   ========================= */
 *{ box-sizing:border-box; }
 
 :root{
   --bg:#000;
   --panel: rgba(255,255,255,.06);
-  --muted: rgba(255,255,255,.72);
   --text:#fff;
+  --muted: rgba(255,255,255,.72);
   --max: 1100px;
   --radius: 18px;
 }
 
 body{
   margin:0;
-  background: var(--bg);
-  color: var(--text);
+  background:var(--bg);
+  color:var(--text);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-/* Desktop-friendly container */
 .wrap{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 20px 16px 40px;
+  padding: 22px 18px 40px;
 }
 
-/* HERO (hero.png only appears here) */
-.hero{
-  position:relative;
-  border-radius: var(--radius);
-  overflow:hidden;
-  min-height: 520px;
-  isolation:isolate; /* keeps overlays clean */
+/* =========================
+   HEADER
+   ========================= */
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
 
-/* Use hero.png as a background so we can blend edges */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: url("hero.png") center/cover no-repeat;
-  transform: scale(1.02);
-  z-index:0;
+.logo{
+  height:56px;
+  width:auto;
+  display:block;
 }
 
-/* Blend hero into black background (vignette + fade) */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:1;
-  background:
-    radial-gradient(90% 70% at 40% 35%, rgba(0,0,0,.00) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.92) 100%),
-    linear-gradient(180deg, rgba(0,0,0,.00) 0%, rgba(0,0,0,.20) 35%, rgba(0,0,0,.85) 100%);
-}
-
-/* Optional subtle glow/noise feel (keeps it “decent”) */
-.heroGlow{
-  position:absolute;
-  inset:-40px;
-  z-index:0;
-  background:
-    radial-gradient(closest-side at 25% 20%, rgba(139,92,246,.18), transparent 60%),
-    radial-gradient(closest-side at 70% 35%, rgba(190,242,100,.12), transparent 62%);
-  pointer-events:none;
-  filter: blur(14px);
-}
-
-/* Content layer */
-.heroInner{
-  position:relative;
-  z-index:2;
-  height:100%;
+/* =========================
+   HERO (IMAGE ONLY ONCE)
+   ========================= */
+.hero-grid{
+  margin-top:18px;
   display:grid;
   grid-template-columns: 1.2fr .8fr;
   gap:18px;
   align-items:stretch;
+}
+
+.hero-art{
+  position:relative;
+  border-radius: var(--radius);
+  overflow:hidden;
+  min-height: 380px;
+  background:#000;
+}
+
+/* HERO IMAGE */
+.hero-art img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.01); /* prevents hairline edges */
+}
+
+/* BLEND hero.png into page background */
+.hero-art::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(
+      80% 70% at 50% 30%,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.35) 55%,
+      rgba(0,0,0,.88) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.18) 55%,
+      rgba(0,0,0,.85) 100%
+    );
+}
+
+.hero-copy{
+  border-radius: var(--radius);
+  background: var(--panel);
   padding: 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:14px;
 }
 
-/* Left column intentionally empty to let art breathe */
-.heroLeft{
-  min-height: 480px;
-}
-
-/* Right column panel (copy + buttons) */
-.heroCard{
-  align-self:center;
-  border-radius: 18px;
-  background: rgba(10,10,12,.62);
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 18px 40px rgba(0,0,0,.65);
-  backdrop-filter: blur(10px);
-  padding: 22px;
-}
-
-.heroCard h1{
+.hero-copy h1{
   margin:0;
   font-size: 28px;
   line-height:1.15;
-  letter-spacing: -.01em;
 }
 
-.heroCard p{
-  margin:10px 0 0 0;
+.hero-copy p{
+  margin:0;
   color: var(--muted);
-  font-size: 15.5px;
-  line-height:1.55;
+  font-size: 16px;
+  line-height:1.5;
 }
 
 .buttons{
   display:flex;
   gap:12px;
-  margin-top: 16px;
+  margin-top: 8px;
   flex-wrap:wrap;
 }
 
-/* Button style (kept from your original) */
+/* =========================
+   BUTTONS
+   ========================= */
 .btn{
   flex:1;
   display:flex;
@@ -147,15 +155,8 @@ body{
   -webkit-tap-highlight-color: transparent;
 }
 
-.btn.verify{
-  background:linear-gradient(165deg,#8b5cf6,#4a1dbd);
-  color:#fff;
-}
-
-.btn.buy{
-  background:linear-gradient(165deg,#bef264,#4d7c0f);
-  color:#111;
-}
+.btn.verify{ background:linear-gradient(165deg,#8b5cf6,#4a1dbd); color:#fff; }
+.btn.buy{ background:linear-gradient(165deg,#bef264,#4d7c0f); color:#111; }
 
 .btn:hover{
   transform:translateY(-1px);
@@ -176,12 +177,45 @@ body{
   outline-offset:3px;
 }
 
-/* Mobile: stack + shorten height */
+/* =========================
+   SECTIONS (NO HERO REUSE)
+   ========================= */
+.section{
+  margin-top:18px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  padding: 18px;
+  background-image: none !important;
+}
+
+.section h2{ margin:0 0 10px 0; font-size:20px; }
+.section p{ margin:0; color:var(--muted); line-height:1.6; }
+.section ul{ margin:0; padding-left:18px; color: var(--muted); }
+
+.links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.linkBtn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.16);
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
 @media (max-width: 900px){
-  .hero{ min-height: 620px; }
-  .heroInner{ grid-template-columns: 1fr; padding: 16px; }
-  .heroLeft{ min-height: 340px; } /* lets art still show */
-  .heroCard{ align-self: end; }
+  .logo{ height:46px; }
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-art{ min-height: 260px; }
   .btn{ flex: 1 1 calc(50% - 12px); }
 }
 
@@ -194,32 +228,59 @@ body{
 <body>
   <div class="wrap">
 
-    <!-- HERO ONLY ONCE -->
-    <section class="hero" aria-label="Krumbs 2 Bricks hero">
-      <div class="heroGlow"></div>
+    <header>
+      <img class="logo" src="logo.png" alt="Krumbs 2 Bricks">
+    </header>
 
-      <div class="heroInner">
-        <div class="heroLeft"></div>
+    <main class="hero-grid">
+      <section class="hero-art" aria-label="Krumbs 2 Bricks visual">
+        <img src="hero.png" alt="">
+      </section>
 
-        <div class="heroCard">
-          <h1>Verification-first token.<br>Built for downturns, not hype cycles.</h1>
-          <p>Structure you can verify on-chain. Facts live in the links — not in promises.</p>
+      <section class="hero-copy">
+        <h1>Verification-first token.<br>Built for downturns, not hype cycles.</h1>
+        <p>Structure you can verify on-chain. Facts live in the links — not in promises.</p>
 
-          <div class="buttons">
-            <a class="btn verify"
-               href="https://verifyk2b.github.io/verifyk2b/verify/"
-               target="_blank" rel="noopener">
-              VERIFY
-            </a>
+        <div class="buttons">
+          <a class="btn verify"
+             href="https://verifyk2b.github.io/verifyk2b/verify/"
+             target="_blank" rel="noopener">VERIFY</a>
 
-            <a class="btn buy"
-               href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-               target="_blank" rel="noopener">
-              BUY
-            </a>
-          </div>
+          <a class="btn buy"
+             href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+             target="_blank" rel="noopener">BUY</a>
         </div>
+      </section>
+    </main>
+
+    <section class="section">
+      <h2>Token Structure (On-Chain Verifiable)</h2>
+      <ul>
+        <li><b>Burned:</b> 115,503,084 K2B</li>
+        <li><b>Locked:</b> 100,000,000 (5 years) + 100,000,000 (10 years)</li>
+        <li><b>Controlled unlocks:</b> 2.5M every 3 months (predefined schedule)</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Verify. Don’t Trust.</h2>
+      <p>Nothing here requires trust. Every claim above can be independently verified on-chain.</p>
+      <div class="links">
+        <a class="linkBtn" href="https://solscan.io/" target="_blank" rel="noreferrer">Solscan</a>
+        <a class="linkBtn" href="https://streamflow.finance/" target="_blank" rel="noreferrer">Streamflow</a>
+        <a class="linkBtn" href="https://YOUR_LP_LOCK_LINK" target="_blank" rel="noreferrer">LP Lock</a>
+        <a class="linkBtn" href="https://YOUR_GITHUB_LINK" target="_blank" rel="noreferrer">GitHub</a>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>What This Is Not</h2>
+      <ul>
+        <li>Not a pump-and-dump</li>
+        <li>Not influencer-driven</li>
+        <li>Not a guaranteed return</li>
+        <li>Not optimized for hype cycles</li>
+      </ul>
     </section>
 
   </div>
