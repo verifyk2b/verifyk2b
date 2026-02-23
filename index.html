@@ -3,523 +3,177 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Krumbs 2 Bricks (K2B)</title>
-  <meta name="description" content="Krumbs 2 Bricks (K2B) — verification-first. Live chart + on-chain proof links." />
+  <title>Krumbs 2 Bricks</title>
+  <meta name="description" content="Krumbs 2 Bricks — Verify + Buy." />
 
   <style>
     /* =========================
-       BASE
+       RESET / BASE
        ========================= */
-    :root{
-      --bg:#070707;
-      --panel: rgba(255,255,255,.05);
-      --panel2: rgba(255,255,255,.08);
-      --border: rgba(255,255,255,.12);
-      --border2: rgba(255,255,255,.18);
-      --text:#ffffff;
-      --muted: rgba(255,255,255,.78);
-      --muted2: rgba(255,255,255,.62);
-      --gold: rgba(255,215,0,.85);
-      --gold2: rgba(255,215,0,.16);
-      --shadow: 0 10px 30px rgba(0,0,0,.55);
-      --radius: 18px;
-      --radius2: 14px;
-    }
     *{ box-sizing:border-box; }
     html, body{ height:100%; }
     body{
       margin:0;
-      background: radial-gradient(1200px 800px at 50% -20%, rgba(255,215,0,.10), transparent 55%),
-                  radial-gradient(900px 600px at 20% 30%, rgba(255,255,255,.06), transparent 45%),
-                  var(--bg);
-      color:var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:#000;
       display:flex;
       justify-content:center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:#fff;
     }
-    a{ color:inherit; text-decoration:none; }
-    img{ display:block; max-width:100%; }
 
     /* =========================
        FRAME
        ========================= */
     .frame{
       width:100%;
-      max-width:980px;
-      min-height:100vh;
-      padding:18px 14px 34px;
-    }
-
-    /* =========================
-       TOP BAR
-       ========================= */
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:14px;
-    }
-    .brandline{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
-    .logo{
-      width:44px; height:44px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: var(--panel);
+      max-width:430px;
+      min-height:100vh;          /* FIX: allow taller screens without cropping */
+      position:relative;
+      background:#000;
       overflow:hidden;
-      flex:0 0 auto;
-      box-shadow: var(--shadow);
-    }
-    .brandtext{
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      min-width:0;
-    }
-    .brandtext .name{
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:16px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .brandtext .tag{
-      font-size:12.5px;
-      color:var(--muted);
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    .pill{
-      font-size:12px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color:var(--muted);
-      white-space:nowrap;
     }
 
     /* =========================
        HERO
        ========================= */
     .hero{
-      position:relative;
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      overflow:hidden;
-      background: var(--panel);
-      box-shadow: var(--shadow);
-    }
-    .hero-img{
       width:100%;
-      height:auto;
-      aspect-ratio: 16 / 7;
-      object-fit:cover;
-      background: #000;
+      height:100vh;              /* makes the hero fill the frame */
+      object-fit:cover;          /* FIX: prevent squish/stretch */
+      display:block;
     }
-    .hero-overlay{
+
+    /* Optional: subtle fade so buttons always readable */
+    .fade{
       position:absolute;
-      inset:auto 0 0 0;
-      padding:18px 16px 16px;
-      background: linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,0));
+      left:0; right:0; bottom:0;
+      height:220px;
+      background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0));
+      pointer-events:none;
     }
-    .hero-overlay h1{
-      margin:0;
-      font-size:22px;
-      letter-spacing:.3px;
-      line-height:1.15;
+
+    /* =========================
+       BUTTON ROW
+       ========================= */
+    .button-wrap{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 22px); /* iPhone safe area */
+      padding:0 16px;
+      z-index:2;
     }
-    .hero-overlay p{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.35;
-      max-width: 68ch;
-    }
-    .hero-badges{
-      margin-top:10px;
+
+    .buttons{
       display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,215,0,.35);
-      background: var(--gold2);
-      color: rgba(255,255,255,.88);
-      font-size:12px;
-      white-space:nowrap;
-    }
-    .dot{
-      width:8px; height:8px;
-      border-radius:999px;
-      background: var(--gold);
-      box-shadow: 0 0 0 3px rgba(255,215,0,.12);
+      gap:12px;
     }
 
     /* =========================
-       GRID LAYOUT
+       BASE BUTTON
        ========================= */
-    .grid{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:14px;
-    }
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-      .hero-img{ aspect-ratio: 16 / 9; }
-    }
-
-    /* =========================
-       CARDS
-       ========================= */
-    .card{
-      border-radius: var(--radius);
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .card-hd{
-      padding:14px 14px 12px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .card-hd strong{ font-size:14px; letter-spacing:.2px; }
-    .card-bd{ padding:14px; }
-    .muted{ color:var(--muted2); font-size:12.8px; line-height:1.35; }
-
-    /* =========================
-       BUTTONS
-       ========================= */
-    .btn-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
     .btn{
+      flex:1;
       display:flex;
       align-items:center;
       justify-content:center;
-      text-align:center;
-      padding:12px 10px;
-      border-radius: 14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.05);
-      font-weight:700;
-      font-size:13px;
-      line-height:1.1;
-      transition: transform .08s ease, background .15s ease, border-color .15s ease;
+
+      min-height:52px;
+      padding:14px 0;
+
+      border-radius:18px;
+      font-weight:900;
+      font-size:1.05rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      text-decoration:none;
+
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.18),
+        0 18px 28px rgba(0,0,0,.55);
+
+      transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        filter .15s ease;
+
+      -webkit-tap-highlight-color: transparent;
       user-select:none;
     }
-    .btn:hover{ background: rgba(255,255,255,.08); border-color: var(--border2); }
-    .btn:active{ transform: scale(.99); }
-
-    .btn.gold{
-      border-color: rgba(255,215,0,.45);
-      background: rgba(255,215,0,.10);
-    }
-
-    .btn.wide{ grid-column: 1 / -1; }
 
     /* =========================
-       EMBED
+       VERIFY (PRIMARY)
        ========================= */
-    .embed{
-      width:100%;
-      border:0;
-      display:block;
-      background:#000;
-      border-radius: var(--radius2);
-      overflow:hidden;
-      aspect-ratio: 16 / 10;
+    .btn.verify{
+      background:linear-gradient(165deg,#8b5cf6,#4a1dbd);
+      color:#fff;
     }
 
     /* =========================
-       PROOF LIST
+       BUY (SECONDARY)
        ========================= */
-    .proof{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .proof-item{
-      padding:12px;
-      border-radius: var(--radius2);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.22);
-    }
-    .proof-item .label{
-      font-size:12px;
-      color: var(--muted2);
-      letter-spacing:.3px;
-      margin-bottom:6px;
-    }
-    .proof-item .value{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
-      font-size:12px;
-      word-break: break-all;
-      opacity:.95;
+    .btn.buy{
+      background:linear-gradient(165deg,#bef264,#4d7c0f);
+      color:#111;
     }
 
     /* =========================
-       FOOTER
+       INTERACTIONS
        ========================= */
-    footer{
-      margin-top:16px;
-      color: var(--muted2);
-      font-size:12px;
-      line-height:1.4;
-      opacity:.95;
+    .btn:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.05);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.22),
+        0 24px 34px rgba(0,0,0,.6);
     }
-    footer strong{ color: rgba(255,255,255,.86); }
+
+    .btn:active{
+      transform:translateY(1px);
+      filter:brightness(.98);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 12px 18px rgba(0,0,0,.55);
+    }
+
+    .btn:focus-visible{
+      outline:2px solid rgba(255,255,255,.65);
+      outline-offset:3px;
+    }
+
+    /* =========================
+       SMALL SCREENS
+       ========================= */
+    @media (max-width:360px){
+      .btn{
+        font-size:1rem;
+        min-height:50px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="frame">
+  <main class="frame">
+    <img class="hero" src="hero.png" alt="Krumbs 2 Bricks" />
+    <div class="fade" aria-hidden="true"></div>
 
-    <!-- =========================
-         CONFIG (EDIT THESE)
-         ========================= -->
-    <script>
-      // 1) Replace these with your real URLs.
-      // If you leave something blank ("") the button will hide automatically.
-      const SITE = {
-        projectName: "Krumbs 2 Bricks (K2B)",
-        tagline: "Verification over promises. Structure-first meme token.",
-        heroNote: "Live chart + on-chain proof links. If it can’t be verified, it doesn’t count.",
+    <div class="button-wrap">
+      <div class="buttons">
+        <a class="btn verify"
+           href="https://verifyk2b.github.io/verifyk2b/verify/"
+           target="_blank" rel="noopener">
+          VERIFY
+        </a>
 
-        // Images (use local files OR full URLs)
-        // Put these files in the same folder as index.html:
-        //   /logo.png
-        //   /hero.jpg
-        logoSrc: "logo.png",
-        heroSrc: "hero.jpg",
-
-        // Primary links
-        website: "https://krumbs2bricks.com",
-        x: "https://x.com/",
-        telegram: "https://t.me/",
-        discord: "https://discord.com/",
-
-        // On-chain / tools
-        solscanToken: "",     // e.g. https://solscan.io/token/<TOKEN_MINT>
-        raydiumPool: "",      // e.g. https://raydium.io/swap/?inputCurrency=sol&outputCurrency=<TOKEN_MINT>
-        dexscreener: "",      // e.g. https://dexscreener.com/solana/<PAIR_OR_POOL>
-
-        // Chart embed (DexScreener or Birdeye embed URL)
-        // IMPORTANT: This must be an EMBED link, not the normal page link.
-        chartEmbed: "",
-
-        // Proof links
-        burnAddress: "",      // solscan address page for burn wallet
-        liquidityLock: "",    // streamflow lock page or tx
-        mintPage: "",         // solscan token mint page
-        verificationPage: "", // your own verification hub (GitHub Pages or Webflow)
-      };
-
-      // 2) Optional: show your mint address on the page
-      const MINT_ADDRESS = "At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
-    </script>
-
-    <!-- TOP BAR -->
-    <div class="topbar">
-      <div class="brandline">
-        <div class="logo">
-          <img id="logoImg" alt="Logo" />
-        </div>
-        <div class="brandtext">
-          <div class="name" id="projectName"></div>
-          <div class="tag" id="tagline"></div>
-        </div>
+        <a class="btn buy"
+           href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+           target="_blank" rel="noopener">
+          BUY
+        </a>
       </div>
-      <div class="pill">VERIFY. DON’T TRUST.</div>
     </div>
-
-    <!-- HERO -->
-    <section class="hero">
-      <img id="heroImg" class="hero-img" alt="Hero" />
-      <div class="hero-overlay">
-        <h1 id="heroTitle"></h1>
-        <p id="heroNote"></p>
-        <div class="hero-badges">
-          <div class="badge"><span class="dot"></span> On-chain proofs</div>
-          <div class="badge"><span class="dot"></span> Live chart</div>
-          <div class="badge"><span class="dot"></span> Links only</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GRID -->
-    <section class="grid">
-
-      <!-- LEFT: CHART -->
-      <div class="card">
-        <div class="card-hd">
-          <strong>Live Chart</strong>
-          <span class="pill">Embedded</span>
-        </div>
-        <div class="card-bd">
-          <iframe
-            id="chartFrame"
-            class="embed"
-            title="Chart"
-            loading="lazy"
-            referrerpolicy="no-referrer"
-            sandbox="allow-scripts allow-same-origin allow-popups">
-          </iframe>
-
-          <div class="muted" style="margin-top:10px;">
-            If the embed doesn’t load on your phone, open DexScreener/Birdeye using the links on the right.
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: LINKS + PROOFS -->
-      <div style="display:flex; flex-direction:column; gap:14px;">
-
-        <div class="card">
-          <div class="card-hd">
-            <strong>Links</strong>
-            <span class="pill">Official</span>
-          </div>
-          <div class="card-bd">
-            <div class="btn-grid" id="linkButtons"></div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-hd">
-            <strong>Proof</strong>
-            <span class="pill">Verify</span>
-          </div>
-          <div class="card-bd">
-            <div class="proof" id="proofList"></div>
-            <div class="muted" style="margin-top:10px;">
-              No guarantees. No promises. Verification is the buyer’s responsibility.
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <footer>
-      <strong>Operational principle:</strong> projects engineered to remove admin risk and rug mechanics.
-    </footer>
-
-    <!-- =========================
-         PAGE LOGIC
-         ========================= -->
-    <script>
-      function safeSetImg(imgEl, src){
-        imgEl.src = src || "";
-        imgEl.style.display = src ? "block" : "none";
-      }
-
-      function addButton(container, label, url, opts={}){
-        if(!url) return;
-        const a = document.createElement("a");
-        a.className = "btn" + (opts.gold ? " gold" : "") + (opts.wide ? " wide" : "");
-        a.textContent = label;
-        a.href = url;
-        a.target = "_blank";
-        a.rel = "noopener";
-        container.appendChild(a);
-      }
-
-      function addProof(container, label, value, url){
-        if(!value && !url) return;
-
-        const wrap = document.createElement("div");
-        wrap.className = "proof-item";
-
-        const l = document.createElement("div");
-        l.className = "label";
-        l.textContent = label;
-
-        const v = document.createElement("div");
-        v.className = "value";
-
-        if(url){
-          const a = document.createElement("a");
-          a.href = url;
-          a.target = "_blank";
-          a.rel = "noopener";
-          a.textContent = value || url;
-          a.style.textDecoration = "underline";
-          a.style.textUnderlineOffset = "3px";
-          v.appendChild(a);
-        }else{
-          v.textContent = value;
-        }
-
-        wrap.appendChild(l);
-        wrap.appendChild(v);
-        container.appendChild(wrap);
-      }
-
-      // Bind top content
-      document.getElementById("projectName").textContent = SITE.projectName;
-      document.getElementById("tagline").textContent = SITE.tagline;
-      document.getElementById("heroTitle").textContent = SITE.projectName;
-      document.getElementById("heroNote").textContent = SITE.heroNote;
-
-      safeSetImg(document.getElementById("logoImg"), SITE.logoSrc);
-      safeSetImg(document.getElementById("heroImg"), SITE.heroSrc);
-
-      // Chart
-      const chart = document.getElementById("chartFrame");
-      if(SITE.chartEmbed){
-        chart.src = SITE.chartEmbed;
-      }else{
-        // If no embed provided, show a blank panel with a message.
-        chart.src = "about:blank";
-        chart.style.background = "rgba(0,0,0,.35)";
-        chart.style.border = "1px solid rgba(255,255,255,.10)";
-      }
-
-      // Buttons
-      const btns = document.getElementById("linkButtons");
-      addButton(btns, "Website", SITE.website, {gold:true});
-      addButton(btns, "X / Twitter", SITE.x);
-      addButton(btns, "Telegram", SITE.telegram);
-      addButton(btns, "Discord", SITE.discord);
-
-      addButton(btns, "Solscan Token", SITE.solscanToken, {wide:true});
-      addButton(btns, "Raydium Pool", SITE.raydiumPool, {wide:true});
-      addButton(btns, "DexScreener", SITE.dexscreener, {wide:true});
-
-      // Proof
-      const proofs = document.getElementById("proofList");
-      addProof(proofs, "Mint / Buy Address", MINT_ADDRESS);
-      addProof(proofs, "Burn Address", SITE.burnAddress || "", SITE.burnAddress || "");
-      addProof(proofs, "Liquidity Lock", SITE.liquidityLock || "", SITE.liquidityLock || "");
-      addProof(proofs, "Token Mint Page", SITE.mintPage || "", SITE.mintPage || "");
-      addProof(proofs, "Verification Hub", SITE.verificationPage || "", SITE.verificationPage || "");
-
-      // If user left everything empty, at least show something.
-      if(!SITE.burnAddress && !SITE.liquidityLock && !SITE.mintPage && !SITE.verificationPage){
-        addProof(proofs, "Note", "Paste your Solscan/Streamflow links into the CONFIG block (top of the file).");
-      }
-    </script>
-
-  </div>
+  </main>
 </body>
 </html>
