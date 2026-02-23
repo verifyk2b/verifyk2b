@@ -1,198 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Verify K2B</title>
-<style>
-  :root{
-    --bg:#0b0b0e;
-    --panel:#111319;
-    --border:#2a2f3a;
-    --text:#ffffff;
-    --muted:rgba(255,255,255,.72);
-    --muted2:rgba(255,255,255,.55);
-    --btn:#171a22;
-    --btnBorder:#3a3f4d;
-    --radius:12px;
-    --max:980px;
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    line-height:1.45;
-  }
-  .wrap{
-    max-width:var(--max);
-    margin:0 auto;
-    padding:28px 18px 40px;
-  }
-  h1{margin:0 0 8px;font-size:2rem;letter-spacing:.01em}
-  .sub{margin:0 0 18px;color:var(--muted)}
-  .card{
-    background:linear-gradient(180deg, #121521, #0f1118);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    padding:18px;
-    margin:14px 0;
-  }
-  h2{margin:0 0 12px;font-size:1.25rem}
-  ul{margin:0;padding-left:18px;color:var(--muted)}
-  li{margin:8px 0}
-  code.addr{
-    display:block;
-    padding:12px 12px;
-    border:1px solid var(--border);
-    background:rgba(0,0,0,.35);
-    border-radius:10px;
-    overflow:auto;
-    font-size:.92rem;
-  }
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-  .btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    text-decoration:none;
-    font-weight:800;
-    letter-spacing:.03em;
-    text-transform:uppercase;
-    color:var(--text);
-    background:var(--btn);
-    border:1px solid var(--btnBorder);
-    border-radius:12px;
-    padding:14px 12px;
-    min-height:52px;
-    transition:transform .12s ease, filter .12s ease, background .12s ease;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
-  .btn:active{transform:translateY(1px);filter:brightness(.98)}
-  .muted{color:var(--muted2);font-size:.95rem;margin:10px 0 0}
-  .pill{
-    display:inline-block;
-    margin-top:10px;
-    font-weight:900;
-    letter-spacing:.04em;
-    text-transform:uppercase;
-  }
-  .footer{
-    margin-top:18px;
-    color:var(--muted2);
-    font-size:.9rem;
-  }
-  @media (max-width:640px){
-    .grid{grid-template-columns:1fr}
-    h1{font-size:1.6rem}
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Krumbs 2 Bricks</title>
+
+  <style>
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      background:#000;
+      display:flex;
+      justify-content:center;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:#fff;
+    }
+
+    .frame{
+      width:100%;
+      max-width:430px;
+      min-height:100vh;
+      position:relative;
+      background:#000;
+      overflow:hidden;
+    }
+
+    .hero{
+      width:100%;
+      height:100vh;
+      object-fit:cover;
+      display:block;
+    }
+
+    .fade{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:220px;
+      background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+
+    .button-wrap{
+      position:absolute;
+      left:0; right:0;
+      bottom:calc(env(safe-area-inset-bottom, 0px) + 22px);
+      padding:0 16px;
+      z-index:2;
+    }
+
+    .buttons{ display:flex; gap:12px; }
+
+    .btn{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:14px 0;
+      border-radius:18px;
+      font-weight:900;
+      font-size:1.05rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 18px 28px rgba(0,0,0,.55);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      -webkit-tap-highlight-color: transparent;
+      user-select:none;
+    }
+
+    .btn.verify{ background:linear-gradient(165deg,#8b5cf6,#4a1dbd); color:#fff; }
+    .btn.buy{ background:linear-gradient(165deg,#bef264,#4d7c0f); color:#111; }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 24px 34px rgba(0,0,0,.6);
+    }
+    .btn:active{
+      transform:translateY(1px);
+      filter:brightness(.98);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 12px 18px rgba(0,0,0,.55);
+    }
+    .btn:focus-visible{ outline:2px solid rgba(255,255,255,.65); outline-offset:3px; }
+
+    @media (max-width:360px){
+      .btn{ font-size:1rem; min-height:50px; }
+    }
+  </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <h1>Verify K2B</h1>
-    <p class="sub"><strong>Verifiable on-chain information for K2B.</strong> Facts only. No promises.</p>
+  <main class="frame">
+    <img class="hero" src="hero.png" alt="Krumbs 2 Bricks" />
+    <div class="fade" aria-hidden="true"></div>
 
-    <!-- CORE FACTS (ONLY ONCE) -->
-    <section class="card">
-      <h2>Core Facts</h2>
-      <ul>
-        <li><strong>Token:</strong> K2B (Krumbs 2 Bricks)</li>
-        <li><strong>Chain:</strong> Solana</li>
-        <li><strong>Supply:</strong> Fixed 1,000,000,000 (no minting beyond fixed supply)</li>
-        <li><strong>Mint authority:</strong> Revoked</li>
-        <li><strong>Freeze authority:</strong> Revoked</li>
-        <li><strong>Founder-associated tokens:</strong> Locked via Streamflow with predefined on-chain schedules</li>
-        <li><strong>Admin authorities:</strong> None (mint &amp; freeze revoked)</li>
-      </ul>
-      <div class="pill">VERIFY. DON’T TRUST.</div>
-    </section>
-
-    <!-- CONTRACT (ONLY ONCE) -->
-    <section class="card">
-      <h2>Mint / Buy Address</h2>
-      <code class="addr">At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</code>
-      <p class="muted">Use this address to verify the token on Solscan or trade via Pump.fun.</p>
-    </section>
-
-    <!-- VERIFICATION LINKS (GROUPED, NO DUPLICATES) -->
-    <section class="card">
-      <h2>Verification Links</h2>
-      <div class="grid">
-        <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
-          Solscan (Token)
-        </a>
-
-        <a class="btn" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
-          Pump.fun (Trade)
-        </a>
-
-        <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk" target="_blank" rel="noopener noreferrer">
-          Streamflow (LP Lock)
-        </a>
-
-        <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC" target="_blank" rel="noopener noreferrer">
-          Streamflow (Largest Token Lock)
-        </a>
-
-        <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf" target="_blank" rel="noopener noreferrer">
-          Streamflow (Second Token Lock)
-        </a>
-
-        <a class="btn" href="https://verifyk2b.github.io/verifyk2b/verify/" target="_blank" rel="noopener noreferrer">
-          Full Verify Page
-        </a>
+    <div class="button-wrap">
+      <div class="buttons">
+        <a class="btn verify" href="https://verifyk2b.github.io/verifyk2b/verify/" target="_blank" rel="noopener">VERIFY</a>
+        <a class="btn buy" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener">BUY</a>
       </div>
-
-      <p class="muted">
-        Additional Streamflow locks may exist and are verifiable on-chain.
-      </p>
-    </section>
-
-    <!-- BURNS (ONLY ONCE) -->
-    <section class="card">
-      <h2>K2B Token Burns</h2>
-      <p class="muted">
-        Tokens are permanently burned by sending them to the K2B burn wallet.
-        This address is used for burns and is not used for operations.
-      </p>
-
-      <p style="margin:12px 0 8px;color:var(--muted)"><strong>K2B Burn Address:</strong></p>
-      <code class="addr">C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3</code>
-
-      <div style="margin-top:12px">
-        <a class="btn" href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3" target="_blank" rel="noopener noreferrer">
-          View Burn Address on Solscan
-        </a>
-      </div>
-
-      <h3 style="margin:16px 0 8px;font-size:1.05rem;color:var(--text)">Supply Notes</h3>
-      <ul>
-        <li>Total supply unchanged</li>
-        <li>Circulating supply reduced</li>
-        <li>Mint authority revoked (no re-minting)</li>
-      </ul>
-    </section>
-
-    <!-- SCOPE (ONLY ONCE) -->
-    <section class="card">
-      <h2>Scope</h2>
-      <p class="muted">
-        This page documents on-chain facts only. No guarantees, promises, or projections.
-        Updates are posted only when on-chain data changes. Verify independently.
-      </p>
-    </section>
-
-    <div class="footer">Information only. Verification is the responsibility of the buyer.</div>
+    </div>
   </main>
 </body>
 </html>
-```0
