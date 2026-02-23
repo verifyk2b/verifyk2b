@@ -1,245 +1,519 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Krumbs 2 Bricks</title>
-  <meta name="description" content="Krumbs 2 Bricks (K2B) — verification-first. Verify. Don’t trust." />
 
   <style>
     /* =========================
        RESET / BASE
        ========================= */
     *{ box-sizing:border-box; }
-    html, body{ height:100%; }
+    html,body{ height:100%; }
     body{
       margin:0;
       background:#000;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:#fff;
-      display:flex;
-      justify-content:center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
-    a{ color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; }
-    img{ display:block; max-width:100%; }
+
+    :root{
+      --bg:#000;
+      --panel:#0f1115;
+      --panel2:#0b0c10;
+      --border:rgba(255,255,255,.10);
+      --muted:rgba(255,255,255,.70);
+      --muted2:rgba(255,255,255,.50);
+      --shadow:0 18px 28px rgba(0,0,0,.55);
+      --radius:14px;
+      --max:1180px;
+    }
 
     /* =========================
-       PAGE WRAP (centers on desktop)
+       PAGE WRAP
        ========================= */
-    .page{
+    .wrap{
       width:100%;
-      padding: 18px 14px;
-      display:flex;
-      justify-content:center;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:22px 18px 28px;
     }
 
     /* =========================
-       FRAME (responsive card)
-       ========================= */
-    .frame{
-      width:100%;
-      max-width: 520px;       /* mobile default */
-      min-height: 100svh;     /* better than 100vh on mobile */
-      position:relative;
-      background:#000;
-      overflow:hidden;
-      border-radius: 0;
-    }
-
-    /* Desktop/tablet: turn into a centered "card" */
-    @media (min-width: 768px){
-      .page{ padding: 40px 22px; }
-
-      .frame{
-        max-width: 980px;
-        min-height: 680px;
-        border-radius: 26px;
-        border: 1px solid rgba(255,255,255,.12);
-        box-shadow: 0 40px 90px rgba(0,0,0,.75);
-      }
-    }
-
-    @media (min-width: 1100px){
-      .frame{ max-width: 1100px; }
-    }
-
-    /* =========================
-       HERO IMAGE
+       HERO
        ========================= */
     .hero{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:10px;
+      padding:10px 0 14px;
+    }
+
+    .logo{
+      width:min(520px, 100%);
+      height:auto;
+      display:block;
+      border-radius:12px;
+    }
+
+    .tagline{
+      font-size:1rem;
+      color:var(--muted);
+      line-height:1.35;
+      margin-top:6px;
+    }
+
+    /* =========================
+       STATS
+       ========================= */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .stat{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:16px 16px 14px;
+      box-shadow: var(--shadow);
+      min-height:86px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .label{
+      font-size:.78rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted2);
+      margin-bottom:8px;
+    }
+
+    .value{
+      font-size:1.35rem;
+      font-weight:900;
+      letter-spacing:.01em;
+    }
+
+    /* =========================
+       MAIN GRID (CHART + ACTIONS)
+       ========================= */
+    .main{
+      display:grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap:18px;
+      margin-top:18px;
+      align-items:start;
+    }
+
+    /* =========================
+       CHART CARD
+       ========================= */
+    .card{
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .card-head{
+      padding:12px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid var(--border);
+      gap:10px;
+    }
+
+    .card-title{
+      font-weight:900;
+      font-size:1rem;
+      letter-spacing:.01em;
+    }
+
+    .card-note{
+      font-size:.82rem;
+      color:var(--muted2);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .iframe{
       width:100%;
-      height:100%;
-      min-height: 100svh;
-      object-fit: cover;
+      height:620px; /* desktop default */
+      border:0;
       display:block;
       background:#000;
     }
 
-    /* In desktop card mode, keep a nice hero proportion */
-    @media (min-width: 768px){
-      .hero{
-        min-height: 680px;
-      }
-    }
-
     /* =========================
-       READABILITY OVERLAY
+       ACTIONS (RIGHT COLUMN)
        ========================= */
-    .shade{
-      position:absolute;
-      inset:auto 0 0 0;
-      height: 46%;
-      background: linear-gradient(
-        to top,
-        rgba(0,0,0,.92),
-        rgba(0,0,0,.58),
-        rgba(0,0,0,0)
-      );
-      pointer-events:none;
-    }
-
-    /* Desktop: slightly shorter gradient so image shows more */
-    @media (min-width: 768px){
-      .shade{ height: 40%; }
-    }
-
-    /* =========================
-       BUTTON WRAP
-       ========================= */
-    .button-wrap{
-      position:absolute;
-      inset:auto 0 0 0;
-      padding: 0 16px 18px;
+    .actions{
       display:flex;
       flex-direction:column;
       gap:12px;
     }
 
-    /* Desktop: wider padding + slightly higher placement */
-    @media (min-width: 768px){
-      .button-wrap{
-        padding: 0 34px 30px;
-      }
-    }
-
-    .buttons{
-      display:flex;
+    .btn-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
       gap:12px;
     }
 
-    /* Desktop: make buttons not comically wide */
-    @media (min-width: 768px){
-      .buttons{
-        max-width: 520px;
-        gap:14px;
-      }
+    /* Desktop polish: keep actions from stretching too wide */
+    @media (min-width: 861px){
+      .actions{ position:sticky; top:16px; }
     }
 
-    /* =========================
-       BASE BUTTON
-       ========================= */
     .btn{
-      flex:1;
       display:flex;
       align-items:center;
       justify-content:center;
-
-      min-height:54px;
+      min-height:52px;
       padding:14px 12px;
-
-      border-radius:18px;
+      border-radius:16px;
       font-weight:900;
-      font-size:1.02rem;
+      font-size:.95rem;
       letter-spacing:.04em;
       text-transform:uppercase;
-
+      text-decoration:none;
       border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.14),
+        0 18px 28px rgba(0,0,0,.55);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, background .15s ease;
+      -webkit-tap-highlight-color: transparent;
+      text-align:center;
+      cursor:pointer;
+      user-select:none;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.05);
+      background:rgba(255,255,255,.08);
       box-shadow:
         inset 0 1px 0 rgba(255,255,255,.18),
-        0 18px 28px rgba(0,0,0,.55);
-
-      transition:
-        transform .15s ease,
-        box-shadow .15s ease,
-        filter .15s ease;
-
-      user-select:none;
-      cursor:pointer;
+        0 24px 34px rgba(0,0,0,.60);
     }
 
-    /* Desktop: slightly larger buttons */
-    @media (min-width: 768px){
-      .btn{
-        min-height:58px;
-        font-size:1.06rem;
-        border-radius:20px;
-      }
-    }
-
-    /* VERIFY (PRIMARY) */
-    .btn.verify{
-      background: linear-gradient(165deg,#8b5cf6,#4a1dbd);
-      color:#fff;
-    }
-
-    /* BUY (SECONDARY) */
-    .btn.buy{
-      background: linear-gradient(165deg,#bef264,#4d7c0f);
-      color:#111;
-    }
-
-    /* Interactions */
-    .btn:hover{
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.22),
-        0 24px 34px rgba(0,0,0,.6);
-    }
     .btn:active{
-      transform: translateY(1px);
-      filter: brightness(.98);
+      transform:translateY(1px);
+      filter:brightness(.98);
       box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.12),
+        inset 0 1px 0 rgba(255,255,255,.10),
         0 12px 18px rgba(0,0,0,.55);
     }
-    .btn:focus-visible{
-      outline:2px solid rgba(255,255,255,.65);
-      outline-offset:3px;
+
+    .btn.verify{
+      background:linear-gradient(165deg,#8b5cf6,#4a1dbd);
+      border-color:rgba(255,255,255,.10);
+    }
+
+    .btn.buy{
+      background:linear-gradient(165deg,#bef264,#4d7c0f);
+      color:#111;
+      border-color:rgba(255,255,255,.10);
+    }
+
+    .btn.copy{
+      background:linear-gradient(165deg,#111827,#0b1220);
+    }
+
+    .contract{
+      padding:12px 12px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+
+    .contract .left{ min-width:0; }
+    .contract .k{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--muted2);
+      margin-bottom:6px;
+    }
+    .contract .addr{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:.92rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:320px;
+      color:rgba(255,255,255,.88);
+    }
+
+    .pill{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      border-radius:999px;
+      padding:10px 12px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      font-size:.82rem;
+      cursor:pointer;
+      user-select:none;
+      transition: filter .15s ease, transform .15s ease, background .15s ease;
+      -webkit-tap-highlight-color: transparent;
+      white-space:nowrap;
+    }
+    .pill:hover{ filter:brightness(1.06); background:rgba(255,255,255,.08); }
+    .pill:active{ transform:translateY(1px); filter:brightness(.98); }
+
+    .footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted2);
+      font-size:.86rem;
+      line-height:1.35;
+      padding:10px 0 0;
     }
 
     /* =========================
-       SMALL SCREENS
+       RESPONSIVE BREAKPOINTS
        ========================= */
-    @media (max-width:360px){
-      .btn{ font-size:.98rem; min-height:52px; }
-      .button-wrap{ padding:0 14px 16px; }
+    @media (max-width:1024px){
+      .iframe{ height:560px; }
+      .main{ grid-template-columns: 1.45fr 1fr; }
+    }
+
+    @media (max-width:860px){
+      .main{ grid-template-columns:1fr; }
+      .iframe{ height:520px; }
+      .actions{ gap:14px; position:static; }
+    }
+
+    @media (max-width:768px){
+      .stats{ grid-template-columns:1fr 1fr; }
+      .iframe{ height:480px; }
+      .contract .addr{ max-width:240px; }
+    }
+
+    @media (max-width:420px){
+      .wrap{ padding:18px 14px 24px; }
+      .value{ font-size:1.22rem; }
+      .btn-grid{ grid-template-columns:1fr; }
+      .iframe{ height:440px; }
+      .contract .addr{ max-width:200px; }
+      .btn{ min-height:50px; font-size:.92rem; }
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <main class="frame">
-      <img class="hero" src="hero.png" alt="Krumbs 2 Bricks" />
-      <div class="shade" aria-hidden="true"></div>
+  <div class="wrap">
 
-      <div class="button-wrap">
-        <div class="buttons">
-          <a class="btn verify"
-             href="https://verifyk2b.github.io/verifyk2b/verify/"
-             target="_blank" rel="noopener noreferrer">
-            VERIFY
-          </a>
+    <!-- HERO -->
+    <div class="hero">
+      <img class="logo" src="hero.png" alt="Krumbs 2 Bricks" />
+      <div class="tagline">Fixed Supply. Locked Liquidity. Verifiable Structure.</div>
+    </div>
 
-          <a class="btn buy"
-             href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-             target="_blank" rel="noopener noreferrer">
-            BUY
-          </a>
-        </div>
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat">
+        <div class="label">Total Supply</div>
+        <div class="value" id="totalSupply">1,000,000,000</div>
       </div>
-    </main>
+      <div class="stat">
+        <div class="label">Burned</div>
+        <div class="value" id="burned">115,000,000</div>
+      </div>
+      <div class="stat">
+        <div class="label">Locked</div>
+        <div class="value" id="locked">260,000,000+</div>
+      </div>
+      <div class="stat">
+        <div class="label">Days Live</div>
+        <div class="value" id="daysLive">—</div>
+      </div>
+    </div>
+
+    <!-- MAIN: CHART + ACTIONS -->
+    <div class="main">
+
+      <!-- CHART -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Real-Time Chart</div>
+          <div class="card-note">GeckoTerminal</div>
+        </div>
+
+        <!-- GeckoTerminal embed (your pool) -->
+        <iframe
+          class="iframe"
+          src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1&info=0&swaps=0&light_chart=0&chart_type=market_cap&resolution=1d&bg_color=111827"
+          title="K2B Real-Time Chart"
+          loading="lazy"
+          allow="clipboard-write; fullscreen"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms">
+        </iframe>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="actions">
+
+        <div class="btn-grid">
+          <a class="btn verify" href="https://verifyk2b.github.io/verifyk2b/verify/" target="_blank" rel="noopener noreferrer">
+            Verify
+          </a>
+
+          <a class="btn buy" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
+            Buy
+          </a>
+
+          <!-- Replace these when you have the exact URLs -->
+          <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
+            View Token
+          </a>
+
+          <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
+            Mint Page
+          </a>
+
+          <!-- Keep placeholders if you don’t have links yet -->
+          <a class="btn" href="#" id="burnBtn" target="_blank" rel="noopener noreferrer">
+            Burn Wallet
+          </a>
+
+          <a class="btn" href="#" id="lpBtn" target="_blank" rel="noopener noreferrer">
+            LP Lock Proof
+          </a>
+
+          <a class="btn" href="#" id="locksBtn" target="_blank" rel="noopener noreferrer">
+            Token Locks
+          </a>
+
+          <button class="btn copy" id="copyBtn" type="button">
+            Copy Contract
+          </button>
+        </div>
+
+        <!-- CONTRACT BAR -->
+        <div class="contract">
+          <div class="left">
+            <div class="k">Contract</div>
+            <div class="addr" id="contractAddr">At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</div>
+          </div>
+          <div class="pill" id="copyPill">Copy</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Krumbs 2 Bricks · No Financial Advice
+    </div>
+
   </div>
+
+  <script>
+    // =========================
+    // SET YOUR LAUNCH DATE HERE
+    // =========================
+    // Example: '2026-01-06'
+    const LAUNCH_DATE = '2026-01-06';
+
+    function calcDaysLive(isoDate){
+      if(!isoDate) return '—';
+      const start = new Date(isoDate + 'T00:00:00');
+      const now = new Date();
+      const ms = now - start;
+      const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+      return (days >= 0) ? String(days) : '—';
+    }
+
+    document.getElementById('daysLive').textContent = calcDaysLive(LAUNCH_DATE);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // =========================
+    // COPY CONTRACT
+    // =========================
+    const addrEl = document.getElementById('contractAddr');
+    const copyBtn = document.getElementById('copyBtn');
+    const copyPill = document.getElementById('copyPill');
+
+    async function copyAddress(){
+      const text = addrEl.textContent.trim();
+      try{
+        await navigator.clipboard.writeText(text);
+        toast('Copied');
+      }catch(e){
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        toast('Copied');
+      }
+    }
+
+    function toast(msg){
+      const t = document.createElement('div');
+      t.textContent = msg;
+      t.style.position = 'fixed';
+      t.style.left = '50%';
+      t.style.bottom = '22px';
+      t.style.transform = 'translateX(-50%)';
+      t.style.padding = '10px 14px';
+      t.style.background = 'rgba(0,0,0,.78)';
+      t.style.border = '1px solid rgba(255,255,255,.14)';
+      t.style.borderRadius = '999px';
+      t.style.color = '#fff';
+      t.style.fontWeight = '900';
+      t.style.letterSpacing = '.04em';
+      t.style.textTransform = 'uppercase';
+      t.style.fontSize = '.78rem';
+      t.style.zIndex = '9999';
+      t.style.backdropFilter = 'blur(6px)';
+      document.body.appendChild(t);
+      setTimeout(()=> t.remove(), 900);
+    }
+
+    copyBtn.addEventListener('click', copyAddress);
+    copyPill.addEventListener('click', copyAddress);
+
+    // =========================
+    // Disable placeholder buttons cleanly if href="#"
+    // =========================
+    const maybeDisable = (id) => {
+      const el = document.getElementById(id);
+      if(!el) return;
+      const href = (el.getAttribute('href') || '').trim();
+      if(href === '#' || href === ''){
+        el.style.opacity = '.55';
+        el.style.pointerEvents = 'none';
+        el.style.filter = 'grayscale(1)';
+      }
+    };
+
+    maybeDisable('burnBtn');
+    maybeDisable('lpBtn');
+    maybeDisable('locksBtn');
+  </script>
 </body>
 </html>
