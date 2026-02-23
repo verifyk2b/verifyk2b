@@ -6,9 +6,6 @@
   <title>Krumbs 2 Bricks</title>
 
   <style>
-    /* =========================
-       RESET / BASE
-       ========================= */
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
@@ -30,9 +27,6 @@
       --max:1180px;
     }
 
-    /* =========================
-       PAGE WRAP
-       ========================= */
     .wrap{
       width:100%;
       max-width:var(--max);
@@ -40,9 +34,6 @@
       padding:22px 18px 28px;
     }
 
-    /* =========================
-       HERO
-       ========================= */
     .hero{
       display:flex;
       flex-direction:column;
@@ -66,9 +57,6 @@
       margin-top:6px;
     }
 
-    /* =========================
-       STATS
-       ========================= */
     .stats{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -102,9 +90,6 @@
       letter-spacing:.01em;
     }
 
-    /* =========================
-       MAIN GRID (CHART + ACTIONS)
-       ========================= */
     .main{
       display:grid;
       grid-template-columns: 1.65fr 1fr;
@@ -113,9 +98,6 @@
       align-items:start;
     }
 
-    /* =========================
-       CHART CARD
-       ========================= */
     .card{
       background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--border);
@@ -149,15 +131,12 @@
 
     .iframe{
       width:100%;
-      height:620px; /* desktop default */
+      height:620px;
       border:0;
       display:block;
       background:#000;
     }
 
-    /* =========================
-       ACTIONS (RIGHT COLUMN)
-       ========================= */
     .actions{
       display:flex;
       flex-direction:column;
@@ -168,11 +147,6 @@
       display:grid;
       grid-template-columns:repeat(2,1fr);
       gap:12px;
-    }
-
-    /* Desktop polish: keep actions from stretching too wide */
-    @media (min-width: 861px){
-      .actions{ position:sticky; top:16px; }
     }
 
     .btn{
@@ -289,9 +263,6 @@
       padding:10px 0 0;
     }
 
-    /* =========================
-       RESPONSIVE BREAKPOINTS
-       ========================= */
     @media (max-width:1024px){
       .iframe{ height:560px; }
       .main{ grid-template-columns: 1.45fr 1fr; }
@@ -300,7 +271,7 @@
     @media (max-width:860px){
       .main{ grid-template-columns:1fr; }
       .iframe{ height:520px; }
-      .actions{ gap:14px; position:static; }
+      .actions{ gap:14px; }
     }
 
     @media (max-width:768px){
@@ -323,13 +294,11 @@
 <body>
   <div class="wrap">
 
-    <!-- HERO -->
     <div class="hero">
       <img class="logo" src="hero.png" alt="Krumbs 2 Bricks" />
       <div class="tagline">Fixed Supply. Locked Liquidity. Verifiable Structure.</div>
     </div>
 
-    <!-- STATS -->
     <div class="stats">
       <div class="stat">
         <div class="label">Total Supply</div>
@@ -349,17 +318,14 @@
       </div>
     </div>
 
-    <!-- MAIN: CHART + ACTIONS -->
     <div class="main">
 
-      <!-- CHART -->
       <div class="card">
         <div class="card-head">
           <div class="card-title">Real-Time Chart</div>
           <div class="card-note">GeckoTerminal</div>
         </div>
 
-        <!-- GeckoTerminal embed (your pool) -->
         <iframe
           class="iframe"
           src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1&info=0&swaps=0&light_chart=0&chart_type=market_cap&resolution=1d&bg_color=111827"
@@ -372,7 +338,6 @@
         </iframe>
       </div>
 
-      <!-- ACTIONS -->
       <div class="actions">
 
         <div class="btn-grid">
@@ -384,7 +349,6 @@
             Buy
           </a>
 
-          <!-- Replace these when you have the exact URLs -->
           <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
             View Token
           </a>
@@ -393,17 +357,21 @@
             Mint Page
           </a>
 
-          <!-- Keep placeholders if you don’t have links yet -->
-          <a class="btn" href="#" id="burnBtn" target="_blank" rel="noopener noreferrer">
+          <!-- MISSING LINKS (FILLED) -->
+          <a class="btn" href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3" target="_blank" rel="noopener noreferrer">
             Burn Wallet
           </a>
 
-          <a class="btn" href="#" id="lpBtn" target="_blank" rel="noopener noreferrer">
+          <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk" target="_blank" rel="noopener noreferrer">
             LP Lock Proof
           </a>
 
-          <a class="btn" href="#" id="locksBtn" target="_blank" rel="noopener noreferrer">
+          <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC" target="_blank" rel="noopener noreferrer">
             Token Locks
+          </a>
+
+          <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf" target="_blank" rel="noopener noreferrer">
+            Second Lock
           </a>
 
           <button class="btn copy" id="copyBtn" type="button">
@@ -411,7 +379,6 @@
           </button>
         </div>
 
-        <!-- CONTRACT BAR -->
         <div class="contract">
           <div class="left">
             <div class="k">Contract</div>
@@ -423,7 +390,6 @@
       </div>
     </div>
 
-    <!-- FOOTER -->
     <div class="footer">
       © <span id="year"></span> Krumbs 2 Bricks · No Financial Advice
     </div>
@@ -431,9 +397,7 @@
   </div>
 
   <script>
-    // =========================
-    // SET YOUR LAUNCH DATE HERE
-    // =========================
+    // Set your real launch date here (YYYY-MM-DD)
     // Example: '2026-01-06'
     const LAUNCH_DATE = '2026-01-06';
 
@@ -449,9 +413,7 @@
     document.getElementById('daysLive').textContent = calcDaysLive(LAUNCH_DATE);
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // =========================
-    // COPY CONTRACT
-    // =========================
+    // Copy Contract
     const addrEl = document.getElementById('contractAddr');
     const copyBtn = document.getElementById('copyBtn');
     const copyPill = document.getElementById('copyPill');
@@ -496,24 +458,6 @@
 
     copyBtn.addEventListener('click', copyAddress);
     copyPill.addEventListener('click', copyAddress);
-
-    // =========================
-    // Disable placeholder buttons cleanly if href="#"
-    // =========================
-    const maybeDisable = (id) => {
-      const el = document.getElementById(id);
-      if(!el) return;
-      const href = (el.getAttribute('href') || '').trim();
-      if(href === '#' || href === ''){
-        el.style.opacity = '.55';
-        el.style.pointerEvents = 'none';
-        el.style.filter = 'grayscale(1)';
-      }
-    };
-
-    maybeDisable('burnBtn');
-    maybeDisable('lpBtn');
-    maybeDisable('locksBtn');
   </script>
 </body>
 </html>
