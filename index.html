@@ -6,6 +6,9 @@
   <title>Krumbs 2 Bricks</title>
 
   <style>
+    /* =========================
+       RESET / BASE
+       ========================= */
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
     body{
@@ -14,9 +17,9 @@
       color:#fff;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
+    a{ color:inherit; text-decoration:none; -webkit-tap-highlight-color:transparent; }
 
     :root{
-      --bg:#000;
       --panel:#0f1115;
       --panel2:#0b0c10;
       --border:rgba(255,255,255,.10);
@@ -27,6 +30,9 @@
       --max:1180px;
     }
 
+    /* =========================
+       WRAP
+       ========================= */
     .wrap{
       width:100%;
       max-width:var(--max);
@@ -34,6 +40,9 @@
       padding:22px 18px 28px;
     }
 
+    /* =========================
+       HERO
+       ========================= */
     .hero{
       display:flex;
       flex-direction:column;
@@ -42,14 +51,12 @@
       gap:10px;
       padding:10px 0 14px;
     }
-
     .logo{
       width:min(520px, 100%);
       height:auto;
       display:block;
       border-radius:12px;
     }
-
     .tagline{
       font-size:1rem;
       color:var(--muted);
@@ -57,13 +64,15 @@
       margin-top:6px;
     }
 
+    /* =========================
+       STATS
+       ========================= */
     .stats{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:16px;
       margin-top:14px;
     }
-
     .stat{
       background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--border);
@@ -76,16 +85,6 @@
       justify-content:center;
       position:relative;
     }
-
-    /* make a stat clickable if wrapped by <a class="statlink"> */
-    .statlink{
-      display:block;
-      color:inherit;
-      text-decoration:none;
-    }
-    .statlink:hover .stat{ filter:brightness(1.05); }
-    .statlink:active .stat{ transform:translateY(1px); }
-
     .label{
       font-size:.78rem;
       letter-spacing:.08em;
@@ -93,21 +92,31 @@
       color:var(--muted2);
       margin-bottom:8px;
     }
-
     .value{
       font-size:1.35rem;
       font-weight:900;
       letter-spacing:.01em;
     }
 
+    /* Clickable stat wrapper */
+    .statlink{ display:block; }
+    .statlink:hover .stat{ filter:brightness(1.05); }
+    .statlink:active .stat{ transform:translateY(1px); }
+
+    /* =========================
+       MAIN GRID (CHART + ACTIONS)
+       ========================= */
     .main{
       display:grid;
       grid-template-columns: 1.65fr 1fr;
       gap:18px;
       margin-top:18px;
-      align-items:start;
+      align-items:stretch;           /* FIX #1: stretch columns to same height */
     }
 
+    /* =========================
+       CARD
+       ========================= */
     .card{
       background:linear-gradient(180deg,var(--panel),var(--panel2));
       border:1px solid var(--border);
@@ -115,7 +124,6 @@
       overflow:hidden;
       box-shadow: var(--shadow);
     }
-
     .card-head{
       padding:12px 14px;
       display:flex;
@@ -124,13 +132,11 @@
       border-bottom:1px solid var(--border);
       gap:10px;
     }
-
     .card-title{
       font-weight:900;
       font-size:1rem;
       letter-spacing:.01em;
     }
-
     .card-note{
       font-size:.82rem;
       color:var(--muted2);
@@ -139,6 +145,9 @@
       text-overflow:ellipsis;
     }
 
+    /* =========================
+       CHART IFRAME
+       ========================= */
     .iframe{
       width:100%;
       height:620px;
@@ -147,10 +156,15 @@
       background:#000;
     }
 
+    /* =========================
+       ACTIONS COLUMN (fills height)
+       ========================= */
     .actions{
       display:flex;
       flex-direction:column;
+      justify-content:space-between; /* FIX #1: push contract to bottom */
       gap:12px;
+      min-height:100%;
     }
 
     .btn-grid{
@@ -170,7 +184,6 @@
       font-size:.95rem;
       letter-spacing:.04em;
       text-transform:uppercase;
-      text-decoration:none;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.06);
       color:#fff;
@@ -178,12 +191,10 @@
         inset 0 1px 0 rgba(255,255,255,.14),
         0 18px 28px rgba(0,0,0,.55);
       transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, background .15s ease;
-      -webkit-tap-highlight-color: transparent;
       text-align:center;
       cursor:pointer;
       user-select:none;
     }
-
     .btn:hover{
       transform:translateY(-1px);
       filter:brightness(1.05);
@@ -192,7 +203,6 @@
         inset 0 1px 0 rgba(255,255,255,.18),
         0 24px 34px rgba(0,0,0,.60);
     }
-
     .btn:active{
       transform:translateY(1px);
       filter:brightness(.98);
@@ -206,11 +216,13 @@
       color:#111;
       border-color:rgba(255,255,255,.10);
     }
-
     .btn.copy{
       background:linear-gradient(165deg,#111827,#0b1220);
     }
 
+    /* =========================
+       CONTRACT BAR
+       ========================= */
     .contract{
       padding:12px 12px;
       background:rgba(255,255,255,.04);
@@ -221,7 +233,6 @@
       justify-content:space-between;
       gap:10px;
     }
-
     .contract .left{ min-width:0; }
     .contract .k{
       font-size:.78rem;
@@ -253,7 +264,6 @@
       cursor:pointer;
       user-select:none;
       transition: filter .15s ease, transform .15s ease, background .15s ease;
-      -webkit-tap-highlight-color: transparent;
       white-space:nowrap;
     }
     .pill:hover{ filter:brightness(1.06); background:rgba(255,255,255,.08); }
@@ -268,23 +278,23 @@
       padding:10px 0 0;
     }
 
+    /* =========================
+       RESPONSIVE
+       ========================= */
     @media (max-width:1024px){
       .iframe{ height:560px; }
       .main{ grid-template-columns: 1.45fr 1fr; }
     }
-
     @media (max-width:860px){
       .main{ grid-template-columns:1fr; }
       .iframe{ height:520px; }
-      .actions{ gap:14px; }
+      .actions{ justify-content:flex-start; }
     }
-
     @media (max-width:768px){
       .stats{ grid-template-columns:1fr 1fr; }
       .iframe{ height:480px; }
       .contract .addr{ max-width:240px; }
     }
-
     @media (max-width:420px){
       .wrap{ padding:18px 14px 24px; }
       .value{ font-size:1.22rem; }
@@ -299,12 +309,13 @@
 <body>
   <div class="wrap">
 
+    <!-- HERO -->
     <div class="hero">
       <img class="logo" src="hero.png" alt="Krumbs 2 Bricks" />
       <div class="tagline">Fixed Supply. Locked Liquidity. Verifiable Structure.</div>
     </div>
 
-    <!-- STATS (Days Live is now clickable) -->
+    <!-- STATS (Days Live is clickable) -->
     <div class="stats">
       <div class="stat">
         <div class="label">Total Supply</div>
@@ -321,8 +332,7 @@
         <div class="value" id="locked">—</div>
       </div>
 
-      <!-- CLICKABLE DAYS LIVE -->
-      <a class="statlink" id="daysLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open verification page for days live">
+      <a class="statlink" id="daysLink" href="#" target="_blank" rel="noopener noreferrer">
         <div class="stat">
           <div class="label">Days Live</div>
           <div class="value" id="daysLive">—</div>
@@ -330,8 +340,10 @@
       </a>
     </div>
 
+    <!-- MAIN -->
     <div class="main">
 
+      <!-- CHART -->
       <div class="card">
         <div class="card-head">
           <div class="card-title">Real-Time Chart</div>
@@ -350,18 +362,18 @@
         </iframe>
       </div>
 
+      <!-- ACTIONS -->
       <div class="actions">
 
+        <!-- top block -->
         <div class="btn-grid">
-          <!-- REMOVED: VERIFY button -->
-
+          <!-- VERIFY removed (redundant). Keep one hub button only -->
           <a class="btn buy"
              href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
              target="_blank" rel="noopener noreferrer">
             Buy
           </a>
 
-          <!-- Add a clean "Verification Hub" only if you want one proof button -->
           <a class="btn"
              href="https://verifyk2b.github.io/verifyk2b/verify/"
              target="_blank" rel="noopener noreferrer">
@@ -374,6 +386,7 @@
             View Token
           </a>
 
+          <!-- FIX: Burn Wallet link is a direct URL + uses rel noopener noreferrer -->
           <a class="btn"
              href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
              target="_blank" rel="noopener noreferrer">
@@ -403,12 +416,13 @@
           </button>
         </div>
 
+        <!-- bottom block -->
         <div class="contract">
           <div class="left">
             <div class="k">Contract</div>
-            <div class="addr" id="contractAddr">At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</div>
+            <div class="addr" id="contractAddr">—</div>
           </div>
-          <div class="pill" id="copyPill">Copy</div>
+          <div class="pill" id="copyPill" role="button" tabindex="0">Copy</div>
         </div>
 
       </div>
@@ -421,33 +435,21 @@
   </div>
 
   <script>
-    // =========================
-    // CONFIG (edit in ONE place)
-    // =========================
+    /* =========================
+       CONFIG (edit once)
+       ========================= */
     const CONFIG = {
-      launchDate: '2026-01-04', // YYYY-MM-DD (edit if needed)
+      launchDate: '2026-01-06', // YYYY-MM-DD
       daysLiveLink: 'https://verifyk2b.github.io/verifyk2b/verify/',
 
       totalSupply: '1,000,000,000',
-      burned: 'UPDATE_ME',          // <-- put current burned amount here
+      burnedExact: '118,148,948.411278',  // <- your burn amount
       locked: '260,000,000+',
 
       contract: 'At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump'
     };
 
-    // Set stat values
-    document.getElementById('totalSupply').textContent = CONFIG.totalSupply;
-    const burnedNumber = Number(CONFIG.burned.replace(/,/g,''));
-document.getElementById('burned').textContent =
-  burnedNumber.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    document.getElementById('locked').textContent = CONFIG.locked;
-    document.getElementById('contractAddr').textContent = CONFIG.contract;
-
-    // Make Days Live clickable
-    const daysLink = document.getElementById('daysLink');
-    daysLink.href = CONFIG.daysLiveLink;
-
-    // Days live calc
+    // Helpers
     function calcDaysLive(isoDate){
       if(!isoDate) return '—';
       const start = new Date(isoDate + 'T00:00:00');
@@ -456,11 +458,31 @@ document.getElementById('burned').textContent =
       const days = Math.floor(ms / (1000 * 60 * 60 * 24));
       return (days >= 0) ? String(days) : '—';
     }
+
+    function formatBurnedTo2Decimals(valueWithCommas){
+      const n = Number(String(valueWithCommas).replace(/,/g,''));
+      if(!Number.isFinite(n)) return String(valueWithCommas);
+      return n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // Bind stats
+    document.getElementById('totalSupply').textContent = CONFIG.totalSupply;
+    document.getElementById('burned').textContent = formatBurnedTo2Decimals(CONFIG.burnedExact);
+    document.getElementById('locked').textContent = CONFIG.locked;
+
+    // Days live + link
     document.getElementById('daysLive').textContent = calcDaysLive(CONFIG.launchDate);
+    const daysLink = document.getElementById('daysLink');
+    daysLink.href = CONFIG.daysLiveLink;
+
+    // Contract
+    const addrEl = document.getElementById('contractAddr');
+    addrEl.textContent = CONFIG.contract;
+
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Copy contract
-    const addrEl = document.getElementById('contractAddr');
+    // Copy contract (button + pill + keyboard)
     const copyBtn = document.getElementById('copyBtn');
     const copyPill = document.getElementById('copyPill');
 
@@ -504,6 +526,9 @@ document.getElementById('burned').textContent =
 
     copyBtn.addEventListener('click', copyAddress);
     copyPill.addEventListener('click', copyAddress);
+    copyPill.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') copyAddress();
+    });
   </script>
 </body>
 </html>
