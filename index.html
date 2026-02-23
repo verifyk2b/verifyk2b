@@ -74,7 +74,17 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      position:relative;
     }
+
+    /* make a stat clickable if wrapped by <a class="statlink"> */
+    .statlink{
+      display:block;
+      color:inherit;
+      text-decoration:none;
+    }
+    .statlink:hover .stat{ filter:brightness(1.05); }
+    .statlink:active .stat{ transform:translateY(1px); }
 
     .label{
       font-size:.78rem;
@@ -191,11 +201,6 @@
         0 12px 18px rgba(0,0,0,.55);
     }
 
-    .btn.verify{
-      background:linear-gradient(165deg,#8b5cf6,#4a1dbd);
-      border-color:rgba(255,255,255,.10);
-    }
-
     .btn.buy{
       background:linear-gradient(165deg,#bef264,#4d7c0f);
       color:#111;
@@ -299,23 +304,30 @@
       <div class="tagline">Fixed Supply. Locked Liquidity. Verifiable Structure.</div>
     </div>
 
+    <!-- STATS (Days Live is now clickable) -->
     <div class="stats">
       <div class="stat">
         <div class="label">Total Supply</div>
-        <div class="value" id="totalSupply">1,000,000,000</div>
+        <div class="value" id="totalSupply">—</div>
       </div>
+
       <div class="stat">
         <div class="label">Burned</div>
-        <div class="value" id="burned">115,000,000</div>
+        <div class="value" id="burned">—</div>
       </div>
+
       <div class="stat">
         <div class="label">Locked</div>
-        <div class="value" id="locked">260,000,000+</div>
+        <div class="value" id="locked">—</div>
       </div>
-      <div class="stat">
-        <div class="label">Days Live</div>
-        <div class="value" id="daysLive">—</div>
-      </div>
+
+      <!-- CLICKABLE DAYS LIVE -->
+      <a class="statlink" id="daysLink" href="#" target="_blank" rel="noopener noreferrer" aria-label="Open verification page for days live">
+        <div class="stat">
+          <div class="label">Days Live</div>
+          <div class="value" id="daysLive">—</div>
+        </div>
+      </a>
     </div>
 
     <div class="main">
@@ -341,36 +353,48 @@
       <div class="actions">
 
         <div class="btn-grid">
-          <a class="btn verify" href="https://verifyk2b.github.io/verifyk2b/verify/" target="_blank" rel="noopener noreferrer">
-            Verify
-          </a>
+          <!-- REMOVED: VERIFY button -->
 
-          <a class="btn buy" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
+          <a class="btn buy"
+             href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+             target="_blank" rel="noopener noreferrer">
             Buy
           </a>
 
-          <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
+          <!-- Add a clean "Verification Hub" only if you want one proof button -->
+          <a class="btn"
+             href="https://verifyk2b.github.io/verifyk2b/verify/"
+             target="_blank" rel="noopener noreferrer">
+            Verification Hub
+          </a>
+
+          <a class="btn"
+             href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+             target="_blank" rel="noopener noreferrer">
             View Token
           </a>
 
-          <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
-            Mint Page
-          </a>
-
-          <!-- MISSING LINKS (FILLED) -->
-          <a class="btn" href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3" target="_blank" rel="noopener noreferrer">
+          <a class="btn"
+             href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
+             target="_blank" rel="noopener noreferrer">
             Burn Wallet
           </a>
 
-          <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk" target="_blank" rel="noopener noreferrer">
+          <a class="btn"
+             href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk"
+             target="_blank" rel="noopener noreferrer">
             LP Lock Proof
           </a>
 
-          <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC" target="_blank" rel="noopener noreferrer">
+          <a class="btn"
+             href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
+             target="_blank" rel="noopener noreferrer">
             Token Locks
           </a>
 
-          <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf" target="_blank" rel="noopener noreferrer">
+          <a class="btn"
+             href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf"
+             target="_blank" rel="noopener noreferrer">
             Second Lock
           </a>
 
@@ -397,10 +421,31 @@
   </div>
 
   <script>
-    // Set your real launch date here (YYYY-MM-DD)
-    // Example: '2026-01-06'
-    const LAUNCH_DATE = '2026-01-06';
+    // =========================
+    // CONFIG (edit in ONE place)
+    // =========================
+    const CONFIG = {
+      launchDate: '2026-01-04', // YYYY-MM-DD (edit if needed)
+      daysLiveLink: 'https://verifyk2b.github.io/verifyk2b/verify/',
 
+      totalSupply: '1,000,000,000',
+      burned: 'UPDATE_ME',          // <-- put current burned amount here
+      locked: '260,000,000+',
+
+      contract: 'At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump'
+    };
+
+    // Set stat values
+    document.getElementById('totalSupply').textContent = CONFIG.totalSupply;
+    document.getElementById('burned').textContent = CONFIG.burned;
+    document.getElementById('locked').textContent = CONFIG.locked;
+    document.getElementById('contractAddr').textContent = CONFIG.contract;
+
+    // Make Days Live clickable
+    const daysLink = document.getElementById('daysLink');
+    daysLink.href = CONFIG.daysLiveLink;
+
+    // Days live calc
     function calcDaysLive(isoDate){
       if(!isoDate) return '—';
       const start = new Date(isoDate + 'T00:00:00');
@@ -409,11 +454,10 @@
       const days = Math.floor(ms / (1000 * 60 * 60 * 24));
       return (days >= 0) ? String(days) : '—';
     }
-
-    document.getElementById('daysLive').textContent = calcDaysLive(LAUNCH_DATE);
+    document.getElementById('daysLive').textContent = calcDaysLive(CONFIG.launchDate);
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Copy Contract
+    // Copy contract
     const addrEl = document.getElementById('contractAddr');
     const copyBtn = document.getElementById('copyBtn');
     const copyPill = document.getElementById('copyPill');
