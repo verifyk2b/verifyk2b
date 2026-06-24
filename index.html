@@ -104,6 +104,10 @@ iframe{
   color:#000;
 }
 
+.btn.social{
+  background:#0b1220;
+}
+
 /* CONTRACT */
 .contract{
   background:#0f1115;
@@ -213,14 +217,12 @@ iframe{
         BURN WALLET
       </a>
 
-      <!-- 10Y LOCK -->
       <a class="btn"
          href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
          target="_blank" rel="noopener noreferrer">
         100M LOCK (10Y)
       </a>
 
-      <!-- 5Y LOCK (FIXED - YOUR PROVIDED LINK) -->
       <a class="btn"
          href="https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ"
          target="_blank" rel="noopener noreferrer">
@@ -239,6 +241,19 @@ iframe{
         VERIFICATION HUB
       </a>
 
+      <!-- SOCIALS -->
+      <a class="btn social"
+         href="https://x.com/YOUR_HANDLE"
+         target="_blank" rel="noopener noreferrer">
+        X (TWITTER)
+      </a>
+
+      <a class="btn social"
+         href="https://t.me/YOUR_TELEGRAM"
+         target="_blank" rel="noopener noreferrer">
+        TELEGRAM
+      </a>
+
       <div class="contract">
 At4L287tND4xNR281gdFjfCScAN6RWCb3GinsvZ2v39g
       </div>
@@ -253,18 +268,11 @@ At4L287tND4xNR281gdFjfCScAN6RWCb3GinsvZ2v39g
 
 const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
-/* Risk Engine */
 function risk(liq, vol){
   const ratio = vol / (liq || 1);
 
-  if(liq >= 200000 && ratio >= 0.3){
-    return ["LOW","low"];
-  }
-
-  if(liq >= 75000 && ratio >= 0.1){
-    return ["MED","med"];
-  }
-
+  if(liq >= 200000 && ratio >= 0.3) return ["LOW","low"];
+  if(liq >= 75000 && ratio >= 0.1) return ["MED","med"];
   return ["HIGH","high"];
 }
 
