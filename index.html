@@ -3,95 +3,153 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>K2B Verification Dashboard</title>
+<title>Krumbs 2 Bricks</title>
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
   background:#000;
   color:#fff;
-  font-family:system-ui;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
 }
-.wrap{max-width:1200px;margin:auto;padding:20px}
 
-.hero{text-align:center;margin-bottom:20px}
-.logo{width:420px;max-width:100%}
-.tagline{color:#aaa}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:16px;
+}
 
-.grid{
+.header{
+  text-align:center;
+  padding:18px 10px;
+}
+
+.logo{
+  width:min(420px,100%);
+}
+
+.tagline{
+  color:#9ca3af;
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* METRICS */
+.metrics{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
-  margin-top:20px;
+  margin-top:18px;
 }
 
 .card{
   background:#0f1115;
-  border:1px solid #222;
+  border:1px solid #1f2937;
+  border-radius:14px;
   padding:14px;
+}
+
+.label{
+  font-size:11px;
+  color:#9ca3af;
+  text-transform:uppercase;
+}
+
+.value{
+  font-size:20px;
+  font-weight:800;
+  margin-top:6px;
+}
+
+/* MAIN */
+.main{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:14px;
+  margin-top:16px;
+}
+
+iframe{
+  width:100%;
+  height:620px;
+  border:0;
   border-radius:14px;
 }
 
-.label{font-size:11px;color:#888;text-transform:uppercase}
-.value{font-size:20px;font-weight:800;margin-top:6px}
-
-.main{
-  display:grid;
-  grid-template-columns:1.6fr 1fr;
-  gap:14px;
-  margin-top:18px;
+/* ACTIONS */
+.actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
 .btn{
   display:block;
-  padding:12px;
-  margin:8px 0;
   text-align:center;
-  background:#111;
-  border:1px solid #333;
+  padding:12px;
   border-radius:12px;
+  background:#111827;
+  border:1px solid #374151;
   color:#fff;
   font-weight:700;
+  text-decoration:none;
 }
 
-.btn.green{background:linear-gradient(135deg,#b6ff6b,#2d7a0a);color:#000}
+.btn.primary{
+  background:linear-gradient(135deg,#bef264,#4d7c0f);
+  color:#000;
+}
 
+.contract{
+  background:#0f1115;
+  border:1px solid #1f2937;
+  border-radius:14px;
+  padding:12px;
+  font-family:monospace;
+  font-size:12px;
+  word-break:break-all;
+  color:#9ca3af;
+}
+
+/* RISK */
 .risk{
-  font-size:22px;
+  font-size:20px;
   font-weight:900;
 }
 
-.low{color:#7CFC90}
-.med{color:#FFD166}
-.high{color:#FF5C5C}
+.low{color:#86efac}
+.med{color:#fbbf24}
+.high{color:#f87171}
 
-.small{font-size:12px;color:#888;margin-top:6px}
+/* MOBILE */
+@media(max-width:900px){
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .main{grid-template-columns:1fr}
+  iframe{height:480px}
+}
 
-iframe{
-  width:100%;
-  height:600px;
-  border:0;
-  border-radius:14px;
+@media(max-width:500px){
+  .metrics{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<div class="container">
 
-  <div class="hero">
-    <img class="logo" src="hero.png"/>
+  <div class="header">
+    <img class="logo" src="hero.png" />
     <div class="tagline">
-      Fixed Supply • Locked Liquidity • On-Chain Verification Engine
+      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Verification
     </div>
   </div>
 
-  <!-- LIVE METRICS -->
-  <div class="grid">
+  <div class="metrics">
 
     <div class="card">
-      <div class="label">Liquidity (USD)</div>
+      <div class="label">Liquidity</div>
       <div class="value" id="liq">$—</div>
     </div>
 
@@ -106,7 +164,7 @@ iframe{
     </div>
 
     <div class="card">
-      <div class="label">Risk Score</div>
+      <div class="label">Risk</div>
       <div class="risk" id="risk">—</div>
     </div>
 
@@ -114,33 +172,24 @@ iframe{
 
   <div class="main">
 
-    <!-- CHART -->
     <div>
       <iframe
         src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
       </iframe>
     </div>
 
-    <!-- ACTION PANEL -->
-    <div>
+    <div class="actions">
 
-      <a class="btn green" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">BUY</a>
+      <a class="btn primary" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">BUY</a>
 
-      <a class="btn" href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh">
-        Orca Liquidity Pool
-      </a>
+      <a class="btn" href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh">Orca Liquidity Pool</a>
 
-      <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk">
-        LP Lock Proof
-      </a>
+      <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk">LP Lock Proof</a>
 
-      <a class="btn" href="https://verifyk2b.github.io/verifyk2b/verify/">
-        Verification Hub
-      </a>
+      <a class="btn" href="https://verifyk2b.github.io/verifyk2b/verify/">Verification Hub</a>
 
-      <div class="card">
-        <div class="label">System Status</div>
-        <div class="small" id="status">Loading chain data...</div>
+      <div class="contract" id="contract">
+At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
       </div>
 
     </div>
@@ -150,46 +199,39 @@ iframe{
 </div>
 
 <script>
-const POOL = "sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
+const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
-// risk engine (simple deterministic scoring model)
-function calcRisk(liq, vol){
-  if(liq > 500000 && vol > 200000) return {t:"LOW", c:"low"};
-  if(liq > 100000 && vol > 50000) return {t:"MED", c:"med"};
-  return {t:"HIGH", c:"high"};
+function risk(liq,vol){
+  if(liq>500000&&vol>200000) return ["LOW","low"];
+  if(liq>100000&&vol>50000) return ["MED","med"];
+  return ["HIGH","high"];
 }
 
 async function load(){
   try{
-    const res = await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}`);
-    const data = await res.json();
+    const r=await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}`);
+    const j=await r.json();
 
-    const attrs = data.data.attributes;
+    const a=j.data.attributes;
 
-    const liq = Number(attrs.reserve_in_usd || 0);
-    const vol = Number(attrs.volume_usd?.h24 || 0);
-    const mc  = Number(attrs.fdv_usd || 0);
+    const liq=Number(a.reserve_in_usd||0);
+    const vol=Number(a.volume_usd?.h24||0);
+    const mc=Number(a.fdv_usd||0);
 
-    document.getElementById("liq").innerText = "$" + liq.toLocaleString();
-    document.getElementById("vol").innerText = "$" + vol.toLocaleString();
-    document.getElementById("mc").innerText  = "$" + mc.toLocaleString();
+    document.getElementById("liq").innerText="$"+liq.toLocaleString();
+    document.getElementById("vol").innerText="$"+vol.toLocaleString();
+    document.getElementById("mc").innerText="$"+mc.toLocaleString();
 
-    const risk = calcRisk(liq, vol);
-
-    document.getElementById("risk").innerHTML =
-      `<span class="${risk.c}">${risk.t}</span>`;
-
-    document.getElementById("status").innerText =
-      "On-chain sync active • Liquidity verified via DEX feed";
+    const rsk=risk(liq,vol);
+    document.getElementById("risk").innerHTML=`<span class="${rsk[1]}">${rsk[0]}</span>`;
 
   }catch(e){
-    document.getElementById("status").innerText =
-      "Data sync failed — fallback mode active";
+    document.getElementById("risk").innerText="OFFLINE";
   }
 }
 
 load();
-setInterval(load, 60000);
+setInterval(load,60000);
 </script>
 
 </body>
