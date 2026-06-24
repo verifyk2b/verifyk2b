@@ -64,7 +64,7 @@ body{
   margin-top:6px;
 }
 
-/* MAIN LAYOUT */
+/* MAIN */
 .main{
   display:grid;
   grid-template-columns:2fr 1fr;
@@ -79,7 +79,7 @@ iframe{
   border-radius:14px;
 }
 
-/* ACTION PANEL */
+/* ACTIONS */
 .actions{
   display:flex;
   flex-direction:column;
@@ -198,11 +198,11 @@ iframe{
       <a class="btn"
          href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
          target="_blank" rel="noopener noreferrer">
-        ORCA LP
+        ORCA LIQUIDITY POOL
       </a>
 
       <a class="btn"
-         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         href="https://solscan.io/token/At4L287tND4xNR281gdFjfCScAN6RWCb3GinsvZ2v39g"
          target="_blank" rel="noopener noreferrer">
         TOKEN VIEW
       </a>
@@ -213,15 +213,16 @@ iframe{
         BURN WALLET
       </a>
 
-      <!-- LOCKS -->
+      <!-- 10Y LOCK -->
       <a class="btn"
          href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
          target="_blank" rel="noopener noreferrer">
         100M LOCK (10Y)
       </a>
 
+      <!-- 5Y LOCK (FIXED - YOUR PROVIDED LINK) -->
       <a class="btn"
-         href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8WkNvwg3Gy6iqrcQJjoAwEvZtYFA759qf"
+         href="https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ"
          target="_blank" rel="noopener noreferrer">
         100M LOCK (5Y)
       </a>
@@ -238,9 +239,8 @@ iframe{
         VERIFICATION HUB
       </a>
 
-      <!-- CONTRACT -->
       <div class="contract">
-At4L287tND4xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1
+At4L287tND4xNR281gdFjfCScAN6RWCb3GinsvZ2v39g
       </div>
 
     </div>
@@ -251,21 +251,21 @@ At4L287tND4xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1
 
 <script>
 
-const POOL = "sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
+const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
-/* SIMPLE, STABLE RISK ENGINE */
-function risk(liq, vol) {
+/* Risk Engine */
+function risk(liq, vol){
   const ratio = vol / (liq || 1);
 
-  if (liq >= 200000 && ratio >= 0.3) {
-    return ["LOW", "low"];
+  if(liq >= 200000 && ratio >= 0.3){
+    return ["LOW","low"];
   }
 
-  if (liq >= 75000 && ratio >= 0.1) {
-    return ["MED", "med"];
+  if(liq >= 75000 && ratio >= 0.1){
+    return ["MED","med"];
   }
 
-  return ["HIGH", "high"];
+  return ["HIGH","high"];
 }
 
 async function load(){
