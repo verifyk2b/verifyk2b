@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Krumbs 2 Bricks</title>
+<title>K2B On-Chain Dashboard</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
   margin:0;
   background:#000;
@@ -20,6 +21,7 @@ body{
   padding:16px;
 }
 
+/* HEADER */
 .header{
   text-align:center;
   padding:18px 10px;
@@ -31,8 +33,8 @@ body{
 
 .tagline{
   color:#9ca3af;
-  margin-top:8px;
   font-size:14px;
+  margin-top:8px;
 }
 
 /* METRICS */
@@ -101,6 +103,7 @@ iframe{
   color:#000;
 }
 
+/* CONTRACT */
 .contract{
   background:#0f1115;
   border:1px solid #1f2937;
@@ -142,10 +145,11 @@ iframe{
   <div class="header">
     <img class="logo" src="hero.png" />
     <div class="tagline">
-      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Verification
+      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Verification Layer
     </div>
   </div>
 
+  <!-- METRICS -->
   <div class="metrics">
 
     <div class="card">
@@ -164,12 +168,13 @@ iframe{
     </div>
 
     <div class="card">
-      <div class="label">Risk</div>
-      <div class="risk" id="risk">—</div>
+      <div class="label">Risk Engine</div>
+      <div class="value" id="risk">—</div>
     </div>
 
   </div>
 
+  <!-- MAIN -->
   <div class="main">
 
     <div>
@@ -188,7 +193,7 @@ iframe{
 
       <a class="btn" href="https://verifyk2b.github.io/verifyk2b/verify/">Verification Hub</a>
 
-      <div class="contract" id="contract">
+      <div class="contract">
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
       </div>
 
@@ -199,12 +204,23 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 </div>
 
 <script>
+
 const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
-function risk(liq,vol){
-  if(liq>500000&&vol>200000) return ["LOW","low"];
-  if(liq>100000&&vol>50000) return ["MED","med"];
-  return ["HIGH","high"];
+/* UPDATED RISK ENGINE (FIXED LOGIC) */
+function risk(liq, vol) {
+
+  const ratio = vol / (liq || 1);
+
+  if (liq >= 200000 && ratio >= 0.3) {
+    return ["LOW", "low"];
+  }
+
+  if (liq >= 75000 && ratio >= 0.1) {
+    return ["MED", "med"];
+  }
+
+  return ["HIGH", "high"];
 }
 
 async function load(){
@@ -222,8 +238,10 @@ async function load(){
     document.getElementById("vol").innerText="$"+vol.toLocaleString();
     document.getElementById("mc").innerText="$"+mc.toLocaleString();
 
-    const rsk=risk(liq,vol);
-    document.getElementById("risk").innerHTML=`<span class="${rsk[1]}">${rsk[0]}</span>`;
+    const [label,cls]=risk(liq,vol);
+
+    document.getElementById("risk").innerHTML=
+      `<span class="${cls}">${label}</span>`;
 
   }catch(e){
     document.getElementById("risk").innerText="OFFLINE";
@@ -232,6 +250,7 @@ async function load(){
 
 load();
 setInterval(load,60000);
+
 </script>
 
 </body>
