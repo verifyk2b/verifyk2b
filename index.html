@@ -185,13 +185,47 @@ iframe{
 
     <div class="actions">
 
-      <a class="btn primary" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">BUY</a>
+      <a class="btn primary"
+         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">
+        BUY
+      </a>
 
-      <a class="btn" href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh">Orca Liquidity Pool</a>
+      <a class="btn"
+         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh">
+        ORCA LIQUIDITY POOL
+      </a>
 
-      <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk">LP Lock Proof</a>
+      <a class="btn"
+         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">
+        VIEW TOKEN
+      </a>
 
-      <a class="btn" href="https://verifyk2b.github.io/verifyk2b/verify/">Verification Hub</a>
+      <!-- ADDED: BURN -->
+      <a class="btn"
+         href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3">
+        BURN WALLET
+      </a>
+
+      <!-- ADDED: SUPPLY LOCKS -->
+      <a class="btn"
+         href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC">
+        100M LOCK (10Y)
+      </a>
+
+      <a class="btn"
+         href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8WkNvwg3Gy6iqrcQJjoAwEvZtYFA759qf">
+        100M LOCK (5Y)
+      </a>
+
+      <a class="btn"
+         href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk">
+        LP LOCK PROOF
+      </a>
+
+      <a class="btn"
+         href="https://verifyk2b.github.io/verifyk2b/verify/">
+        VERIFICATION HUB
+      </a>
 
       <div class="contract">
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
@@ -207,9 +241,8 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 
 const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
-/* UPDATED RISK ENGINE (FIXED LOGIC) */
+/* Risk Engine */
 function risk(liq, vol) {
-
   const ratio = vol / (liq || 1);
 
   if (liq >= 200000 && ratio >= 0.3) {
@@ -240,7 +273,7 @@ async function load(){
 
     const [label,cls]=risk(liq,vol);
 
-    document.getElementById("risk").innerHTML=
+    document.getElementById("risk").innerHTML =
       `<span class="${cls}">${label}</span>`;
 
   }catch(e){
