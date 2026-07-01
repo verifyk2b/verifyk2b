@@ -1,375 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Krumbs 2 Bricks</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Token Action Panel</title>
 
-<style>
-*{box-sizing:border-box}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f17;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-body{
-  margin:0;
-  background:#000;
-  color:#fff;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-}
+    .card {
+      width: 360px;
+      background: #121a2a;
+      border: 1px solid #1f2a44;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
 
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:16px;
-}
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
 
-/* HEADER */
-.header{
-  text-align:center;
-  padding:18px 10px;
-}
+    .subtitle {
+      font-size: 12px;
+      color: #9aa4b2;
+      margin-bottom: 16px;
+    }
 
-.logo{
-  width:min(420px,100%);
-}
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
 
-.tagline{
-  color:#9ca3af;
-  font-size:14px;
-  margin-top:8px;
-}
+    .primary {
+      background: #6c5ce7;
+      color: #fff;
+    }
 
-/* MISSION */
-.mission{
-  max-width:900px;
-  margin:18px auto 0;
-  padding:20px;
-  background:#0f1115;
-  border:1px solid #1f2937;
-  border-radius:14px;
-  text-align:center;
-}
+    .primary:hover {
+      background: #7d6df0;
+    }
 
-.mission h2{
-  margin:0 0 14px;
-  font-size:22px;
-  font-weight:900;
-}
+    .secondary {
+      background: #1b2436;
+      color: #ffffff;
+      border: 1px solid #2a3754;
+    }
 
-.mission p{
-  margin:10px 0;
-  color:#d1d5db;
-  line-height:1.6;
-  font-size:14px;
-}
+    .secondary:hover {
+      background: #222e45;
+    }
 
-/* METRICS */
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:18px;
-}
+    .tertiary {
+      background: #111827;
+      color: #cbd5e1;
+      border: 1px solid #26324d;
+    }
 
-.card{
-  background:#0f1115;
-  border:1px solid #1f2937;
-  border-radius:14px;
-  padding:14px;
-}
+    .tertiary:hover {
+      background: #162033;
+    }
 
-.label{
-  font-size:11px;
-  color:#9ca3af;
-  text-transform:uppercase;
-}
-
-.value{
-  font-size:20px;
-  font-weight:800;
-  margin-top:6px;
-}
-
-/* MAIN */
-.main{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:14px;
-  margin-top:16px;
-}
-
-iframe{
-  width:100%;
-  height:620px;
-  border:0;
-  border-radius:14px;
-}
-
-/* ACTIONS */
-.actions{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-/* BASE BUTTON */
-.btn{
-  display:block;
-  text-align:center;
-  padding:12px;
-  border-radius:12px;
-  background:#111827;
-  border:1px solid #374151;
-  color:#fff;
-  font-weight:700;
-  text-decoration:none;
-}
-
-/* SPECIAL BUTTONS */
-.btn.pumpfun{
-  background:linear-gradient(135deg,#bef264,#4d7c0f);
-  color:#000;
-}
-
-.btn.jupiter{
-  background:#20C997;
-  border-color:#17A589;
-  color:#000;
-}
-
-.btn.phantom{
-  background:#AB9FF2;
-  border-color:#C4BAFF;
-  color:#000;
-}
-
-.btn.solflare{
-  background:#FFC83D;
-  border-color:#E0A800;
-  color:#000;
-}
-
-/* SOCIAL */
-.btn.social{
-  background:#0b1220;
-}
-
-/* CONTRACT */
-.contract{
-  background:#0f1115;
-  border:1px solid #1f2937;
-  border-radius:14px;
-  padding:12px;
-  font-family:monospace;
-  font-size:12px;
-  word-break:break-all;
-  color:#9ca3af;
-}
-
-/* RISK */
-.risk{
-  font-size:20px;
-  font-weight:900;
-}
-
-.low{color:#86efac}
-.med{color:#fbbf24}
-.high{color:#f87171}
-
-/* MOBILE */
-@media(max-width:900px){
-  .metrics{grid-template-columns:repeat(2,1fr)}
-  .main{grid-template-columns:1fr}
-  iframe{height:480px}
-}
-
-@media(max-width:500px){
-  .metrics{grid-template-columns:1fr}
-  .mission h2{font-size:18px}
-}
-</style>
+    .footer {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <div class="card">
 
-  <!-- HEADER -->
-  <div class="header">
-    <img class="logo" src="hero.png" />
+    <div class="title">Krumbs 2 Bricks</div>
+    <div class="subtitle">Token Action Gateway</div>
 
-    <div class="tagline">
-      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Verification Layer
+    <!-- Primary execution layer -->
+    <a class="btn primary"
+       href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+       target="_blank" rel="noopener noreferrer">
+      Trade on Jupiter
+    </a>
+
+    <!-- Wallet layer -->
+    <a class="btn secondary"
+       href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump?referralId=9shcoy36mjf"
+       target="_blank" rel="noopener noreferrer">
+      Open in Phantom
+    </a>
+
+    <!-- Analytics / tracking layer -->
+    <a class="btn tertiary"
+       href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump/?utm_source=stp_share"
+       target="_blank" rel="noopener noreferrer">
+      View Price (Solflare)
+    </a>
+
+    <div class="footer">
+      External links only • No custody • No guarantees
     </div>
 
-    <div class="mission">
-      <h2>Market Determines Value</h2>
-
-      <p>Krumbs 2 Bricks is a fixed-supply Solana project built around verifiable on-chain structure.</p>
-      <p>Liquidity, burns, and long-term locks are publicly visible and independently verifiable.</p>
-      <p>The project does not determine value. The Solana ecosystem determines value over time through participation.</p>
-    </div>
   </div>
-
-  <!-- METRICS -->
-  <div class="metrics">
-    <div class="card">
-      <div class="label">Liquidity</div>
-      <div class="value" id="liq">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">24h Volume</div>
-      <div class="value" id="vol">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Market Cap</div>
-      <div class="value" id="mc">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Risk Engine</div>
-      <div class="value" id="risk">—</div>
-    </div>
-  </div>
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <div>
-      <iframe
-        src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
-      </iframe>
-    </div>
-
-    <div class="actions">
-
-      <!-- CORE TRADE STACK -->
-      <a class="btn pumpfun"
-         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PUMP.FUN
-      </a>
-
-      <a class="btn jupiter"
-         href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        JUPITER
-      </a>
-
-      <a class="btn phantom"
-         href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PHANTOM
-      </a>
-
-      <a class="btn solflare"
-         href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        SOLFLARE
-      </a>
-
-      <!-- EXISTING INFRA -->
-      <a class="btn"
-         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-         target="_blank">
-        ORCA LIQUIDITY POOL
-      </a>
-
-      <a class="btn"
-         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        TOKEN VIEW
-      </a>
-
-      <a class="btn"
-         href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-         target="_blank">
-        BURN WALLET
-      </a>
-
-      <a class="btn"
-         href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
-         target="_blank">
-        100M LOCK (10Y)
-      </a>
-
-      <a class="btn"
-         href="https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ"
-         target="_blank">
-        100M LOCK (5Y)
-      </a>
-
-      <a class="btn"
-         href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk"
-         target="_blank">
-        LP LOCK PROOF
-      </a>
-
-      <a class="btn"
-         href="https://verifyk2b.github.io/verifyk2b/verify/"
-         target="_blank">
-        VERIFICATION HUB
-      </a>
-
-      <a class="btn social"
-         href="https://x.com/K2Btoken"
-         target="_blank">
-        X (K2Btoken)
-      </a>
-
-      <a class="btn social"
-         href="https://t.me/YOUR_TELEGRAM"
-         target="_blank">
-        TELEGRAM
-      </a>
-
-      <div class="contract">
-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<script>
-const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
-
-function risk(liq, vol){
-  const ratio = vol / (liq || 1);
-
-  if(liq >= 200000 && ratio >= 0.3) return ["LOW","low"];
-  if(liq >= 75000 && ratio >= 0.1) return ["MED","med"];
-  return ["HIGH","high"];
-}
-
-async function load(){
-  try{
-    const r = await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}`);
-    const j = await r.json();
-
-    const a = j.data.attributes;
-
-    const liq = Number(a.reserve_in_usd || 0);
-    const vol = Number(a.volume_usd?.h24 || 0);
-    const mc  = Number(a.fdv_usd || 0);
-
-    document.getElementById("liq").innerText = "$" + liq.toLocaleString();
-    document.getElementById("vol").innerText = "$" + vol.toLocaleString();
-    document.getElementById("mc").innerText  = "$" + mc.toLocaleString();
-
-    const [label, cls] = risk(liq, vol);
-
-    document.getElementById("risk").innerHTML =
-      `<span class="${cls}">${label}</span>`;
-
-  }catch(e){
-    document.getElementById("risk").innerText = "OFFLINE";
-  }
-}
-
-load();
-setInterval(load, 60000);
-</script>
 
 </body>
 </html>
