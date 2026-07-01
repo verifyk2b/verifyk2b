@@ -124,8 +124,13 @@ iframe{
 }
 
 /* CORE EXECUTION LAYER */
+.btn.hub{
+  background:#0b1220;
+  border:1px solid #1f2937;
+}
+
 .btn.pumpfun{
-  background:linear-gradient(135deg,#bef264,#4d7c0f);
+  background:#bef264;
   color:#000;
   border:none;
 }
@@ -180,6 +185,42 @@ iframe{
 @media(max-width:500px){
   .metrics{grid-template-columns:1fr}
 }
+
+/* =========================
+   MOBILE TRADE BAR (NEW)
+========================= */
+.tradebar{
+  display:none;
+}
+
+@media(max-width:900px){
+  .tradebar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    display:flex;
+    gap:6px;
+    padding:10px;
+    background:#0b0f17;
+    border-top:1px solid #1f2937;
+    z-index:9999;
+  }
+
+  .tradebar a{
+    flex:1;
+    text-align:center;
+    padding:10px;
+    border-radius:10px;
+    font-weight:800;
+    text-decoration:none;
+    font-size:12px;
+  }
+
+  .tb-pump{background:#bef264;color:#000}
+  .tb-jup{background:#20C997;color:#000}
+  .tb-pha{background:#AB9FF2;color:#000}
+}
 </style>
 </head>
 
@@ -200,8 +241,8 @@ iframe{
     <h2>Market Determines Value</h2>
 
     <p>Krumbs 2 Bricks is a fixed-supply Solana project built around verifiable on-chain structure.</p>
-    <p>Liquidity, burns, and long-term locks are publicly visible and independently verifiable.</p>
-    <p>The project does not determine value. Market participation determines value over time.</p>
+    <p>Liquidity, burns, and execution routes are fully transparent.</p>
+    <p>No centralized pricing logic. Market activity defines outcome.</p>
   </div>
 
   <!-- METRICS -->
@@ -238,6 +279,13 @@ iframe{
 
     <div class="actions">
 
+      <!-- PRIMARY ENTRY -->
+      <a class="btn hub"
+         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        TOKEN HUB
+      </a>
+
       <!-- EXECUTION LAYER -->
       <a class="btn pumpfun"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
@@ -263,38 +311,6 @@ iframe{
         SOLFLARE
       </a>
 
-      <!-- IDENTITY LAYER -->
-      <a class="btn"
-         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        TOKEN VIEW
-      </a>
-
-      <a class="btn"
-         href="https://solscan.io/account/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        TOKEN ADDRESS
-      </a>
-
-      <!-- INFRA LAYER -->
-      <a class="btn"
-         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-         target="_blank">
-        LIQUIDITY POOL
-      </a>
-
-      <a class="btn"
-         href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-         target="_blank">
-        BURN WALLET
-      </a>
-
-      <a class="btn"
-         href="https://app.streamflow.finance/"
-         target="_blank">
-        STREAMFLOW LOCK
-      </a>
-
       <!-- SOCIAL -->
       <a class="btn social"
          href="https://x.com/K2Btoken"
@@ -316,6 +332,29 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
   </div>
 </div>
 
+<!-- MOBILE TRADE BAR -->
+<div class="tradebar">
+
+  <a class="tb-pump"
+     href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+     target="_blank">
+    PUMP
+  </a>
+
+  <a class="tb-jup"
+     href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+     target="_blank">
+    JUP
+  </a>
+
+  <a class="tb-pha"
+     href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+     target="_blank">
+    PH
+  </a>
+
+</div>
+
 <script>
 
 const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
@@ -332,7 +371,6 @@ async function load(){
   try{
     const r = await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}`);
     const j = await r.json();
-
     const a = j.data.attributes;
 
     const liq = Number(a.reserve_in_usd || 0);
@@ -344,9 +382,7 @@ async function load(){
     document.getElementById("mc").innerText  = "$" + mc.toLocaleString();
 
     const [label, cls] = risk(liq, vol);
-
-    document.getElementById("risk").innerHTML =
-      `<span class="${cls}">${label}</span>`;
+    document.getElementById("risk").innerHTML = `<span class="${cls}">${label}</span>`;
 
   }catch(e){
     document.getElementById("risk").innerText = "OFFLINE";
