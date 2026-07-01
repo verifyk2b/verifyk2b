@@ -77,7 +77,7 @@ iframe{
   border-radius:14px;
 }
 
-/* BUTTONS */
+/* BUTTON SYSTEM */
 .actions{
   display:flex;
   flex-direction:column;
@@ -96,20 +96,35 @@ iframe{
   text-decoration:none;
 }
 
-.btn.jupiter{background:#20C997;color:#000;border:none}
-.btn.phantom{background:#AB9FF2;color:#000;border:none}
-.btn.solflare{background:#FFC83D;color:#000;border:none}
-.btn.pump{background:#bef264;color:#000;border:none}
-
-/* RISK */
-.risk{
-  font-size:22px;
-  font-weight:900;
+/* CORE TRADE LAYER */
+.btn.pump{
+  background:linear-gradient(135deg,#bef264,#4d7c0f);
+  color:#000;
+  border:none;
 }
 
-.low{color:#86efac}
-.med{color:#fbbf24}
-.high{color:#f87171}
+.btn.jupiter{
+  background:#20C997;
+  color:#000;
+  border:none;
+}
+
+.btn.phantom{
+  background:#AB9FF2;
+  color:#000;
+  border:none;
+}
+
+.btn.solflare{
+  background:#FFC83D;
+  color:#000;
+  border:none;
+}
+
+/* SOCIAL */
+.btn.social{
+  background:#0b1220;
+}
 
 /* CONTRACT */
 .contract{
@@ -123,12 +138,23 @@ iframe{
   color:#9ca3af;
 }
 
+/* RISK */
+.risk{
+  font-size:22px;
+  font-weight:900;
+}
+
+.low{color:#86efac}
+.med{color:#fbbf24}
+.high{color:#f87171}
+
 /* MOBILE */
 @media(max-width:900px){
   .metrics{grid-template-columns:repeat(2,1fr)}
   .main{grid-template-columns:1fr}
   iframe{height:480px}
 }
+
 @media(max-width:500px){
   .metrics{grid-template-columns:1fr}
 }
@@ -142,6 +168,7 @@ iframe{
   <!-- HEADER -->
   <div class="header">
     <img class="logo" src="hero.png" />
+
     <div class="tagline">
       Locked Supply • Burn Verified • LP Secured • On-Chain Transparency Layer
     </div>
@@ -173,14 +200,17 @@ iframe{
   <!-- MAIN -->
   <div class="main">
 
+    <!-- CHART -->
     <div>
       <iframe
         src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
       </iframe>
     </div>
 
+    <!-- ACTIONS -->
     <div class="actions">
 
+      <!-- TRADE FLOW -->
       <a class="btn pump"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
@@ -190,7 +220,7 @@ iframe{
       <a class="btn jupiter"
          href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        JUPITER SWAP
+        JUPITER
       </a>
 
       <a class="btn phantom"
@@ -205,10 +235,17 @@ iframe{
         SOLFLARE
       </a>
 
+      <!-- VERIFICATION LAYER -->
       <a class="btn"
          href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
         TOKEN VIEW
+      </a>
+
+      <a class="btn"
+         href="https://solscan.io/account/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        K2B ADDRESS
       </a>
 
       <a class="btn"
@@ -226,7 +263,20 @@ iframe{
       <a class="btn"
          href="https://app.streamflow.finance/"
          target="_blank">
-        LOCK VERIFICATION
+        STREAMFLOW LOCK
+      </a>
+
+      <!-- SOCIAL LAYER -->
+      <a class="btn social"
+         href="https://x.com/K2Btoken"
+         target="_blank">
+        X (K2B)
+      </a>
+
+      <a class="btn social"
+         href="https://t.me/YOUR_TELEGRAM"
+         target="_blank">
+        TELEGRAM
       </a>
 
       <div class="contract">
