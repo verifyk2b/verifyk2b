@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Krumbs 2 Bricks (K2B)</title>
+<title>Krumbs 2 Bricks</title>
 
 <style>
 *{box-sizing:border-box}
@@ -37,28 +37,27 @@ body{
   margin-top:8px;
 }
 
-/* MISSION */
-.mission{
+/* SECTIONS */
+.section{
   max-width:900px;
   margin:18px auto 0;
-  padding:20px;
+  padding:18px;
   background:#0f1115;
   border:1px solid #1f2937;
   border-radius:14px;
-  text-align:center;
 }
 
-.mission h2{
-  margin:0 0 14px;
-  font-size:22px;
+.section h2{
+  margin:0 0 10px;
+  font-size:18px;
   font-weight:900;
 }
 
-.mission p{
-  margin:10px 0;
+.section p{
+  margin:8px 0 14px;
   color:#d1d5db;
-  line-height:1.6;
   font-size:14px;
+  line-height:1.6;
 }
 
 /* METRICS */
@@ -123,22 +122,10 @@ iframe{
   text-decoration:none;
 }
 
-/* PRIMARY EXECUTION LAYER */
 .btn.primary{
   background:linear-gradient(135deg,#bef264,#4d7c0f);
   color:#000;
   border:none;
-}
-
-/* K2B EXECUTION COLORS */
-.btn.jupiter{background:#20C997;color:#000;border:none}
-.btn.phantom{background:#AB9FF2;color:#000;border:none}
-.btn.solflare{background:#FFC83D;color:#000;border:none}
-.btn.pump{background:#facc15;color:#000;border:none}
-
-/* SOCIAL */
-.btn.social{
-  background:#0b1220;
 }
 
 /* CONTRACT */
@@ -154,11 +141,6 @@ iframe{
 }
 
 /* RISK */
-.risk{
-  font-size:20px;
-  font-weight:900;
-}
-
 .low{color:#86efac}
 .med{color:#fbbf24}
 .high{color:#f87171}
@@ -172,7 +154,6 @@ iframe{
 
 @media(max-width:500px){
   .metrics{grid-template-columns:1fr}
-  .mission h2{font-size:18px}
 }
 </style>
 </head>
@@ -184,26 +165,53 @@ iframe{
   <!-- HEADER -->
   <div class="header">
     <img class="logo" src="hero.png" />
-
     <div class="tagline">
-      K2B • Fixed Supply • Burn Verified • Locked Liquidity • On-Chain Transparency Layer
+      Fixed Supply • Burn Verified • Locked Liquidity • On-Chain Transparency Layer
     </div>
+  </div>
 
-    <div class="mission">
-      <h2>Market Determines Value</h2>
+  <!-- TOKEN HUB (FIXED) -->
+  <div class="section">
+    <h2>Token Hub</h2>
+    <p>Execution layer for market interaction and trading routes.</p>
 
-      <p>
-        Krumbs 2 Bricks (K2B) operates as a fixed-supply Solana asset with verifiable on-chain structure.
-      </p>
+    <a class="btn primary"
+       href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+       target="_blank">BUY ON PUMP</a>
 
-      <p>
-        Liquidity, burns, and locks are independently verifiable through public infrastructure.
-      </p>
+    <a class="btn"
+       href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+       target="_blank">JUPITER SWAP</a>
 
-      <p>
-        Value is not assigned. It is discovered through liquidity, participation, and market execution.
-      </p>
-    </div>
+    <a class="btn"
+       href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+       target="_blank">SOLFLARE VIEW</a>
+
+    <a class="btn"
+       href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+       target="_blank">PHANTOM WALLET</a>
+  </div>
+
+  <!-- LOCKS (FIXED) -->
+  <div class="section">
+    <h2>Locks & Verification</h2>
+    <p>On-chain locks, burn validation, and liquidity security infrastructure.</p>
+
+    <a class="btn"
+       href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
+       target="_blank">10 YEAR LOCK</a>
+
+    <a class="btn"
+       href="https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ"
+       target="_blank">5 YEAR LOCK</a>
+
+    <a class="btn"
+       href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
+       target="_blank">LIQUIDITY POOL</a>
+
+    <a class="btn"
+       href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
+       target="_blank">BURN WALLET</a>
   </div>
 
   <!-- METRICS -->
@@ -240,68 +248,21 @@ iframe{
 
     <div class="actions">
 
-      <!-- EXECUTION STACK (RESTORED + UNIFIED K2B) -->
-      <a class="btn pump"
-         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PUMP.FUN (K2B ENTRY)
-      </a>
-
-      <a class="btn jupiter"
-         href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        JUPITER SWAP (K2B)
-      </a>
-
-      <a class="btn phantom"
-         href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PHANTOM WALLET (K2B)
-      </a>
-
-      <a class="btn solflare"
-         href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        SOLFLARE PRICE (K2B)
-      </a>
-
-      <!-- VERIFIED INFRA -->
-      <a class="btn"
-         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-         target="_blank">
-        LIQUIDITY POOL
-      </a>
-
-      <a class="btn"
+      <a class="btn primary"
          href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        TOKEN VIEW
-      </a>
+         target="_blank">TOKEN VIEW</a>
 
       <a class="btn"
-         href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-         target="_blank">
-        BURN WALLET
-      </a>
+         href="https://verifyk2b.github.io/verifyk2b/verify/"
+         target="_blank">VERIFICATION HUB</a>
 
       <a class="btn"
-         href="https://app.streamflow.finance/"
-         target="_blank">
-        LOCK VERIFICATION
-      </a>
-
-      <!-- SOCIAL -->
-      <a class="btn social"
          href="https://x.com/K2Btoken"
-         target="_blank">
-        X (K2B)
-      </a>
+         target="_blank">X</a>
 
-      <a class="btn social"
+      <a class="btn"
          href="https://t.me/YOUR_TELEGRAM"
-         target="_blank">
-        TELEGRAM
-      </a>
+         target="_blank">TELEGRAM</a>
 
       <div class="contract">
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
@@ -309,6 +270,7 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 
     </div>
   </div>
+
 </div>
 
 <script>
