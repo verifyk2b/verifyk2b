@@ -1,132 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Web3 Token Dashboard</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Krumbs 2 Bricks Dashboard</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #070a12;
-      color: white;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
+<style>
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+}
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:16px;
+}
 
-    .card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 12px;
-      padding: 14px;
-    }
+/* HEADER */
+.header{
+  text-align:center;
+  padding:18px 10px;
+}
 
-    .title {
-      font-size: 18px;
-      font-weight: 700;
-    }
+.logo{
+  width:min(420px,100%);
+}
 
-    .subtitle {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 4px;
-    }
+.tagline{
+  color:#9ca3af;
+  font-size:14px;
+  margin-top:8px;
+}
 
-    .label {
-      font-size: 11px;
-      color: #9ca3af;
-    }
+/* METRICS */
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:18px;
+}
 
-    .mono {
-      font-size: 12px;
-      word-break: break-all;
-      margin-top: 4px;
-    }
+.card{
+  background:#0f1115;
+  border:1px solid #1f2937;
+  border-radius:14px;
+  padding:14px;
+}
 
-    a.button {
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-decoration: none;
-      color: white;
-    }
+.label{
+  font-size:11px;
+  color:#9ca3af;
+  text-transform:uppercase;
+}
 
-    .jupiter { background: #7c3aed; }
-    .phantom { background: #1f2937; }
-    .solflare { background: #111827; border: 1px solid #2a2f3a; }
+.value{
+  font-size:20px;
+  font-weight:800;
+  margin-top:6px;
+}
 
-    .footer {
-      font-size: 10px;
-      color: #6b7280;
-      text-align: center;
-      margin-top: 6px;
-    }
-  </style>
+/* MAIN */
+.main{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:14px;
+  margin-top:16px;
+}
+
+iframe{
+  width:100%;
+  height:620px;
+  border:0;
+  border-radius:14px;
+}
+
+/* BUTTONS */
+.actions{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn{
+  display:block;
+  text-align:center;
+  padding:12px;
+  border-radius:12px;
+  background:#111827;
+  border:1px solid #374151;
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.btn.jupiter{background:#20C997;color:#000;border:none}
+.btn.phantom{background:#AB9FF2;color:#000;border:none}
+.btn.solflare{background:#FFC83D;color:#000;border:none}
+.btn.pump{background:#bef264;color:#000;border:none}
+
+/* RISK */
+.risk{
+  font-size:22px;
+  font-weight:900;
+}
+
+.low{color:#86efac}
+.med{color:#fbbf24}
+.high{color:#f87171}
+
+/* CONTRACT */
+.contract{
+  background:#0f1115;
+  border:1px solid #1f2937;
+  border-radius:14px;
+  padding:12px;
+  font-family:monospace;
+  font-size:12px;
+  word-break:break-all;
+  color:#9ca3af;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .main{grid-template-columns:1fr}
+  iframe{height:480px}
+}
+@media(max-width:500px){
+  .metrics{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <div class="card">
-      <div class="title">Web3 Token Dashboard</div>
-      <div class="subtitle">Mobile execution layer</div>
+  <!-- HEADER -->
+  <div class="header">
+    <img class="logo" src="hero.png" />
+    <div class="tagline">
+      Locked Supply • Burn Verified • LP Secured • On-Chain Transparency Layer
     </div>
-
-    <div class="card">
-      <div class="label">Token Mint</div>
-      <div class="mono" id="token"></div>
-    </div>
-
-    <a class="button jupiter" id="jup" target="_blank">
-      Trade on Jupiter
-    </a>
-
-    <a class="button phantom" id="phantom" target="_blank">
-      Open in Phantom
-    </a>
-
-    <a class="button solflare" id="solflare" target="_blank">
-      View Price (Solflare)
-    </a>
-
-    <div class="footer">
-      External links only • Mobile optimized execution layer
-    </div>
-
   </div>
 
-  <script>
-    const token =
-      "At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
+  <!-- METRICS -->
+  <div class="metrics">
+    <div class="card">
+      <div class="label">Liquidity</div>
+      <div class="value" id="liq">$—</div>
+    </div>
 
-    document.getElementById("token").innerText = token;
+    <div class="card">
+      <div class="label">24h Volume</div>
+      <div class="value" id="vol">$—</div>
+    </div>
 
-    document.getElementById("jup").href =
-      "https://jup.ag/tokens/" + token;
+    <div class="card">
+      <div class="label">Market Cap</div>
+      <div class="value" id="mc">$—</div>
+    </div>
 
-    document.getElementById("phantom").href =
-      "https://phantom.com/tokens/solana/" +
-      token +
-      "?referralId=9shcoy36mjf";
+    <div class="card">
+      <div class="label">Risk Engine</div>
+      <div class="value" id="risk">—</div>
+    </div>
+  </div>
 
-    document.getElementById("solflare").href =
-      "https://www.solflare.com/prices/krumbs-2-bricks/" +
-      token +
-      "/";
-  </script>
+  <!-- MAIN -->
+  <div class="main">
+
+    <div>
+      <iframe
+        src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
+      </iframe>
+    </div>
+
+    <div class="actions">
+
+      <a class="btn pump"
+         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        PUMP.FUN
+      </a>
+
+      <a class="btn jupiter"
+         href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        JUPITER SWAP
+      </a>
+
+      <a class="btn phantom"
+         href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        PHANTOM
+      </a>
+
+      <a class="btn solflare"
+         href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        SOLFLARE
+      </a>
+
+      <a class="btn"
+         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        TOKEN VIEW
+      </a>
+
+      <a class="btn"
+         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
+         target="_blank">
+        LIQUIDITY POOL
+      </a>
+
+      <a class="btn"
+         href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
+         target="_blank">
+        BURN WALLET
+      </a>
+
+      <a class="btn"
+         href="https://app.streamflow.finance/"
+         target="_blank">
+        LOCK VERIFICATION
+      </a>
+
+      <div class="contract">
+At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
+
+function risk(liq, vol){
+  const ratio = vol / (liq || 1);
+
+  if(liq > 200000 && ratio > 0.25) return ["LOW","low"];
+  if(liq > 75000 && ratio > 0.1) return ["MED","med"];
+  return ["HIGH","high"];
+}
+
+async function load(){
+  try{
+    const r = await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}`);
+    const j = await r.json();
+
+    const a = j.data.attributes;
+
+    const liq = Number(a.reserve_in_usd || 0);
+    const vol = Number(a.volume_usd?.h24 || 0);
+    const mc  = Number(a.fdv_usd || 0);
+
+    document.getElementById("liq").innerText = "$" + liq.toLocaleString();
+    document.getElementById("vol").innerText = "$" + vol.toLocaleString();
+    document.getElementById("mc").innerText  = "$" + mc.toLocaleString();
+
+    const [label, cls] = risk(liq, vol);
+
+    document.getElementById("risk").innerHTML =
+      `<span class="${cls}">${label}</span>`;
+
+  }catch(e){
+    document.getElementById("risk").innerText = "OFFLINE";
+  }
+}
+
+load();
+setInterval(load, 60000);
+
+</script>
 
 </body>
 </html>
