@@ -48,19 +48,6 @@ body{
   text-align:center;
 }
 
-.mission h2{
-  margin:0 0 14px;
-  font-size:22px;
-  font-weight:900;
-}
-
-.mission p{
-  margin:10px 0;
-  color:#d1d5db;
-  line-height:1.6;
-  font-size:14px;
-}
-
 /* METRICS */
 .metrics{
   display:grid;
@@ -123,34 +110,22 @@ iframe{
   text-decoration:none;
 }
 
-/* CORE EXECUTION LAYER */
+/* PRIMARY HUB */
 .btn.hub{
   background:#0b1220;
-  border:1px solid #1f2937;
+  border:2px solid #3b82f6;
 }
 
-.btn.pumpfun{
-  background:#bef264;
-  color:#000;
-  border:none;
-}
+/* EXECUTION */
+.btn.pumpfun{background:#bef264;color:#000;border:none}
+.btn.jupiter{background:#20C997;color:#000;border:none}
+.btn.phantom{background:#AB9FF2;color:#000;border:none}
+.btn.solflare{background:#FFC83D;color:#000;border:none}
 
-.btn.jupiter{
-  background:#20C997;
-  color:#000;
-  border:none;
-}
-
-.btn.phantom{
-  background:#AB9FF2;
-  color:#000;
-  border:none;
-}
-
-.btn.solflare{
-  background:#FFC83D;
-  color:#000;
-  border:none;
+/* VERIFICATION HUB (FORCED VISIBILITY) */
+.btn.verify{
+  background:#111827;
+  border:2px solid #f97316;
 }
 
 /* SOCIAL */
@@ -186,9 +161,7 @@ iframe{
   .metrics{grid-template-columns:1fr}
 }
 
-/* =========================
-   MOBILE TRADE BAR (NEW)
-========================= */
+/* MOBILE TRADE BAR */
 .tradebar{
   display:none;
 }
@@ -238,34 +211,15 @@ iframe{
 
   <!-- MISSION -->
   <div class="mission">
-    <h2>Market Determines Value</h2>
-
-    <p>Krumbs 2 Bricks is a fixed-supply Solana project built around verifiable on-chain structure.</p>
-    <p>Liquidity, burns, and execution routes are fully transparent.</p>
-    <p>No centralized pricing logic. Market activity defines outcome.</p>
+    Krumbs 2 Bricks operates on transparent on-chain structure. Market-driven valuation only.
   </div>
 
   <!-- METRICS -->
   <div class="metrics">
-    <div class="card">
-      <div class="label">Liquidity</div>
-      <div class="value" id="liq">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">24h Volume</div>
-      <div class="value" id="vol">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Market Cap</div>
-      <div class="value" id="mc">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Risk Engine</div>
-      <div class="value" id="risk">—</div>
-    </div>
+    <div class="card"><div class="label">Liquidity</div><div class="value" id="liq">$—</div></div>
+    <div class="card"><div class="label">24h Volume</div><div class="value" id="vol">$—</div></div>
+    <div class="card"><div class="label">Market Cap</div><div class="value" id="mc">$—</div></div>
+    <div class="card"><div class="label">Risk Engine</div><div class="value" id="risk">—</div></div>
   </div>
 
   <!-- MAIN -->
@@ -279,50 +233,27 @@ iframe{
 
     <div class="actions">
 
-      <!-- PRIMARY ENTRY -->
+      <!-- TOKEN HUB -->
       <a class="btn hub"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
         TOKEN HUB
       </a>
 
-      <!-- EXECUTION LAYER -->
-      <a class="btn pumpfun"
-         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+      <a class="btn pumpfun" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">PUMP.FUN</a>
+      <a class="btn jupiter" href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">JUPITER</a>
+      <a class="btn phantom" href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">PHANTOM</a>
+      <a class="btn solflare" href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">SOLFLARE</a>
+
+      <!-- 🔥 FIXED VISIBILITY -->
+      <a class="btn verify"
+         href="https://verifyk2b.github.io/verifyk2b/verify/"
          target="_blank">
-        PUMP.FUN
+        VERIFICATION HUB
       </a>
 
-      <a class="btn jupiter"
-         href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        JUPITER
-      </a>
-
-      <a class="btn phantom"
-         href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PHANTOM
-      </a>
-
-      <a class="btn solflare"
-         href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        SOLFLARE
-      </a>
-
-      <!-- SOCIAL -->
-      <a class="btn social"
-         href="https://x.com/K2Btoken"
-         target="_blank">
-        X (K2B)
-      </a>
-
-      <a class="btn social"
-         href="https://t.me/YOUR_TELEGRAM"
-         target="_blank">
-        TELEGRAM
-      </a>
+      <a class="btn social" href="https://x.com/K2Btoken">X (K2B)</a>
+      <a class="btn social" href="https://t.me/YOUR_TELEGRAM">TELEGRAM</a>
 
       <div class="contract">
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
@@ -332,36 +263,18 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
   </div>
 </div>
 
-<!-- MOBILE TRADE BAR -->
+<!-- MOBILE BAR -->
 <div class="tradebar">
-
-  <a class="tb-pump"
-     href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-     target="_blank">
-    PUMP
-  </a>
-
-  <a class="tb-jup"
-     href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-     target="_blank">
-    JUP
-  </a>
-
-  <a class="tb-pha"
-     href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-     target="_blank">
-    PH
-  </a>
-
+  <a class="tb-pump" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">PUMP</a>
+  <a class="tb-jup" href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">JUP</a>
+  <a class="tb-pha" href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump">PH</a>
 </div>
 
 <script>
-
 const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
 function risk(liq, vol){
   const ratio = vol / (liq || 1);
-
   if(liq >= 200000 && ratio >= 0.3) return ["LOW","low"];
   if(liq >= 75000 && ratio >= 0.1) return ["MED","med"];
   return ["HIGH","high"];
@@ -383,7 +296,6 @@ async function load(){
 
     const [label, cls] = risk(liq, vol);
     document.getElementById("risk").innerHTML = `<span class="${cls}">${label}</span>`;
-
   }catch(e){
     document.getElementById("risk").innerText = "OFFLINE";
   }
@@ -391,7 +303,6 @@ async function load(){
 
 load();
 setInterval(load, 60000);
-
 </script>
 
 </body>
