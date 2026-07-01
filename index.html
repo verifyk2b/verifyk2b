@@ -3,126 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Token Action Panel</title>
+  <title>Web3 Token Dashboard</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b0f17;
-      color: #ffffff;
+      background: #070a12;
+      color: white;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .card {
-      width: 360px;
-      background: #121a2a;
-      border: 1px solid #1f2a44;
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 14px;
     }
 
     .title {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 6px;
+      font-size: 18px;
+      font-weight: 700;
     }
 
     .subtitle {
       font-size: 12px;
-      color: #9aa4b2;
-      margin-bottom: 16px;
+      color: #9ca3af;
+      margin-top: 4px;
     }
 
-    .btn {
+    .label {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .mono {
+      font-size: 12px;
+      word-break: break-all;
+      margin-top: 4px;
+    }
+
+    a.button {
       display: block;
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 10px;
-      border-radius: 10px;
       text-align: center;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
+      color: white;
     }
 
-    .primary {
-      background: #6c5ce7;
-      color: #fff;
-    }
-
-    .primary:hover {
-      background: #7d6df0;
-    }
-
-    .secondary {
-      background: #1b2436;
-      color: #ffffff;
-      border: 1px solid #2a3754;
-    }
-
-    .secondary:hover {
-      background: #222e45;
-    }
-
-    .tertiary {
-      background: #111827;
-      color: #cbd5e1;
-      border: 1px solid #26324d;
-    }
-
-    .tertiary:hover {
-      background: #162033;
-    }
+    .jupiter { background: #7c3aed; }
+    .phantom { background: #1f2937; }
+    .solflare { background: #111827; border: 1px solid #2a2f3a; }
 
     .footer {
-      margin-top: 12px;
-      font-size: 11px;
+      font-size: 10px;
       color: #6b7280;
       text-align: center;
+      margin-top: 6px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
+  <div class="container">
 
-    <div class="title">Krumbs 2 Bricks</div>
-    <div class="subtitle">Token Action Gateway</div>
+    <div class="card">
+      <div class="title">Web3 Token Dashboard</div>
+      <div class="subtitle">Mobile execution layer</div>
+    </div>
 
-    <!-- Primary execution layer -->
-    <a class="btn primary"
-       href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank" rel="noopener noreferrer">
+    <div class="card">
+      <div class="label">Token Mint</div>
+      <div class="mono" id="token"></div>
+    </div>
+
+    <a class="button jupiter" id="jup" target="_blank">
       Trade on Jupiter
     </a>
 
-    <!-- Wallet layer -->
-    <a class="btn secondary"
-       href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump?referralId=9shcoy36mjf"
-       target="_blank" rel="noopener noreferrer">
+    <a class="button phantom" id="phantom" target="_blank">
       Open in Phantom
     </a>
 
-    <!-- Analytics / tracking layer -->
-    <a class="btn tertiary"
-       href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump/?utm_source=stp_share"
-       target="_blank" rel="noopener noreferrer">
+    <a class="button solflare" id="solflare" target="_blank">
       View Price (Solflare)
     </a>
 
     <div class="footer">
-      External links only • No custody • No guarantees
+      External links only • Mobile optimized execution layer
     </div>
 
   </div>
+
+  <script>
+    const token =
+      "At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump";
+
+    document.getElementById("token").innerText = token;
+
+    document.getElementById("jup").href =
+      "https://jup.ag/tokens/" + token;
+
+    document.getElementById("phantom").href =
+      "https://phantom.com/tokens/solana/" +
+      token +
+      "?referralId=9shcoy36mjf";
+
+    document.getElementById("solflare").href =
+      "https://www.solflare.com/prices/krumbs-2-bricks/" +
+      token +
+      "/";
+  </script>
 
 </body>
 </html>
