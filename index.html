@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Krumbs 2 Bricks Dashboard</title>
+<title>Krumbs 2 Bricks (K2B)</title>
 
 <style>
+*{box-sizing:border-box}
+
 body{
   margin:0;
   background:#000;
@@ -33,6 +35,30 @@ body{
   color:#9ca3af;
   font-size:14px;
   margin-top:8px;
+}
+
+/* MISSION */
+.mission{
+  max-width:900px;
+  margin:18px auto 0;
+  padding:20px;
+  background:#0f1115;
+  border:1px solid #1f2937;
+  border-radius:14px;
+  text-align:center;
+}
+
+.mission h2{
+  margin:0 0 14px;
+  font-size:22px;
+  font-weight:900;
+}
+
+.mission p{
+  margin:10px 0;
+  color:#d1d5db;
+  line-height:1.6;
+  font-size:14px;
 }
 
 /* METRICS */
@@ -77,13 +103,14 @@ iframe{
   border-radius:14px;
 }
 
-/* BUTTON SYSTEM */
+/* ACTIONS */
 .actions{
   display:flex;
   flex-direction:column;
   gap:10px;
 }
 
+/* BUTTONS */
 .btn{
   display:block;
   text-align:center;
@@ -96,30 +123,18 @@ iframe{
   text-decoration:none;
 }
 
-/* CORE TRADE LAYER */
-.btn.pump{
+/* PRIMARY EXECUTION LAYER */
+.btn.primary{
   background:linear-gradient(135deg,#bef264,#4d7c0f);
   color:#000;
   border:none;
 }
 
-.btn.jupiter{
-  background:#20C997;
-  color:#000;
-  border:none;
-}
-
-.btn.phantom{
-  background:#AB9FF2;
-  color:#000;
-  border:none;
-}
-
-.btn.solflare{
-  background:#FFC83D;
-  color:#000;
-  border:none;
-}
+/* K2B EXECUTION COLORS */
+.btn.jupiter{background:#20C997;color:#000;border:none}
+.btn.phantom{background:#AB9FF2;color:#000;border:none}
+.btn.solflare{background:#FFC83D;color:#000;border:none}
+.btn.pump{background:#facc15;color:#000;border:none}
 
 /* SOCIAL */
 .btn.social{
@@ -140,7 +155,7 @@ iframe{
 
 /* RISK */
 .risk{
-  font-size:22px;
+  font-size:20px;
   font-weight:900;
 }
 
@@ -157,6 +172,7 @@ iframe{
 
 @media(max-width:500px){
   .metrics{grid-template-columns:1fr}
+  .mission h2{font-size:18px}
 }
 </style>
 </head>
@@ -170,7 +186,23 @@ iframe{
     <img class="logo" src="hero.png" />
 
     <div class="tagline">
-      Locked Supply • Burn Verified • LP Secured • On-Chain Transparency Layer
+      K2B • Fixed Supply • Burn Verified • Locked Liquidity • On-Chain Transparency Layer
+    </div>
+
+    <div class="mission">
+      <h2>Market Determines Value</h2>
+
+      <p>
+        Krumbs 2 Bricks (K2B) operates as a fixed-supply Solana asset with verifiable on-chain structure.
+      </p>
+
+      <p>
+        Liquidity, burns, and locks are independently verifiable through public infrastructure.
+      </p>
+
+      <p>
+        Value is not assigned. It is discovered through liquidity, participation, and market execution.
+      </p>
     </div>
   </div>
 
@@ -200,58 +232,50 @@ iframe{
   <!-- MAIN -->
   <div class="main">
 
-    <!-- CHART -->
     <div>
       <iframe
         src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
       </iframe>
     </div>
 
-    <!-- ACTIONS -->
     <div class="actions">
 
-      <!-- TRADE FLOW -->
+      <!-- EXECUTION STACK (RESTORED + UNIFIED K2B) -->
       <a class="btn pump"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        PUMP.FUN
+        PUMP.FUN (K2B ENTRY)
       </a>
 
       <a class="btn jupiter"
          href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        JUPITER
+        JUPITER SWAP (K2B)
       </a>
 
       <a class="btn phantom"
          href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        PHANTOM
+        PHANTOM WALLET (K2B)
       </a>
 
       <a class="btn solflare"
          href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        SOLFLARE
+        SOLFLARE PRICE (K2B)
       </a>
 
-      <!-- VERIFICATION LAYER -->
-      <a class="btn"
-         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        TOKEN VIEW
-      </a>
-
-      <a class="btn"
-         href="https://solscan.io/account/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        K2B ADDRESS
-      </a>
-
+      <!-- VERIFIED INFRA -->
       <a class="btn"
          href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
          target="_blank">
         LIQUIDITY POOL
+      </a>
+
+      <a class="btn"
+         href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        TOKEN VIEW
       </a>
 
       <a class="btn"
@@ -263,10 +287,10 @@ iframe{
       <a class="btn"
          href="https://app.streamflow.finance/"
          target="_blank">
-        STREAMFLOW LOCK
+        LOCK VERIFICATION
       </a>
 
-      <!-- SOCIAL LAYER -->
+      <!-- SOCIAL -->
       <a class="btn social"
          href="https://x.com/K2Btoken"
          target="_blank">
@@ -294,8 +318,8 @@ const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 function risk(liq, vol){
   const ratio = vol / (liq || 1);
 
-  if(liq > 200000 && ratio > 0.25) return ["LOW","low"];
-  if(liq > 75000 && ratio > 0.1) return ["MED","med"];
+  if(liq >= 200000 && ratio >= 0.3) return ["LOW","low"];
+  if(liq >= 75000 && ratio >= 0.1) return ["MED","med"];
   return ["HIGH","high"];
 }
 
