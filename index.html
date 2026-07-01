@@ -37,6 +37,30 @@ body{
   margin-top:8px;
 }
 
+/* MISSION */
+.mission{
+  max-width:900px;
+  margin:18px auto 0;
+  padding:20px;
+  background:#0f1115;
+  border:1px solid #1f2937;
+  border-radius:14px;
+  text-align:center;
+}
+
+.mission h2{
+  margin:0 0 14px;
+  font-size:22px;
+  font-weight:900;
+}
+
+.mission p{
+  margin:10px 0;
+  color:#d1d5db;
+  line-height:1.6;
+  font-size:14px;
+}
+
 /* METRICS */
 .metrics{
   display:grid;
@@ -64,7 +88,7 @@ body{
   margin-top:6px;
 }
 
-/* MAIN LAYOUT */
+/* MAIN */
 .main{
   display:grid;
   grid-template-columns:2fr 1fr;
@@ -79,7 +103,7 @@ iframe{
   border-radius:14px;
 }
 
-/* ACTION RAIL (RESTORED CORE FEATURE) */
+/* ACTIONS */
 .actions{
   display:flex;
   flex-direction:column;
@@ -100,7 +124,7 @@ iframe{
 }
 
 /* CORE EXECUTION LAYER */
-.btn.pump{
+.btn.pumpfun{
   background:linear-gradient(135deg,#bef264,#4d7c0f);
   color:#000;
   border:none;
@@ -124,7 +148,7 @@ iframe{
   border:none;
 }
 
-/* SUPPORT LAYER */
+/* SOCIAL */
 .btn.social{
   background:#0b1220;
 }
@@ -167,11 +191,20 @@ iframe{
   <div class="header">
     <img class="logo" src="hero.png" />
     <div class="tagline">
-      Locked Supply • Burn Verified • LP Secured • On-Chain Transparency Layer
+      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Verification Layer
     </div>
   </div>
 
-  <!-- METRICS (kept high priority) -->
+  <!-- MISSION -->
+  <div class="mission">
+    <h2>Market Determines Value</h2>
+
+    <p>Krumbs 2 Bricks is a fixed-supply Solana project built around verifiable on-chain structure.</p>
+    <p>Liquidity, burns, and long-term locks are publicly visible and independently verifiable.</p>
+    <p>The project does not determine value. Market participation determines value over time.</p>
+  </div>
+
+  <!-- METRICS -->
   <div class="metrics">
     <div class="card">
       <div class="label">Liquidity</div>
@@ -197,17 +230,16 @@ iframe{
   <!-- MAIN -->
   <div class="main">
 
-    <!-- CHART -->
     <div>
       <iframe
         src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
       </iframe>
     </div>
 
-    <!-- EXECUTION RAIL (RESTORED FORMAT) -->
     <div class="actions">
 
-      <a class="btn pump"
+      <!-- EXECUTION LAYER -->
+      <a class="btn pumpfun"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
         PUMP.FUN
@@ -216,7 +248,7 @@ iframe{
       <a class="btn jupiter"
          href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        JUPITER (20C997)
+        JUPITER
       </a>
 
       <a class="btn phantom"
@@ -231,7 +263,7 @@ iframe{
         SOLFLARE
       </a>
 
-      <!-- VERIFICATION LAYER -->
+      <!-- IDENTITY LAYER -->
       <a class="btn"
          href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
@@ -241,16 +273,29 @@ iframe{
       <a class="btn"
          href="https://solscan.io/account/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
-        K2B ADDRESS
+        TOKEN ADDRESS
+      </a>
+
+      <!-- INFRA LAYER -->
+      <a class="btn"
+         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
+         target="_blank">
+        LIQUIDITY POOL
       </a>
 
       <a class="btn"
-         href="https://verifyk2b.github.io/verifyk2b/verify/"
+         href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
          target="_blank">
-        VERIFICATION HUB
+        BURN WALLET
       </a>
 
-      <!-- SOCIAL LAYER -->
+      <a class="btn"
+         href="https://app.streamflow.finance/"
+         target="_blank">
+        STREAMFLOW LOCK
+      </a>
+
+      <!-- SOCIAL -->
       <a class="btn social"
          href="https://x.com/K2Btoken"
          target="_blank">
