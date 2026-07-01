@@ -75,7 +75,7 @@ body{
   margin-top:6px;
 }
 
-/* MAIN LAYOUT */
+/* MAIN */
 .main{
   display:grid;
   grid-template-columns:2fr 1fr;
@@ -83,7 +83,6 @@ body{
   margin-top:16px;
 }
 
-/* CHART */
 iframe{
   width:100%;
   height:620px;
@@ -91,14 +90,14 @@ iframe{
   border-radius:14px;
 }
 
-/* RIGHT PANEL */
+/* ACTIONS */
 .actions{
   display:flex;
   flex-direction:column;
   gap:10px;
 }
 
-/* BASE BUTTON */
+/* BUTTON BASE */
 .btn{
   display:block;
   text-align:center;
@@ -111,38 +110,25 @@ iframe{
   text-decoration:none;
 }
 
-/* PRIMARY ENTRY */
+/* PRIMARY */
 .btn.hub{
   background:#0b1220;
   border:2px solid #3b82f6;
 }
 
 /* EXECUTION LAYER */
-.btn.pumpfun{
-  background:#bef264;
-  color:#000;
-  border:none;
-}
+.btn.pumpfun{background:#bef264;color:#000;border:none}
+.btn.jupiter{background:#20C997;color:#000;border:none}
+.btn.phantom{background:#AB9FF2;color:#000;border:none}
 
-.btn.jupiter{
-  background:#20C997;
-  color:#000;
-  border:none;
-}
-
-.btn.phantom{
-  background:#AB9FF2;
-  color:#000;
-  border:none;
-}
-
+/* FIXED SOLFLARE (WORKING FORMAT) */
 .btn.solflare{
   background:#FFC83D;
   color:#000;
   border:none;
 }
 
-/* VERIFICATION HUB (HIGH VISIBILITY) */
+/* VERIFY */
 .btn.verify{
   background:#111827;
   border:2px solid #f97316;
@@ -170,16 +156,11 @@ iframe{
 .med{color:#fbbf24}
 .high{color:#f87171}
 
-/* RESPONSIVE */
+/* MOBILE */
 @media(max-width:900px){
   .metrics{grid-template-columns:repeat(2,1fr)}
   .main{grid-template-columns:1fr}
   iframe{height:480px}
-}
-
-@media(max-width:500px){
-  .metrics{grid-template-columns:1fr}
-  .mission{padding:16px}
 }
 </style>
 </head>
@@ -192,59 +173,43 @@ iframe{
   <div class="header">
     <img class="logo" src="hero.png" />
     <div class="tagline">
-      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Execution Layer
+      Fixed Supply • Burned Supply • Locked Liquidity • On-Chain Verification Layer
     </div>
-  </div>
 
-  <!-- MISSION -->
-  <div class="mission">
-    Krumbs 2 Bricks operates as a fixed-supply Solana asset with fully verifiable on-chain execution routes and market-driven valuation.
+    <!-- RESTORED MISSION STRUCTURE -->
+    <div class="mission">
+      Krumbs 2 Bricks is a fixed-supply Solana asset structured around verifiable on-chain mechanics.
+      Liquidity, burns, and locks are publicly observable and independently verifiable.
+      Value is not assigned — it is discovered through market participation and liquidity flow.
+    </div>
   </div>
 
   <!-- METRICS -->
   <div class="metrics">
-    <div class="card">
-      <div class="label">Liquidity</div>
-      <div class="value" id="liq">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">24h Volume</div>
-      <div class="value" id="vol">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Market Cap</div>
-      <div class="value" id="mc">$—</div>
-    </div>
-
-    <div class="card">
-      <div class="label">Risk Engine</div>
-      <div class="value" id="risk">—</div>
-    </div>
+    <div class="card"><div class="label">Liquidity</div><div class="value" id="liq">$—</div></div>
+    <div class="card"><div class="label">24h Volume</div><div class="value" id="vol">$—</div></div>
+    <div class="card"><div class="label">Market Cap</div><div class="value" id="mc">$—</div></div>
+    <div class="card"><div class="label">Risk Engine</div><div class="value" id="risk">—</div></div>
   </div>
 
   <!-- MAIN -->
   <div class="main">
 
-    <!-- CHART -->
     <div>
       <iframe
         src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
       </iframe>
     </div>
 
-    <!-- ACTION PANEL -->
     <div class="actions">
 
-      <!-- PRIMARY -->
+      <!-- TOKEN HUB (CORRECTED LOGIC: ENTRY POINT) -->
       <a class="btn hub"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
         TOKEN HUB
       </a>
 
-      <!-- EXECUTION ROUTES -->
       <a class="btn pumpfun"
          href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
@@ -263,13 +228,14 @@ iframe{
         PHANTOM
       </a>
 
+      <!-- FIXED SOLFLARE (DIRECT TOKEN LINK FORMAT) -->
       <a class="btn solflare"
          href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
          target="_blank">
         SOLFLARE
       </a>
 
-      <!-- VERIFICATION -->
+      <!-- VERIFICATION HUB (RESTORED POSITIONING) -->
       <a class="btn verify"
          href="https://verifyk2b.github.io/verifyk2b/verify/"
          target="_blank">
@@ -277,15 +243,11 @@ iframe{
       </a>
 
       <!-- SOCIAL -->
-      <a class="btn social"
-         href="https://x.com/K2Btoken"
-         target="_blank">
+      <a class="btn social" href="https://x.com/K2Btoken" target="_blank">
         X (K2B)
       </a>
 
-      <a class="btn social"
-         href="https://t.me/YOUR_TELEGRAM"
-         target="_blank">
+      <a class="btn social" href="https://t.me/YOUR_TELEGRAM" target="_blank">
         TELEGRAM
       </a>
 
@@ -303,7 +265,6 @@ const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
 
 function risk(liq, vol){
   const ratio = vol / (liq || 1);
-
   if(liq >= 200000 && ratio >= 0.3) return ["LOW","low"];
   if(liq >= 75000 && ratio >= 0.1) return ["MED","med"];
   return ["HIGH","high"];
@@ -325,7 +286,6 @@ async function load(){
 
     const [label, cls] = risk(liq, vol);
     document.getElementById("risk").innerHTML = `<span class="${cls}">${label}</span>`;
-
   }catch(e){
     document.getElementById("risk").innerText = "OFFLINE";
   }
