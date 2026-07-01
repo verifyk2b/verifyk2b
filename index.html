@@ -37,29 +37,6 @@ body{
   margin-top:8px;
 }
 
-/* SECTIONS */
-.section{
-  max-width:900px;
-  margin:18px auto 0;
-  padding:18px;
-  background:#0f1115;
-  border:1px solid #1f2937;
-  border-radius:14px;
-}
-
-.section h2{
-  margin:0 0 10px;
-  font-size:18px;
-  font-weight:900;
-}
-
-.section p{
-  margin:8px 0 14px;
-  color:#d1d5db;
-  font-size:14px;
-  line-height:1.6;
-}
-
 /* METRICS */
 .metrics{
   display:grid;
@@ -87,7 +64,7 @@ body{
   margin-top:6px;
 }
 
-/* MAIN */
+/* MAIN LAYOUT */
 .main{
   display:grid;
   grid-template-columns:2fr 1fr;
@@ -102,14 +79,14 @@ iframe{
   border-radius:14px;
 }
 
-/* ACTIONS */
+/* ACTION RAIL (RESTORED CORE FEATURE) */
 .actions{
   display:flex;
   flex-direction:column;
   gap:10px;
 }
 
-/* BUTTONS */
+/* BASE BUTTON */
 .btn{
   display:block;
   text-align:center;
@@ -122,10 +99,34 @@ iframe{
   text-decoration:none;
 }
 
-.btn.primary{
+/* CORE EXECUTION LAYER */
+.btn.pump{
   background:linear-gradient(135deg,#bef264,#4d7c0f);
   color:#000;
   border:none;
+}
+
+.btn.jupiter{
+  background:#20C997;
+  color:#000;
+  border:none;
+}
+
+.btn.phantom{
+  background:#AB9FF2;
+  color:#000;
+  border:none;
+}
+
+.btn.solflare{
+  background:#FFC83D;
+  color:#000;
+  border:none;
+}
+
+/* SUPPORT LAYER */
+.btn.social{
+  background:#0b1220;
 }
 
 /* CONTRACT */
@@ -166,63 +167,11 @@ iframe{
   <div class="header">
     <img class="logo" src="hero.png" />
     <div class="tagline">
-      Fixed Supply • Burn Verified • Locked Liquidity • On-Chain Transparency Layer
+      Locked Supply • Burn Verified • LP Secured • On-Chain Transparency Layer
     </div>
   </div>
 
-  <!-- TOKEN HUB -->
-  <div class="section">
-    <h2>Token Hub</h2>
-    <p>Execution layer for market interaction and trading routes.</p>
-
-    <a class="btn primary"
-       href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank">BUY ON PUMP</a>
-
-    <a class="btn"
-       href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank">JUPITER SWAP</a>
-
-    <a class="btn"
-       href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank">ON-CHAIN VIEW</a>
-
-    <a class="btn"
-       href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank">SOLFLARE VIEW</a>
-
-    <a class="btn"
-       href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank">PHANTOM WALLET</a>
-  </div>
-
-  <!-- LOCKS -->
-  <div class="section">
-    <h2>Locks & Verification</h2>
-    <p>On-chain locks, burn validation, liquidity security, and audit pathways.</p>
-
-    <a class="btn"
-       href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
-       target="_blank">10 YEAR LOCK</a>
-
-    <a class="btn"
-       href="https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ"
-       target="_blank">5 YEAR LOCK</a>
-
-    <a class="btn"
-       href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk"
-       target="_blank">LP LOCK PROOF</a>
-
-    <a class="btn"
-       href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-       target="_blank">LIQUIDITY POOL</a>
-
-    <a class="btn"
-       href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-       target="_blank">BURN WALLET</a>
-  </div>
-
-  <!-- METRICS -->
+  <!-- METRICS (kept high priority) -->
   <div class="metrics">
     <div class="card">
       <div class="label">Liquidity</div>
@@ -248,29 +197,71 @@ iframe{
   <!-- MAIN -->
   <div class="main">
 
+    <!-- CHART -->
     <div>
       <iframe
         src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
       </iframe>
     </div>
 
+    <!-- EXECUTION RAIL (RESTORED FORMAT) -->
     <div class="actions">
 
-      <a class="btn primary"
+      <a class="btn pump"
+         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        PUMP.FUN
+      </a>
+
+      <a class="btn jupiter"
+         href="https://jup.ag/swap/SOL-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        JUPITER (20C997)
+      </a>
+
+      <a class="btn phantom"
+         href="https://phantom.app/ul/browse/https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        PHANTOM
+      </a>
+
+      <a class="btn solflare"
+         href="https://solflare.com/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        SOLFLARE
+      </a>
+
+      <!-- VERIFICATION LAYER -->
+      <a class="btn"
          href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">TOKEN VIEW</a>
+         target="_blank">
+        TOKEN VIEW
+      </a>
+
+      <a class="btn"
+         href="https://solscan.io/account/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+         target="_blank">
+        K2B ADDRESS
+      </a>
 
       <a class="btn"
          href="https://verifyk2b.github.io/verifyk2b/verify/"
-         target="_blank">VERIFICATION HUB</a>
+         target="_blank">
+        VERIFICATION HUB
+      </a>
 
-      <a class="btn"
+      <!-- SOCIAL LAYER -->
+      <a class="btn social"
          href="https://x.com/K2Btoken"
-         target="_blank">X</a>
+         target="_blank">
+        X (K2B)
+      </a>
 
-      <a class="btn"
+      <a class="btn social"
          href="https://t.me/YOUR_TELEGRAM"
-         target="_blank">TELEGRAM</a>
+         target="_blank">
+        TELEGRAM
+      </a>
 
       <div class="contract">
 At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
@@ -278,7 +269,6 @@ At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
 
     </div>
   </div>
-
 </div>
 
 <script>
