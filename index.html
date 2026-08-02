@@ -2,177 +2,297 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Krumbs 2 Bricks</title>
 
 <style>
-*{box-sizing:border-box}
+:root{
+  --background:#000000;
+  --surface:#0f1115;
+  --surface-dark:#0b1220;
+  --border:#1f2937;
+  --text:#ffffff;
+  --muted:#9ca3af;
+  --orange:#f97316;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   margin:0;
-  background:#000;
-  color:#fff;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top, rgba(249,115,22,0.12), transparent 35%),
+    #000000;
+  color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:16px;
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
 }
 
 /* HEADER */
 .header{
   text-align:center;
-  padding:18px 10px;
+  padding:24px 10px 12px;
 }
 
 .logo{
+  display:block;
   width:min(420px,100%);
+  height:auto;
+  margin:0 auto;
 }
 
-.tagline{
-  color:#9ca3af;
-  font-size:14px;
-  margin-top:8px;
-}
-
-/* MISSION */
-.mission{
-  max-width:900px;
-  margin:18px auto 0;
-  padding:20px;
-  background:#0f1115;
-  border:1px solid #1f2937;
-  border-radius:14px;
+/* STATEMENT */
+.statement{
+  max-width:850px;
+  margin:24px auto;
+  padding:clamp(28px,6vw,64px) clamp(20px,5vw,50px);
+  background:linear-gradient(
+    145deg,
+    rgba(15,17,21,0.98),
+    rgba(7,8,10,0.98)
+  );
+  border:1px solid var(--border);
+  border-radius:24px;
   text-align:center;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.45),
+    0 0 35px rgba(249,115,22,0.08);
 }
 
-/* METRICS */
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:18px;
-}
-
-.card{
-  background:#0f1115;
-  border:1px solid #1f2937;
-  border-radius:14px;
-  padding:14px;
-}
-
-.label{
-  font-size:11px;
-  color:#9ca3af;
+.statement-label{
+  margin-bottom:14px;
+  color:var(--orange);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:3px;
   text-transform:uppercase;
 }
 
-.value{
-  font-size:20px;
-  font-weight:800;
-  margin-top:6px;
+.statement h1{
+  margin:0;
+  font-size:clamp(38px,7vw,76px);
+  line-height:1;
+  letter-spacing:-2px;
+  text-transform:uppercase;
 }
 
-/* MAIN */
-.main{
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:14px;
-  margin-top:16px;
+.statement-topics{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  margin:26px 0;
+  color:#d1d5db;
+  font-size:clamp(17px,2.5vw,24px);
+  font-weight:700;
 }
 
-iframe{
-  width:100%;
-  height:620px;
-  border:0;
-  border-radius:14px;
+.statement-topics span{
+  white-space:nowrap;
+}
+
+.statement-topics span:not(:last-child)::after{
+  content:"•";
+  margin-left:18px;
+  color:var(--orange);
+}
+
+.statement-slogan{
+  margin:0;
+  color:var(--muted);
+  font-size:clamp(16px,2.2vw,21px);
+  font-weight:700;
+  letter-spacing:0.5px;
 }
 
 /* ACTIONS */
 .actions{
+  width:100%;
+  max-width:650px;
+  margin:24px auto 0;
   display:flex;
   flex-direction:column;
-  gap:10px;
+  gap:12px;
 }
 
-/* BASE BUTTON */
 .btn{
-  display:block;
-  text-align:center;
-  padding:12px;
-  border-radius:12px;
-  background:#111827;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:52px;
+  padding:14px 18px;
   border:1px solid #374151;
-  color:#fff;
-  font-weight:700;
+  border-radius:13px;
+  background:#111827;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:800;
+  text-align:center;
   text-decoration:none;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    border-color 0.2s ease;
 }
 
-/* EXECUTION LAYER */
+.btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+}
+
+.btn:focus-visible{
+  outline:3px solid rgba(249,115,22,0.45);
+  outline-offset:3px;
+}
+
 .btn.pumpfun{
   background:#bef264;
-  color:#000;
   border:none;
+  color:#000000;
 }
 
 .btn.jupiter{
-  background:#20C997;
-  color:#000;
+  background:#20c997;
   border:none;
+  color:#000000;
 }
 
 .btn.phantom{
-  background:#AB9FF2;
-  color:#000;
+  background:#ab9ff2;
   border:none;
+  color:#000000;
 }
 
-/* FIXED SOLFLARE (reliable fallback) */
 .btn.solflare{
-  background:#FFC83D;
-  color:#000;
+  background:#ffc83d;
   border:none;
+  color:#000000;
 }
 
-/* VERIFICATION HUB */
 .btn.verify{
   background:#111827;
-  border:2px solid #f97316;
+  border:2px solid var(--orange);
 }
 
-/* SOCIAL */
 .btn.social{
-  background:#0b1220;
+  background:var(--surface-dark);
 }
 
 /* CONTRACT */
+.contract-section{
+  width:100%;
+  max-width:650px;
+  margin:14px auto 0;
+}
+
+.contract-label{
+  margin:0 0 8px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-align:center;
+  text-transform:uppercase;
+}
+
 .contract{
-  background:#0f1115;
-  border:1px solid #1f2937;
+  padding:14px;
+  background:var(--surface);
+  border:1px solid var(--border);
   border-radius:14px;
-  padding:12px;
+  color:var(--muted);
   font-family:monospace;
   font-size:12px;
-  word-break:break-all;
-  color:#9ca3af;
+  line-height:1.6;
+  text-align:center;
+  overflow-wrap:anywhere;
 }
 
-/* RISK */
-.low{color:#86efac}
-.med{color:#fbbf24}
-.high{color:#f87171}
+/* DISCLAIMER */
+.disclaimer{
+  max-width:650px;
+  margin:24px auto 10px;
+  color:#6b7280;
+  font-size:12px;
+  line-height:1.6;
+  text-align:center;
+}
+
+/* TABLET */
+@media(max-width:768px){
+  .container{
+    padding:16px;
+  }
+
+  .header{
+    padding-top:18px;
+  }
+
+  .statement{
+    margin-top:18px;
+    border-radius:20px;
+  }
+
+  .statement h1{
+    letter-spacing:-1.5px;
+  }
+}
 
 /* MOBILE */
-@media(max-width:900px){
-  .metrics{grid-template-columns:repeat(2,1fr)}
-  .main{grid-template-columns:1fr}
-  iframe{height:480px}
-}
+@media(max-width:520px){
+  .container{
+    padding:12px;
+  }
 
-@media(max-width:500px){
-  .metrics{grid-template-columns:1fr}
+  .logo{
+    width:min(330px,100%);
+  }
+
+  .statement{
+    margin:14px auto 20px;
+    padding:34px 18px;
+    border-radius:18px;
+  }
+
+  .statement h1{
+    font-size:clamp(38px,14vw,58px);
+  }
+
+  .statement-topics{
+    flex-direction:column;
+    gap:8px;
+    margin:22px 0;
+  }
+
+  .statement-topics span:not(:last-child)::after{
+    display:none;
+  }
+
+  .btn{
+    min-height:50px;
+    padding:13px 14px;
+    font-size:14px;
+  }
+
+  .contract{
+    font-size:11px;
+  }
 }
 </style>
 </head>
@@ -182,123 +302,114 @@ iframe{
 <div class="container">
 
   <!-- HEADER -->
-  <div class="header">
-    <img class="logo" src="hero.png" />
+  <header class="header">
+    <img
+      class="logo"
+      src="hero.png"
+      alt="Krumbs 2 Bricks logo"
+    />
+  </header>
 
-      </section>
-      Crypto is risky — only spend what you can afford to lose.
-    </div>
-  </div>
+  <!-- BRAND STATEMENT -->
+  <section class="statement" aria-labelledby="statement-title">
 
-  <!-- MAIN -->
-  <div class="main">
-
-    <div>
-      <iframe
-        src="https://www.geckoterminal.com/solana/pools/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g?embed=1">
-      </iframe>
+    <div class="statement-label">
+      Krumbs 2 Bricks
     </div>
 
-    <div class="actions">
+    <h1 id="statement-title">
+      Detox Your Life.
+    </h1>
 
-      <!-- EXECUTION -->
-      <a class="btn pumpfun"
-         href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PUMP.FUN
-      </a>
-
-      <a class="btn jupiter"
-         href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        JUPITER
-      </a>
-
-      <a class="btn phantom"
-         href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        PHANTOM
-      </a>
-
-      <!-- FIXED WALLET VIEW -->
-      <a class="btn solflare"
-         href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-         target="_blank">
-        SOLFLARE
-      </a>
-
-      <!-- VERIFICATION LAYER -->
-      <a class="btn verify"
-         href="https://verifyk2b.github.io/verifyk2b/verify/"
-         target="_blank">
-        VERIFICATION HUB
-      </a>
-
-      <!-- ORCA RESTORED (UNDER VERIFICATION) -->
-      <a class="btn"
-         href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-         target="_blank">
-        ORCA LIQUIDITY POOL
-      </a>
-
-      <!-- SOCIAL -->
-      <a class="btn social"
-         href="https://x.com/K2Btoken"
-         target="_blank">
-        X (K2B)
-      </a>
-
-      <a class="btn social"
-         href="https://t.me/YOUR_TELEGRAM"
-         target="_blank">
-        TELEGRAM
-      </a>
-
-      <!-- CONTRACT -->
-      <div class="contract">
-At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
-      </div>
-
+    <div class="statement-topics" aria-label="Areas of focus">
+      <span>Money</span>
+      <span>Mindset</span>
+      <span>Health</span>
+      <span>Relationships</span>
     </div>
-  </div>
+
+    <p class="statement-slogan">
+      Started with Krumbs. Stayed Strong.
+    </p>
+
+  </section>
+
+  <!-- ACTION LINKS -->
+  <main class="actions">
+
+    <a
+      class="btn pumpfun"
+      href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+      target="_blank"
+      rel="noopener noreferrer">
+      PUMP.FUN
+    </a>
+
+    <a
+      class="btn jupiter"
+      href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+      target="_blank"
+      rel="noopener noreferrer">
+      JUPITER
+    </a>
+
+    <a
+      class="btn phantom"
+      href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+      target="_blank"
+      rel="noopener noreferrer">
+      PHANTOM
+    </a>
+
+    <a
+      class="btn solflare"
+      href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+      target="_blank"
+      rel="noopener noreferrer">
+      SOLFLARE
+    </a>
+
+    <a
+      class="btn verify"
+      href="https://verifyk2b.github.io/verifyk2b/verify/"
+      target="_blank"
+      rel="noopener noreferrer">
+      VERIFICATION HUB
+    </a>
+
+    <a
+      class="btn"
+      href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
+      target="_blank"
+      rel="noopener noreferrer">
+      ORCA LIQUIDITY POOL
+    </a>
+
+    <a
+      class="btn social"
+      href="https://t.me/YOUR_TELEGRAM"
+      target="_blank"
+      rel="noopener noreferrer">
+      TELEGRAM
+    </a>
+
+  </main>
+
+  <!-- CONTRACT ADDRESS -->
+  <section class="contract-section">
+    <p class="contract-label">Contract Address</p>
+
+    <div class="contract">
+      At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+    </div>
+  </section>
+
+  <!-- RISK STATEMENT -->
+  <footer class="disclaimer">
+    Crypto is risky. Only spend what you can afford to lose.
+  </footer>
+
 </div>
-
-<script>
-const POOL="sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g";
-
-function risk(liq, vol){
-  const ratio = vol / (liq || 1);
-
-  if(liq >= 200000 && ratio >= 0.3) return ["LOW","low"];
-  if(liq >= 75000 && ratio >= 0.1) return ["MED","med"];
-  return ["HIGH","high"];
-}
-
-async function load(){
-  try{
-    const r = await fetch(`https://api.geckoterminal.com/api/v2/networks/solana/pools/${POOL}`);
-    const j = await r.json();
-    const a = j.data.attributes;
-
-    const liq = Number(a.reserve_in_usd || 0);
-    const vol = Number(a.volume_usd?.h24 || 0);
-    const mc  = Number(a.fdv_usd || 0);
-
-    document.getElementById("liq").innerText = "$" + liq.toLocaleString();
-    document.getElementById("vol").innerText = "$" + vol.toLocaleString();
-    document.getElementById("mc").innerText  = "$" + mc.toLocaleString();
-
-    const [label, cls] = risk(liq, vol);
-    document.getElementById("risk").innerHTML = `<span class="${cls}">${label}</span>`;
-
-  }catch(e){
-    document.getElementById("risk").innerText = "OFFLINE";
-  }
-}
-
-load();
-setInterval(load, 60000);
-</script>
 
 </body>
 </html>
