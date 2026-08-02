@@ -1,415 +1,764 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-<title>Krumbs 2 Bricks</title>
+  <meta
+    name="description"
+    content="Krumbs 2 Bricks is a movement focused on ownership, discipline, transparency, long-term value, and personal growth."
+  />
 
-<style>
-:root{
-  --background:#000000;
-  --surface:#0f1115;
-  --surface-dark:#0b1220;
-  --border:#1f2937;
-  --text:#ffffff;
-  --muted:#9ca3af;
-  --orange:#f97316;
-}
+  <title>Krumbs 2 Bricks</title>
 
-*{
-  box-sizing:border-box;
-}
+  <style>
+    :root {
+      --background: #030303;
+      --surface: #0d0f13;
+      --surface-light: #141820;
+      --border: #252b35;
+      --text: #ffffff;
+      --muted: #9ca3af;
+      --orange: #f97316;
+      --orange-light: #fb923c;
+      --green: #bef264;
+      --jupiter: #20c997;
+      --phantom: #ab9ff2;
+      --solflare: #ffc83d;
+      --radius-large: 28px;
+      --radius-medium: 16px;
+      --radius-small: 12px;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
 
-html{
-  scroll-behavior:smooth;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  margin:0;
-  min-height:100vh;
-  background:
-    radial-gradient(circle at top, rgba(249,115,22,0.12), transparent 35%),
-    #000000;
-  color:var(--text);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.container{
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding:20px;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at top center,
+          rgba(249, 115, 22, 0.14),
+          transparent 32%
+        ),
+        linear-gradient(180deg, #050505 0%, #000000 100%);
+      color: var(--text);
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    }
 
-/* HEADER */
-.header{
-  text-align:center;
-  padding:24px 10px 12px;
-}
+    a {
+      color: inherit;
+    }
 
-.logo{
-  display:block;
-  width:min(420px,100%);
-  height:auto;
-  margin:0 auto;
-}
+    img {
+      max-width: 100%;
+    }
 
-/* STATEMENT */
-.statement{
-  max-width:850px;
-  margin:24px auto;
-  padding:clamp(28px,6vw,64px) clamp(20px,5vw,50px);
-  background:linear-gradient(
-    145deg,
-    rgba(15,17,21,0.98),
-    rgba(7,8,10,0.98)
-  );
-  border:1px solid var(--border);
-  border-radius:24px;
-  text-align:center;
-  box-shadow:
-    0 22px 60px rgba(0,0,0,0.45),
-    0 0 35px rgba(249,115,22,0.08);
-}
+    .page {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-.statement-label{
-  margin-bottom:14px;
-  color:var(--orange);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
+    /* HEADER */
 
-.statement h1{
-  margin:0;
-  font-size:clamp(38px,7vw,76px);
-  line-height:1;
-  letter-spacing:-2px;
-  text-transform:uppercase;
-}
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 0 10px;
+      text-align: center;
+    }
 
-.statement-topics{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px 18px;
-  margin:26px 0;
-  color:#d1d5db;
-  font-size:clamp(17px,2.5vw,24px);
-  font-weight:700;
-}
+    .logo {
+      display: block;
+      width: min(430px, 100%);
+      height: auto;
+      margin: 0 auto;
+    }
 
-.statement-topics span{
-  white-space:nowrap;
-}
+    /* HERO STATEMENT */
 
-.statement-topics span:not(:last-child)::after{
-  content:"•";
-  margin-left:18px;
-  color:var(--orange);
-}
+    .statement {
+      position: relative;
+      width: 100%;
+      max-width: 980px;
+      margin: 26px auto 0;
+      padding:
+        clamp(40px, 7vw, 86px)
+        clamp(20px, 6vw, 76px);
+      overflow: hidden;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20, 23, 29, 0.98),
+          rgba(6, 7, 9, 0.99)
+        );
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
 
-.statement-slogan{
-  margin:0;
-  color:var(--muted);
-  font-size:clamp(16px,2.2vw,21px);
-  font-weight:700;
-  letter-spacing:0.5px;
-}
+    .statement::before {
+      content: "";
+      position: absolute;
+      top: -220px;
+      left: 50%;
+      width: 520px;
+      height: 520px;
+      transform: translateX(-50%);
+      background: rgba(249, 115, 22, 0.14);
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+    }
 
-/* ACTIONS */
-.actions{
-  width:100%;
-  max-width:650px;
-  margin:24px auto 0;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
+    .statement::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          120deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.025) 48%,
+          transparent 100%
+        );
+      pointer-events: none;
+    }
 
-.btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:100%;
-  min-height:52px;
-  padding:14px 18px;
-  border:1px solid #374151;
-  border-radius:13px;
-  background:#111827;
-  color:#ffffff;
-  font-size:15px;
-  font-weight:800;
-  text-align:center;
-  text-decoration:none;
-  transition:
-    transform 0.2s ease,
-    filter 0.2s ease,
-    border-color 0.2s ease;
-}
+    .statement-content {
+      position: relative;
+      z-index: 1;
+    }
 
-.btn:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.08);
-}
+    .statement-label {
+      margin-bottom: 18px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
 
-.btn:focus-visible{
-  outline:3px solid rgba(249,115,22,0.45);
-  outline-offset:3px;
-}
+    .statement-title {
+      max-width: 820px;
+      margin: 0 auto;
+      font-size: clamp(42px, 7vw, 82px);
+      font-weight: 950;
+      line-height: 0.97;
+      letter-spacing: -4px;
+      text-transform: uppercase;
+    }
 
-.btn.pumpfun{
-  background:#bef264;
-  border:none;
-  color:#000000;
-}
+    .statement-title span {
+      display: block;
+      margin-top: 10px;
+      color: var(--orange);
+    }
 
-.btn.jupiter{
-  background:#20c997;
-  border:none;
-  color:#000000;
-}
+    .statement-lead {
+      max-width: 720px;
+      margin: 30px auto 0;
+      color: #e5e7eb;
+      font-size: clamp(18px, 2.4vw, 25px);
+      font-weight: 700;
+      line-height: 1.5;
+    }
 
-.btn.phantom{
-  background:#ab9ff2;
-  border:none;
-  color:#000000;
-}
+    .statement-card {
+      max-width: 760px;
+      margin: 34px auto 0;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
 
-.btn.solflare{
-  background:#ffc83d;
-  border:none;
-  color:#000000;
-}
+    .statement-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.7;
+    }
 
-.btn.verify{
-  background:#111827;
-  border:2px solid var(--orange);
-}
+    .build-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
 
-.btn.social{
-  background:var(--surface-dark);
-}
+    .build-item {
+      display: flex;
+      min-height: 58px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 14px;
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 14px;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: 0.2px;
+      text-align: center;
+    }
 
-/* CONTRACT */
-.contract-section{
-  width:100%;
-  max-width:650px;
-  margin:14px auto 0;
-}
+    .statement-footer {
+      max-width: 720px;
+      margin: 30px auto 0;
+      color: var(--muted);
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.75;
+    }
 
-.contract-label{
-  margin:0 0 8px;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-align:center;
-  text-transform:uppercase;
-}
+    /* ACTION SECTION */
 
-.contract{
-  padding:14px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;
-  color:var(--muted);
-  font-family:monospace;
-  font-size:12px;
-  line-height:1.6;
-  text-align:center;
-  overflow-wrap:anywhere;
-}
+    .action-section {
+      width: 100%;
+      max-width: 760px;
+      margin: 30px auto 0;
+    }
 
-/* DISCLAIMER */
-.disclaimer{
-  max-width:650px;
-  margin:24px auto 10px;
-  color:#6b7280;
-  font-size:12px;
-  line-height:1.6;
-  text-align:center;
-}
+    .section-heading {
+      margin: 0 0 14px;
+      color: #d1d5db;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-align: center;
+      text-transform: uppercase;
+    }
 
-/* TABLET */
-@media(max-width:768px){
-  .container{
-    padding:16px;
-  }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
 
-  .header{
-    padding-top:18px;
-  }
+    .btn {
+      display: flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border: 1px solid #374151;
+      border-radius: var(--radius-small);
+      background: #111827;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 850;
+      text-align: center;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
 
-  .statement{
-    margin-top:18px;
-    border-radius:20px;
-  }
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
 
-  .statement h1{
-    letter-spacing:-1.5px;
-  }
-}
+    .btn:active {
+      transform: translateY(0);
+    }
 
-/* MOBILE */
-@media(max-width:520px){
-  .container{
-    padding:12px;
-  }
+    .btn:focus-visible {
+      outline: 3px solid rgba(249, 115, 22, 0.45);
+      outline-offset: 3px;
+    }
 
-  .logo{
-    width:min(330px,100%);
-  }
+    .btn.pumpfun {
+      background: var(--green);
+      border-color: transparent;
+      color: #000000;
+    }
 
-  .statement{
-    margin:14px auto 20px;
-    padding:34px 18px;
-    border-radius:18px;
-  }
+    .btn.jupiter {
+      background: var(--jupiter);
+      border-color: transparent;
+      color: #000000;
+    }
 
-  .statement h1{
-    font-size:clamp(38px,14vw,58px);
-  }
+    .btn.phantom {
+      background: var(--phantom);
+      border-color: transparent;
+      color: #000000;
+    }
 
-  .statement-topics{
-    flex-direction:column;
-    gap:8px;
-    margin:22px 0;
-  }
+    .btn.solflare {
+      background: var(--solflare);
+      border-color: transparent;
+      color: #000000;
+    }
 
-  .statement-topics span:not(:last-child)::after{
-    display:none;
-  }
+    .btn.verify {
+      border: 2px solid var(--orange);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(249, 115, 22, 0.1),
+          #111827
+        );
+    }
 
-  .btn{
-    min-height:50px;
-    padding:13px 14px;
-    font-size:14px;
-  }
+    .btn.orca {
+      background: #111827;
+    }
 
-  .contract{
-    font-size:11px;
-  }
-}
-</style>
+    .btn.telegram {
+      grid-column: 1 / -1;
+      background: #0b1220;
+    }
+
+    /* CONTRACT */
+
+    .contract-section {
+      width: 100%;
+      max-width: 760px;
+      margin: 18px auto 0;
+    }
+
+    .contract-card {
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+    }
+
+    .contract-label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 1.7px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .contract-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contract-address {
+      flex: 1;
+      min-width: 0;
+      margin: 0;
+      padding: 13px;
+      background: #080a0d;
+      border: 1px solid #20252d;
+      border-radius: 10px;
+      color: #b7bec9;
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-btn {
+      flex: 0 0 auto;
+      min-height: 44px;
+      padding: 10px 15px;
+      background: var(--orange);
+      border: 0;
+      border-radius: 10px;
+      color: #000000;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.07);
+    }
+
+    .copy-btn:focus-visible {
+      outline: 3px solid rgba(249, 115, 22, 0.4);
+      outline-offset: 3px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      max-width: 760px;
+      margin: 26px auto 0;
+      padding: 12px 0 24px;
+      color: #6b7280;
+      font-size: 12px;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 820px) {
+      .page {
+        padding: 16px;
+      }
+
+      .statement {
+        border-radius: 22px;
+      }
+
+      .statement-title {
+        letter-spacing: -2.5px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 620px) {
+      .page {
+        padding: 12px;
+      }
+
+      .header {
+        padding-top: 18px;
+      }
+
+      .logo {
+        width: min(340px, 100%);
+      }
+
+      .statement {
+        margin-top: 16px;
+        padding: 40px 18px;
+        border-radius: 20px;
+      }
+
+      .statement-title {
+        font-size: clamp(38px, 13vw, 58px);
+        letter-spacing: -2px;
+      }
+
+      .statement-lead {
+        margin-top: 24px;
+      }
+
+      .statement-card {
+        margin-top: 26px;
+        padding: 21px 16px;
+      }
+
+      .build-list {
+        grid-template-columns: 1fr;
+      }
+
+      .build-item {
+        width: 100%;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .btn.telegram {
+        grid-column: auto;
+      }
+
+      .contract-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .copy-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .statement {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+
+      .statement-title {
+        font-size: 36px;
+      }
+
+      .statement-card {
+        padding-right: 14px;
+        padding-left: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn,
+      .copy-btn {
+        transition: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="page">
 
-<div class="container">
+    <!-- HEADER -->
+    <header class="header">
+      <img
+        class="logo"
+        src="hero.png"
+        alt="Krumbs 2 Bricks logo"
+      />
+    </header>
 
-  <!-- HEADER -->
-  <header class="header">
-    <img
-      class="logo"
-      src="hero.png"
-      alt="Krumbs 2 Bricks logo"
-    />
-  </header>
+    <!-- MOVEMENT STATEMENT -->
+    <main>
+      <section
+        class="statement"
+        aria-labelledby="statement-title"
+      >
+        <div class="statement-content">
 
-  <!-- BRAND STATEMENT -->
-  <section class="statement" aria-labelledby="statement-title">
+          <div class="statement-label">
+            The Krumbs 2 Bricks Movement
+          </div>
 
-    <div class="statement-label">
-      Krumbs 2 Bricks
-    </div>
+          <h1
+            class="statement-title"
+            id="statement-title"
+          >
+            More Than a Token.
+            <span>It’s a Movement.</span>
+          </h1>
 
-    <h1 id="statement-title">
-      Detox Your Life.
-    </h1>
+          <p class="statement-lead">
+            We believe wealth starts with better decisions,
+            not bigger paychecks.
+          </p>
 
-    <div class="statement-topics" aria-label="Areas of focus">
-      <span>Money</span>
-      <span>Mindset</span>
-      <span>Health</span>
-      <span>Relationships</span>
-    </div>
+          <div class="statement-card">
+            <p>
+              Detox your mindset from short-term thinking.
+              Build the habits and standards required to create
+              durable progress.
+            </p>
 
-    <p class="statement-slogan">
-      Started with Krumbs. Stayed Strong.
-    </p>
+            <div
+              class="build-list"
+              aria-label="Movement principles"
+            >
+              <div class="build-item">
+                Build Ownership
+              </div>
 
-  </section>
+              <div class="build-item">
+                Build Discipline
+              </div>
 
-  <!-- ACTION LINKS -->
-  <main class="actions">
+              <div class="build-item">
+                Build a Future
+              </div>
+            </div>
+          </div>
 
-    <a
-      class="btn pumpfun"
-      href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-      target="_blank"
-      rel="noopener noreferrer">
-      PUMP.FUN
-    </a>
+          <p class="statement-footer">
+            Every holder is part of a culture focused on
+            long-term value, transparency, and personal growth.
+          </p>
 
-    <a
-      class="btn jupiter"
-      href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-      target="_blank"
-      rel="noopener noreferrer">
-      JUPITER
-    </a>
+        </div>
+      </section>
 
-    <a
-      class="btn phantom"
-      href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-      target="_blank"
-      rel="noopener noreferrer">
-      PHANTOM
-    </a>
+      <!-- ACTION LINKS -->
+      <section
+        class="action-section"
+        aria-labelledby="action-heading"
+      >
+        <h2
+          class="section-heading"
+          id="action-heading"
+        >
+          Access the Ecosystem
+        </h2>
 
-    <a
-      class="btn solflare"
-      href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-      target="_blank"
-      rel="noopener noreferrer">
-      SOLFLARE
-    </a>
+        <div class="actions">
 
-    <a
-      class="btn verify"
-      href="https://verifyk2b.github.io/verifyk2b/verify/"
-      target="_blank"
-      rel="noopener noreferrer">
-      VERIFICATION HUB
-    </a>
+          <a
+            class="btn pumpfun"
+            href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PUMP.FUN
+          </a>
 
-    <a
-      class="btn"
-      href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-      target="_blank"
-      rel="noopener noreferrer">
-      ORCA LIQUIDITY POOL
-    </a>
+          <a
+            class="btn jupiter"
+            href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            JUPITER
+          </a>
 
-    <a
-      class="btn social"
-      href="https://t.me/YOUR_TELEGRAM"
-      target="_blank"
-      rel="noopener noreferrer">
-      TELEGRAM
-    </a>
+          <a
+            class="btn phantom"
+            href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PHANTOM
+          </a>
 
-  </main>
+          <a
+            class="btn solflare"
+            href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SOLFLARE
+          </a>
 
-  <!-- CONTRACT ADDRESS -->
-  <section class="contract-section">
-    <p class="contract-label">Contract Address</p>
+          <a
+            class="btn verify"
+            href="https://verifyk2b.github.io/verifyk2b/verify/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            VERIFICATION HUB
+          </a>
 
-    <div class="contract">
-      At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
-    </div>
-  </section>
+          <a
+            class="btn orca"
+            href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ORCA LIQUIDITY POOL
+          </a>
 
-  <!-- RISK STATEMENT -->
-  <footer class="disclaimer">
-    Crypto is risky. Only spend what you can afford to lose.
-  </footer>
+          <a
+            class="btn telegram"
+            href="https://t.me/YOUR_TELEGRAM"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TELEGRAM
+          </a>
 
-</div>
+        </div>
+      </section>
 
+      <!-- CONTRACT ADDRESS -->
+      <section
+        class="contract-section"
+        aria-labelledby="contract-heading"
+      >
+        <div class="contract-card">
+
+          <h2
+            class="contract-label"
+            id="contract-heading"
+          >
+            Official Contract Address
+          </h2>
+
+          <div class="contract-row">
+            <p
+              class="contract-address"
+              id="contract-address"
+            >
+              At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
+            </p>
+
+            <button
+              class="copy-btn"
+              id="copy-button"
+              type="button"
+            >
+              Copy
+            </button>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- DISCLAIMER -->
+    <footer class="footer">
+      Crypto assets involve substantial risk. Only use funds
+      you can afford to lose. Always verify the official
+      contract address before completing a transaction.
+    </footer>
+
+  </div>
+
+  <script>
+    const copyButton = document.getElementById("copy-button");
+    const contractAddress =
+      document.getElementById("contract-address").textContent.trim();
+
+    copyButton.addEventListener("click", async () => {
+      const originalText = copyButton.textContent;
+
+      try {
+        await navigator.clipboard.writeText(contractAddress);
+        copyButton.textContent = "Copied";
+      } catch (error) {
+        const temporaryInput = document.createElement("textarea");
+
+        temporaryInput.value = contractAddress;
+        temporaryInput.setAttribute("readonly", "");
+        temporaryInput.style.position = "absolute";
+        temporaryInput.style.left = "-9999px";
+
+        document.body.appendChild(temporaryInput);
+        temporaryInput.select();
+
+        const copied = document.execCommand("copy");
+        document.body.removeChild(temporaryInput);
+
+        copyButton.textContent = copied ? "Copied" : "Copy Failed";
+      }
+
+      setTimeout(() => {
+        copyButton.textContent = originalText;
+      }, 1800);
+    });
+  </script>
 </body>
 </html>
