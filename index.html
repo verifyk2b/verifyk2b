@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
@@ -18,12 +19,10 @@
     :root {
       --background: #030303;
       --surface: #0d0f13;
-      --surface-light: #141820;
       --border: #252b35;
       --text: #ffffff;
       --muted: #9ca3af;
       --orange: #f97316;
-      --orange-light: #fb923c;
       --green: #bef264;
       --jupiter: #20c997;
       --phantom: #ab9ff2;
@@ -31,7 +30,6 @@
       --radius-large: 28px;
       --radius-medium: 16px;
       --radius-small: 12px;
-      --shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -48,7 +46,7 @@
       background:
         radial-gradient(
           circle at top center,
-          rgba(249, 115, 22, 0.14),
+          rgba(249, 115, 22, 0.12),
           transparent 32%
         ),
         linear-gradient(180deg, #050505 0%, #000000 100%);
@@ -63,11 +61,8 @@
         sans-serif;
     }
 
-    a {
-      color: inherit;
-    }
-
     img {
+      display: block;
       max-width: 100%;
     }
 
@@ -78,159 +73,22 @@
       padding: 20px;
     }
 
-    /* HEADER */
+    /* MOVEMENT IMAGE */
 
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 0 10px;
-      text-align: center;
-    }
-
-    .logo {
-      display: block;
-      width: min(430px, 100%);
-      height: auto;
-      margin: 0 auto;
-    }
-
-    /* HERO STATEMENT */
-
-    .statement {
-      position: relative;
+    .movement-section {
       width: 100%;
       max-width: 980px;
-      margin: 26px auto 0;
-      padding:
-        clamp(40px, 7vw, 86px)
-        clamp(20px, 6vw, 76px);
-      overflow: hidden;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(20, 23, 29, 0.98),
-          rgba(6, 7, 9, 0.99)
-        );
+      margin: 24px auto 0;
+    }
+
+    .movement-image {
+      width: 100%;
+      height: auto;
       border: 1px solid var(--border);
       border-radius: var(--radius-large);
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .statement::before {
-      content: "";
-      position: absolute;
-      top: -220px;
-      left: 50%;
-      width: 520px;
-      height: 520px;
-      transform: translateX(-50%);
-      background: rgba(249, 115, 22, 0.14);
-      border-radius: 50%;
-      filter: blur(110px);
-      pointer-events: none;
-    }
-
-    .statement::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          120deg,
-          transparent 0%,
-          rgba(255, 255, 255, 0.025) 48%,
-          transparent 100%
-        );
-      pointer-events: none;
-    }
-
-    .statement-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .statement-label {
-      margin-bottom: 18px;
-      color: var(--orange);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .statement-title {
-      max-width: 820px;
-      margin: 0 auto;
-      font-size: clamp(42px, 7vw, 82px);
-      font-weight: 950;
-      line-height: 0.97;
-      letter-spacing: -4px;
-      text-transform: uppercase;
-    }
-
-    .statement-title span {
-      display: block;
-      margin-top: 10px;
-      color: var(--orange);
-    }
-
-    .statement-lead {
-      max-width: 720px;
-      margin: 30px auto 0;
-      color: #e5e7eb;
-      font-size: clamp(18px, 2.4vw, 25px);
-      font-weight: 700;
-      line-height: 1.5;
-    }
-
-    .statement-card {
-      max-width: 760px;
-      margin: 34px auto 0;
-      padding: 28px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-    }
-
-    .statement-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 20px);
-      line-height: 1.7;
-    }
-
-    .build-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .build-item {
-      display: flex;
-      min-height: 58px;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 14px;
-      background: #111827;
-      border: 1px solid #374151;
-      border-radius: 14px;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 850;
-      letter-spacing: 0.2px;
-      text-align: center;
-    }
-
-    .statement-footer {
-      max-width: 720px;
-      margin: 30px auto 0;
-      color: var(--muted);
-      font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.75;
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.55),
+        0 0 50px rgba(249, 115, 22, 0.08);
     }
 
     /* ACTION SECTION */
@@ -274,7 +132,6 @@
       transition:
         transform 0.2s ease,
         filter 0.2s ease,
-        border-color 0.2s ease,
         box-shadow 0.2s ease;
     }
 
@@ -400,14 +257,6 @@
       font: inherit;
       font-size: 13px;
       font-weight: 900;
-      transition:
-        transform 0.2s ease,
-        filter 0.2s ease;
-    }
-
-    .copy-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.07);
     }
 
     .copy-btn:focus-visible {
@@ -434,12 +283,8 @@
         padding: 16px;
       }
 
-      .statement {
+      .movement-image {
         border-radius: 22px;
-      }
-
-      .statement-title {
-        letter-spacing: -2.5px;
       }
     }
 
@@ -450,40 +295,12 @@
         padding: 12px;
       }
 
-      .header {
-        padding-top: 18px;
+      .movement-section {
+        margin-top: 12px;
       }
 
-      .logo {
-        width: min(340px, 100%);
-      }
-
-      .statement {
-        margin-top: 16px;
-        padding: 40px 18px;
-        border-radius: 20px;
-      }
-
-      .statement-title {
-        font-size: clamp(38px, 13vw, 58px);
-        letter-spacing: -2px;
-      }
-
-      .statement-lead {
-        margin-top: 24px;
-      }
-
-      .statement-card {
-        margin-top: 26px;
-        padding: 21px 16px;
-      }
-
-      .build-list {
-        grid-template-columns: 1fr;
-      }
-
-      .build-item {
-        width: 100%;
+      .movement-image {
+        border-radius: 18px;
       }
 
       .actions {
@@ -504,29 +321,12 @@
       }
     }
 
-    @media (max-width: 380px) {
-      .statement {
-        padding-right: 14px;
-        padding-left: 14px;
-      }
-
-      .statement-title {
-        font-size: 36px;
-      }
-
-      .statement-card {
-        padding-right: 14px;
-        padding-left: 14px;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
 
-      .btn,
-      .copy-btn {
+      .btn {
         transition: none;
       }
     }
@@ -536,71 +336,18 @@
 <body>
   <div class="page">
 
-    <!-- HEADER -->
-    <header class="header">
-      <img
-        class="logo"
-        src="hero.png"
-        alt="Krumbs 2 Bricks logo"
-      />
-    </header>
-
-    <!-- MOVEMENT STATEMENT -->
     <main>
+
+      <!-- MOVEMENT IMAGE -->
       <section
-        class="statement"
-        aria-labelledby="statement-title"
+        class="movement-section"
+        aria-label="Krumbs 2 Bricks movement statement"
       >
-        <div class="statement-content">
-
-          <div class="statement-label">
-            The Krumbs 2 Bricks Movement
-          </div>
-
-          <h1
-            class="statement-title"
-            id="statement-title"
-          >
-            More Than a Token.
-            <span>It’s a Movement.</span>
-          </h1>
-
-          <p class="statement-lead">
-            We believe wealth starts with better decisions,
-            not bigger paychecks.
-          </p>
-
-          <div class="statement-card">
-            <p>
-              Detox your mindset from short-term thinking.
-              Build the habits and standards required to create
-              durable progress.
-            </p>
-
-            <div
-              class="build-list"
-              aria-label="Movement principles"
-            >
-              <div class="build-item">
-                Build Ownership
-              </div>
-
-              <div class="build-item">
-                Build Discipline
-              </div>
-
-              <div class="build-item">
-                Build a Future
-              </div>
-            </div>
-          </div>
-
-          <p class="statement-footer">
-            Every holder is part of a culture focused on
-            long-term value, transparency, and personal growth.
-          </p>
-
-        </div>
+        <img
+          class="movement-image"
+          src="krumbs_2_bricks_movement.png"
+          alt="Krumbs 2 Bricks movement"
+        />
       </section>
 
       <!-- ACTION LINKS -->
@@ -608,12 +355,12 @@
         class="action-section"
         aria-labelledby="action-heading"
       >
-        <h2
+        <h1
           class="section-heading"
           id="action-heading"
         >
           Access the Ecosystem
-        </h2>
+        </h1>
 
         <div class="actions">
 
@@ -716,9 +463,9 @@
 
         </div>
       </section>
+
     </main>
 
-    <!-- DISCLAIMER -->
     <footer class="footer">
       Crypto assets involve substantial risk. Only use funds
       you can afford to lose. Always verify the official
@@ -729,8 +476,12 @@
 
   <script>
     const copyButton = document.getElementById("copy-button");
+
     const contractAddress =
-      document.getElementById("contract-address").textContent.trim();
+      document
+        .getElementById("contract-address")
+        .textContent
+        .trim();
 
     copyButton.addEventListener("click", async () => {
       const originalText = copyButton.textContent;
@@ -750,9 +501,12 @@
         temporaryInput.select();
 
         const copied = document.execCommand("copy");
+
         document.body.removeChild(temporaryInput);
 
-        copyButton.textContent = copied ? "Copied" : "Copy Failed";
+        copyButton.textContent = copied
+          ? "Copied"
+          : "Copy Failed";
       }
 
       setTimeout(() => {
