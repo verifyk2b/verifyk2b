@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <meta
     name="description"
@@ -43,14 +40,21 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       background:
         radial-gradient(
           circle at top center,
           rgba(249, 115, 22, 0.12),
           transparent 32%
         ),
-        linear-gradient(180deg, #050505 0%, #000000 100%);
+        linear-gradient(
+          180deg,
+          #050505 0%,
+          #000000 100%
+        );
+
       color: var(--text);
+
       font-family:
         system-ui,
         -apple-system,
@@ -73,19 +77,21 @@
       padding: 20px;
     }
 
-    /* MOVEMENT IMAGE */
+    /* HERO */
 
-    .movement-section {
+    .hero-section {
       width: 100%;
       max-width: 980px;
       margin: 24px auto 0;
     }
 
-    .movement-image {
+    .hero-image {
       width: 100%;
       height: auto;
+
       border: 1px solid var(--border);
       border-radius: var(--radius-large);
+
       box-shadow:
         0 28px 80px rgba(0, 0, 0, 0.55),
         0 0 50px rgba(249, 115, 22, 0.08);
@@ -101,10 +107,13 @@
 
     .section-heading {
       margin: 0 0 14px;
+
       color: #d1d5db;
+
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 2px;
+
       text-align: center;
       text-transform: uppercase;
     }
@@ -117,18 +126,26 @@
 
     .btn {
       display: flex;
+
       min-height: 56px;
+
       align-items: center;
       justify-content: center;
+
       padding: 14px 18px;
+
       border: 1px solid #374151;
       border-radius: var(--radius-small);
+
       background: #111827;
       color: #ffffff;
+
       font-size: 15px;
       font-weight: 850;
+
       text-align: center;
       text-decoration: none;
+
       transition:
         transform 0.2s ease,
         filter 0.2s ease,
@@ -138,7 +155,9 @@
     .btn:hover {
       transform: translateY(-2px);
       filter: brightness(1.06);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.28);
     }
 
     .btn:active {
@@ -149,6 +168,8 @@
       outline: 3px solid rgba(249, 115, 22, 0.45);
       outline-offset: 3px;
     }
+
+    /* BUTTON COLORS */
 
     .btn.pumpfun {
       background: var(--green);
@@ -176,6 +197,7 @@
 
     .btn.verify {
       border: 2px solid var(--orange);
+
       background:
         linear-gradient(
           135deg,
@@ -203,17 +225,22 @@
 
     .contract-card {
       padding: 18px;
+
       background: var(--surface);
+
       border: 1px solid var(--border);
       border-radius: var(--radius-medium);
     }
 
     .contract-label {
       margin: 0 0 10px;
+
       color: var(--muted);
+
       font-size: 11px;
       font-weight: 850;
       letter-spacing: 1.7px;
+
       text-align: center;
       text-transform: uppercase;
     }
@@ -227,12 +254,17 @@
     .contract-address {
       flex: 1;
       min-width: 0;
+
       margin: 0;
       padding: 13px;
+
       background: #080a0d;
+
       border: 1px solid #20252d;
       border-radius: 10px;
+
       color: #b7bec9;
+
       font-family:
         ui-monospace,
         SFMono-Regular,
@@ -240,20 +272,29 @@
         Monaco,
         Consolas,
         monospace;
+
       font-size: 12px;
       line-height: 1.5;
+
       overflow-wrap: anywhere;
     }
 
     .copy-btn {
       flex: 0 0 auto;
+
       min-height: 44px;
+
       padding: 10px 15px;
+
       background: var(--orange);
+
       border: 0;
       border-radius: 10px;
+
       color: #000000;
+
       cursor: pointer;
+
       font: inherit;
       font-size: 13px;
       font-weight: 900;
@@ -268,11 +309,15 @@
 
     .footer {
       max-width: 760px;
+
       margin: 26px auto 0;
       padding: 12px 0 24px;
+
       color: #6b7280;
+
       font-size: 12px;
       line-height: 1.7;
+
       text-align: center;
     }
 
@@ -283,7 +328,7 @@
         padding: 16px;
       }
 
-      .movement-image {
+      .hero-image {
         border-radius: 22px;
       }
     }
@@ -295,11 +340,11 @@
         padding: 12px;
       }
 
-      .movement-section {
+      .hero-section {
         margin-top: 12px;
       }
 
-      .movement-image {
+      .hero-image {
         border-radius: 18px;
       }
 
@@ -334,27 +379,34 @@
 </head>
 
 <body>
+
   <div class="page">
 
     <main>
 
-      <!-- MOVEMENT IMAGE -->
+      <!-- HERO IMAGE -->
+
       <section
-        class="movement-section"
-        aria-label="Krumbs 2 Bricks movement statement"
+        class="hero-section"
+        aria-label="Krumbs 2 Bricks"
       >
+
         <img
-        class="movement-image"
-        src="Hero.png"
-        alt="Krumbs 2 Bricks"
-      />
+          class="hero-image"
+          src="Hero.png"
+          alt="Krumbs 2 Bricks"
+        />
+
       </section>
 
+
       <!-- ACTION LINKS -->
+
       <section
         class="action-section"
         aria-labelledby="action-heading"
       >
+
         <h1
           class="section-heading"
           id="action-heading"
@@ -373,6 +425,7 @@
             PUMP.FUN
           </a>
 
+
           <a
             class="btn jupiter"
             href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
@@ -381,6 +434,7 @@
           >
             JUPITER
           </a>
+
 
           <a
             class="btn phantom"
@@ -391,6 +445,7 @@
             PHANTOM
           </a>
 
+
           <a
             class="btn solflare"
             href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
@@ -399,6 +454,7 @@
           >
             SOLFLARE
           </a>
+
 
           <a
             class="btn verify"
@@ -409,6 +465,7 @@
             VERIFICATION HUB
           </a>
 
+
           <a
             class="btn orca"
             href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
@@ -417,6 +474,7 @@
           >
             ORCA LIQUIDITY POOL
           </a>
+
 
           <a
             class="btn telegram"
@@ -428,13 +486,17 @@
           </a>
 
         </div>
+
       </section>
 
+
       <!-- CONTRACT ADDRESS -->
+
       <section
         class="contract-section"
         aria-labelledby="contract-heading"
       >
+
         <div class="contract-card">
 
           <h2
@@ -445,6 +507,7 @@
           </h2>
 
           <div class="contract-row">
+
             <p
               class="contract-address"
               id="contract-address"
@@ -459,23 +522,33 @@
             >
               Copy
             </button>
+
           </div>
 
         </div>
+
       </section>
 
     </main>
 
+
+    <!-- FOOTER -->
+
     <footer class="footer">
-      Crypto assets involve substantial risk. Only use funds
-      you can afford to lose. Always verify the official
-      contract address before completing a transaction.
+      Crypto assets involve substantial risk.
+      Only use funds you can afford to lose.
+      Always verify the official contract address before completing a transaction.
     </footer>
 
   </div>
 
+
+  <!-- COPY CONTRACT SCRIPT -->
+
   <script>
-    const copyButton = document.getElementById("copy-button");
+
+    const copyButton =
+      document.getElementById("copy-button");
 
     const contractAddress =
       document
@@ -483,36 +556,70 @@
         .textContent
         .trim();
 
+
     copyButton.addEventListener("click", async () => {
-      const originalText = copyButton.textContent;
+
+      const originalText =
+        copyButton.textContent;
 
       try {
-        await navigator.clipboard.writeText(contractAddress);
-        copyButton.textContent = "Copied";
+
+        await navigator.clipboard.writeText(
+          contractAddress
+        );
+
+        copyButton.textContent =
+          "Copied";
+
       } catch (error) {
-        const temporaryInput = document.createElement("textarea");
 
-        temporaryInput.value = contractAddress;
-        temporaryInput.setAttribute("readonly", "");
-        temporaryInput.style.position = "absolute";
-        temporaryInput.style.left = "-9999px";
+        const temporaryInput =
+          document.createElement("textarea");
 
-        document.body.appendChild(temporaryInput);
+        temporaryInput.value =
+          contractAddress;
+
+        temporaryInput.setAttribute(
+          "readonly",
+          ""
+        );
+
+        temporaryInput.style.position =
+          "absolute";
+
+        temporaryInput.style.left =
+          "-9999px";
+
+        document.body.appendChild(
+          temporaryInput
+        );
+
         temporaryInput.select();
 
-        const copied = document.execCommand("copy");
+        const copied =
+          document.execCommand("copy");
 
-        document.body.removeChild(temporaryInput);
+        document.body.removeChild(
+          temporaryInput
+        );
 
-        copyButton.textContent = copied
-          ? "Copied"
-          : "Copy Failed";
+        copyButton.textContent =
+          copied
+            ? "Copied"
+            : "Copy Failed";
       }
 
+
       setTimeout(() => {
-        copyButton.textContent = originalText;
+
+        copyButton.textContent =
+          originalText;
+
       }, 1800);
+
     });
+
   </script>
+
 </body>
 </html>
