@@ -86,6 +86,7 @@
     }
 
     .hero-image {
+      display: block;
       width: 100%;
       height: auto;
 
@@ -107,13 +108,10 @@
 
     .section-heading {
       margin: 0 0 14px;
-
       color: #d1d5db;
-
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 2px;
-
       text-align: center;
       text-transform: uppercase;
     }
@@ -124,14 +122,13 @@
       gap: 12px;
     }
 
+    /* BUTTONS */
+
     .btn {
       display: flex;
-
       min-height: 56px;
-
       align-items: center;
       justify-content: center;
-
       padding: 14px 18px;
 
       border: 1px solid #374151;
@@ -142,7 +139,6 @@
 
       font-size: 15px;
       font-weight: 850;
-
       text-align: center;
       text-decoration: none;
 
@@ -169,7 +165,7 @@
       outline-offset: 3px;
     }
 
-    /* BUTTON COLORS */
+    /* PUMP.FUN */
 
     .btn.pumpfun {
       background: var(--green);
@@ -177,11 +173,15 @@
       color: #000000;
     }
 
+    /* JUPITER */
+
     .btn.jupiter {
       background: var(--jupiter);
       border-color: transparent;
       color: #000000;
     }
+
+    /* PHANTOM */
 
     .btn.phantom {
       background: var(--phantom);
@@ -189,11 +189,15 @@
       color: #000000;
     }
 
+    /* SOLFLARE */
+
     .btn.solflare {
       background: var(--solflare);
       border-color: transparent;
       color: #000000;
     }
+
+    /* VERIFICATION HUB */
 
     .btn.verify {
       border: 2px solid var(--orange);
@@ -206,9 +210,13 @@
         );
     }
 
+    /* ORCA */
+
     .btn.orca {
       background: #111827;
     }
+
+    /* TELEGRAM */
 
     .btn.telegram {
       grid-column: 1 / -1;
@@ -281,9 +289,7 @@
 
     .copy-btn {
       flex: 0 0 auto;
-
       min-height: 44px;
-
       padding: 10px 15px;
 
       background: var(--orange);
@@ -292,7 +298,6 @@
       border-radius: 10px;
 
       color: #000000;
-
       cursor: pointer;
 
       font: inherit;
@@ -309,7 +314,6 @@
 
     .footer {
       max-width: 760px;
-
       margin: 26px auto 0;
       padding: 12px 0 24px;
 
@@ -366,6 +370,8 @@
       }
     }
 
+    /* REDUCED MOTION */
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -384,7 +390,7 @@
 
     <main>
 
-      <!-- HERO IMAGE -->
+      <!-- HERO -->
 
       <section
         class="hero-section"
@@ -393,7 +399,7 @@
 
         <img
           class="hero-image"
-          src="Hero.png"
+          src="K2b-hero.webp"
           alt="Krumbs 2 Bricks"
         />
 
@@ -416,6 +422,8 @@
 
         <div class="actions">
 
+          <!-- PUMP.FUN -->
+
           <a
             class="btn pumpfun"
             href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
@@ -425,6 +433,8 @@
             PUMP.FUN
           </a>
 
+
+          <!-- JUPITER -->
 
           <a
             class="btn jupiter"
@@ -436,6 +446,8 @@
           </a>
 
 
+          <!-- PHANTOM -->
+
           <a
             class="btn phantom"
             href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
@@ -445,6 +457,8 @@
             PHANTOM
           </a>
 
+
+          <!-- SOLFLARE -->
 
           <a
             class="btn solflare"
@@ -456,6 +470,8 @@
           </a>
 
 
+          <!-- VERIFICATION HUB -->
+
           <a
             class="btn verify"
             href="https://verifyk2b.github.io/verifyk2b/verify/"
@@ -466,6 +482,8 @@
           </a>
 
 
+          <!-- ORCA LIQUIDITY POOL -->
+
           <a
             class="btn orca"
             href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
@@ -475,6 +493,8 @@
             ORCA LIQUIDITY POOL
           </a>
 
+
+          <!-- TELEGRAM -->
 
           <a
             class="btn telegram"
@@ -546,7 +566,6 @@
   <!-- COPY CONTRACT SCRIPT -->
 
   <script>
-
     const copyButton =
       document.getElementById("copy-button");
 
@@ -555,7 +574,6 @@
         .getElementById("contract-address")
         .textContent
         .trim();
-
 
     copyButton.addEventListener("click", async () => {
 
@@ -609,7 +627,6 @@
             : "Copy Failed";
       }
 
-
       setTimeout(() => {
 
         copyButton.textContent =
@@ -618,7 +635,6 @@
       }, 1800);
 
     });
-
   </script>
 
 </body>
