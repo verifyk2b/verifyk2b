@@ -105,7 +105,7 @@
 <div class="wrap">
 
   <h1>VERIFY K2B</h1>
-  <div class="sub">On-chain facts only. Check the links.</div>
+  <div class="sub">On-chain facts only. Check the links. Liquidity amounts change.</div>
 
   <h2>CORE FACTS</h2>
   <ul>
@@ -113,74 +113,30 @@
     <li><strong>Chain:</strong> Solana</li>
     <li><strong>Original supply:</strong> 1,000,000,000</li>
     <li><strong>Mint supply now:</strong> 958,907,518.51</li>
-    <li>Mint authority revoked (cannot mint more)</li>
+    <li>Mint authority revoked</li>
     <li>Freeze authority revoked</li>
-    <li>Founder-associated tokens locked via Streamflow</li>
   </ul>
 
   <h2>CONTRACT</h2>
   <div class="block">
     <div class="label">MINT / BUY ADDRESS</div>
-    <div class="value">
-      At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
-    </div>
-    <a class="btn"
-       href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank" rel="noopener">
-      VIEW MINT ON SOLSCAN
-    </a>
-    <a class="btn"
-       href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-       target="_blank" rel="noopener">
-      OPEN PUMP.FUN
-    </a>
+    <div class="value">At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</div>
+    <a class="btn" href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener">VIEW MINT ON SOLSCAN</a>
+    <a class="btn" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener">OPEN PUMP.FUN</a>
   </div>
-
-  <h2>LOCKS (STREAMFLOW)</h2>
-  <a class="btn"
-     href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk"
-     target="_blank" rel="noopener">
-     VIEW LP LOCK
-  </a>
-  <a class="btn"
-     href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
-     target="_blank" rel="noopener">
-     VIEW LARGEST TOKEN LOCK
-  </a>
-  <a class="btn"
-     href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf"
-     target="_blank" rel="noopener">
-     VIEW SECOND TOKEN LOCK
-  </a>
-  <p class="muted">
-    Additional Streamflow locks exist and are verifiable on-chain.
-  </p>
 
   <h2>BURNS</h2>
   <div class="block">
     <div class="label">INCINERATOR TOKEN ACCOUNT (K2B ATA)</div>
-    <div class="value">
-      C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
-    </div>
+    <div class="value">C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3</div>
     <p class="muted" style="margin:10px 0 0;">
-      This is not a project wallet. It is the associated token account
-      for K2B owned by Solana’s incinerator
+      Associated token account owned by Solana’s incinerator
       (1nc1nerator11111111111111111111111111111111).
-      The incinerator has no private key. Tokens here cannot be moved.
+      No private key. Tokens here cannot be moved.
     </p>
-    <p class="muted" style="margin:10px 0 0;">
-      Balance: 169,821,597.91 K2B
-    </p>
-    <a class="btn"
-       href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-       target="_blank" rel="noopener">
-      VIEW INCINERATOR ATA
-    </a>
-    <a class="btn"
-       href="https://solscan.io/account/1nc1nerator11111111111111111111111111111111"
-       target="_blank" rel="noopener">
-      VIEW INCINERATOR
-    </a>
+    <p class="muted" style="margin:10px 0 0;">Balance: 169,821,597.91 K2B</p>
+    <a class="btn" href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3" target="_blank" rel="noopener">VIEW INCINERATOR ATA</a>
+    <a class="btn" href="https://solscan.io/account/1nc1nerator11111111111111111111111111111111" target="_blank" rel="noopener">VIEW INCINERATOR</a>
   </div>
 
   <div class="block">
@@ -188,11 +144,73 @@
     <p class="muted" style="margin:0;">
       Sending tokens to the incinerator does not lower Solscan’s mint supply.
       That is why mint supply still shows 958,907,518.51.
-      About 41,092,481.49 was separately burned at the mint, which is why
-      supply is below 1,000,000,000.
+      About 41,092,481.49 was separately burned at the mint.
       Combined, about 210.9M K2B is out of circulation.
     </p>
   </div>
+
+  <h2>TOKEN LOCKS (STREAMFLOW)</h2>
+  <p class="muted">These are the current Streamflow metadata accounts after the Feb 2026 migration. Old IDs 5P7k / DhPS / 6tLv were closed.</p>
+
+  <div class="block">
+    <div class="label">100,000,000 K2B · UNLOCK 2031-01-04 (\~5Y)</div>
+    <div class="value">HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ</div>
+    <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ" target="_blank" rel="noopener">VIEW 5Y LOCK</a>
+  </div>
+
+  <div class="block">
+    <div class="label">100,000,000 K2B · UNLOCK 2036-01-04 (\~10Y)</div>
+    <div class="value">ARCTKw6W5msQzYRCgMkMsff7uYLxEkzzCqU8dr5fDFH1</div>
+    <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/ARCTKw6W5msQzYRCgMkMsff7uYLxEkzzCqU8dr5fDFH1" target="_blank" rel="noopener">VIEW 10Y LOCK</a>
+  </div>
+
+  <div class="block">
+    <div class="label">RAYDIUM CLMM POSITION NFT · UNLOCK 2041-01-04 (\~15Y)</div>
+    <div class="value">2f4K6vcK14rHFn2tAJwK8pPJaWDF8Vhkse7umC4pLiU1</div>
+    <p class="muted" style="margin:10px 0 0;">This is a Raydium concentrated-liquidity position NFT. It is not the Orca pool.</p>
+    <a class="btn" href="https://app.streamflow.finance/contract/solana/mainnet/2f4K6vcK14rHFn2tAJwK8pPJaWDF8Vhkse7umC4pLiU1" target="_blank" rel="noopener">VIEW 15Y LP LOCK</a>
+  </div>
+
+  <h2>LIQUIDITY POOLS</h2>
+  <p class="muted">Separate venues. Check each link for current balances. Amounts change.</p>
+
+  <div class="block">
+    <div class="label">PUMPSWAP (MAIN TRADING POOL)</div>
+    <div class="value">H733HRgPCTeZbTKyLmbsf986czovQMoHtTQxwMSU1QTb</div>
+    <a class="btn" href="https://solscan.io/account/H733HRgPCTeZbTKyLmbsf986czovQMoHtTQxwMSU1QTb" target="_blank" rel="noopener">VIEW PUMPSWAP ON SOLSCAN</a>
+    <a class="btn" href="https://dexscreener.com/solana/h733hrgpctezbtkylmbsf986czovqmohttqxwmsu1qtb" target="_blank" rel="noopener">VIEW ON DEXSCREENER</a>
+  </div>
+
+  <div class="block">
+    <div class="label">ORCA WHIRLPOOL (WSOL-K2B)</div>
+    <div class="value">4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh</div>
+    <a class="btn" href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh" target="_blank" rel="noopener">VIEW ORCA ON SOLSCAN</a>
+    <a class="btn" href="https://dexscreener.com/solana/4yxiufu5qwdeuqkamgfbsam1eimadvjss3hw2k7eqynh" target="_blank" rel="noopener">VIEW ON DEXSCREENER</a>
+  </div>
+
+  <div class="block">
+    <div class="label">METEORA</div>
+    <div class="value">E4gvAs2mjkdNk1fVqFVNnDp6AM36LQydaQCxr4v2ASRh</div>
+    <a class="btn" href="https://solscan.io/account/E4gvAs2mjkdNk1fVqFVNnDp6AM36LQydaQCxr4v2ASRh" target="_blank" rel="noopener">VIEW METEORA ON SOLSCAN</a>
+  </div>
+
+  <div class="block">
+    <div class="label">RAYDIUM CLMM (JAN 5, 2026 — LOCKED POSITION POOL)</div>
+    <div class="value">Ds7HDw7Q9AZuQ9cyNTaSHhdVG1Sjw8pFgCDnJANGRE4n</div>
+    <a class="btn" href="https://solscan.io/account/Ds7HDw7Q9AZuQ9cyNTaSHhdVG1Sjw8pFgCDnJANGRE4n" target="_blank" rel="noopener">VIEW RAYDIUM ON SOLSCAN</a>
+  </div>
+
+  <div class="block">
+    <div class="label">ORIGINAL PUMP.FUN BONDING CURVE</div>
+    <div class="value">sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g</div>
+    <p class="muted" style="margin:10px 0 0;">Historical launch curve. Not the current trading pool.</p>
+    <a class="btn" href="https://solscan.io/account/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g" target="_blank" rel="noopener">VIEW CURVE ON SOLSCAN</a>
+  </div>
+
+  <p class="muted">
+    Additional smaller Raydium CLMM and Meteora DAMM v2 pools exist.
+    They are separate from the locks above.
+  </p>
 
   <h2>SCOPE</h2>
   <p class="muted">
@@ -200,10 +218,8 @@
     Update this page when the numbers on-chain change.
   </p>
 
-  <div class="footer">
-    VERIFY. DON’T TRUST.
-  </div>
+  <div class="footer">VERIFY. DON’T TRUST.</div>
 
 </div>
 </body>
-  </html>
+</html>
