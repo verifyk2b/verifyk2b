@@ -105,18 +105,17 @@
 <div class="wrap">
 
   <h1>VERIFY K2B</h1>
-  <div class="sub">Verifiable on-chain information only</div>
+  <div class="sub">On-chain facts only. Check the links.</div>
 
   <h2>CORE FACTS</h2>
   <ul>
     <li><strong>Token:</strong> K2B (Krumbs 2 Bricks)</li>
     <li><strong>Chain:</strong> Solana</li>
-    <li><strong>Supply:</strong> Fixed 1,000,000,000</li>
-    <li>No minting possible beyond fixed supply</li>
-    <li>Mint authority revoked</li>
+    <li><strong>Original supply:</strong> 1,000,000,000</li>
+    <li><strong>Mint supply now:</strong> 958,907,518.51</li>
+    <li>Mint authority revoked (cannot mint more)</li>
     <li>Freeze authority revoked</li>
     <li>Founder-associated tokens locked via Streamflow</li>
-    <li>No admin authorities</li>
   </ul>
 
   <h2>CONTRACT</h2>
@@ -128,7 +127,7 @@
     <a class="btn"
        href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
        target="_blank" rel="noopener">
-      VIEW ON SOLSCAN
+      VIEW MINT ON SOLSCAN
     </a>
     <a class="btn"
        href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
@@ -143,41 +142,62 @@
      target="_blank" rel="noopener">
      VIEW LP LOCK
   </a>
-
   <a class="btn"
      href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC"
      target="_blank" rel="noopener">
      VIEW LARGEST TOKEN LOCK
   </a>
-
   <a class="btn"
      href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf"
      target="_blank" rel="noopener">
      VIEW SECOND TOKEN LOCK
   </a>
-
   <p class="muted">
     Additional Streamflow locks exist and are verifiable on-chain.
   </p>
 
   <h2>BURNS</h2>
   <div class="block">
-    <div class="label">BURN ADDRESS</div>
+    <div class="label">INCINERATOR TOKEN ACCOUNT (K2B ATA)</div>
     <div class="value">
       C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
     </div>
+    <p class="muted" style="margin:10px 0 0;">
+      This is not a project wallet. It is the associated token account
+      for K2B owned by Solana’s incinerator
+      (1nc1nerator11111111111111111111111111111111).
+      The incinerator has no private key. Tokens here cannot be moved.
+    </p>
+    <p class="muted" style="margin:10px 0 0;">
+      Balance: 169,821,597.91 K2B
+    </p>
     <a class="btn"
        href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
        target="_blank" rel="noopener">
-      VIEW BURN ADDRESS
+      VIEW INCINERATOR ATA
     </a>
+    <a class="btn"
+       href="https://solscan.io/account/1nc1nerator11111111111111111111111111111111"
+       target="_blank" rel="noopener">
+      VIEW INCINERATOR
+    </a>
+  </div>
+
+  <div class="block">
+    <div class="label">HOW TO READ SUPPLY</div>
+    <p class="muted" style="margin:0;">
+      Sending tokens to the incinerator does not lower Solscan’s mint supply.
+      That is why mint supply still shows 958,907,518.51.
+      About 41,092,481.49 was separately burned at the mint, which is why
+      supply is below 1,000,000,000.
+      Combined, about 210.9M K2B is out of circulation.
+    </p>
   </div>
 
   <h2>SCOPE</h2>
   <p class="muted">
-    This page documents on-chain facts only.<br>
-    No guarantees. No projections.<br>
-    Updates are posted only when on-chain data changes.
+    On-chain facts only. No guarantees. No projections.<br>
+    Update this page when the numbers on-chain change.
   </p>
 
   <div class="footer">
@@ -186,4 +206,4 @@
 
 </div>
 </body>
-</html>
+  </html>
