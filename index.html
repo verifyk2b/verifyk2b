@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Krumbs 2 Bricks</title>
-
   <style>
     :root {
       --green: #bef264;
@@ -18,234 +12,117 @@
       --solflare: #ffc83d;
       --orange: #f97316;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       min-height: 100vh;
-
-      background: #000000;
-      color: #ffffff;
-
-      font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     }
-
     .page {
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
       padding: 20px;
     }
-
-    /* HERO */
-
-    .hero {
-      width: 100%;
-      margin: 0 auto 24px;
-    }
-
+    .hero { width: 100%; margin: 0 auto 24px; }
     .hero-image {
       display: block;
       width: 100%;
       height: auto;
       object-fit: contain;
     }
-
-    /* BUTTONS */
-
     .actions {
       width: 100%;
       max-width: 760px;
-
       margin: 0 auto;
-
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-
       gap: 12px;
     }
-
     .btn {
       display: flex;
-
       min-height: 56px;
-
       align-items: center;
       justify-content: center;
-
       padding: 14px 18px;
-
       border-radius: 12px;
-
-      color: #ffffff;
-
+      color: #fff;
       font-size: 15px;
       font-weight: 800;
-
       text-align: center;
       text-decoration: none;
     }
-
-    .pumpfun {
-      background: var(--green);
-      color: #000000;
-    }
-
-    .jupiter {
-      background: var(--jupiter);
-      color: #000000;
-    }
-
-    .phantom {
-      background: var(--phantom);
-      color: #000000;
-    }
-
-    .solflare {
-      background: var(--solflare);
-      color: #000000;
-    }
-
-    .verify {
-      background: #111827;
-      border: 2px solid var(--orange);
-    }
-
-    .orca {
-      background: #111827;
-      border: 1px solid #374151;
-    }
-
+    .pumpfun { background: var(--green); color: #000; }
+    .jupiter { background: var(--jupiter); color: #000; }
+    .phantom { background: var(--phantom); color: #000; }
+    .solflare { background: var(--solflare); color: #000; }
+    .verify { background: #111827; border: 2px solid var(--orange); }
+    .pool { background: #111827; border: 1px solid #374151; }
     .telegram {
       grid-column: 1 / -1;
       background: #0b1220;
       border: 1px solid #374151;
     }
-
-    /* MOBILE */
-
+    .mint {
+      max-width: 760px;
+      margin: 22px auto 0;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+    }
+    .mint-label {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: #9a9a9a;
+      margin-bottom: 6px;
+    }
+    .mint-value {
+      font-size: 13px;
+      word-break: break-all;
+      line-height: 1.4;
+    }
+    .mint a {
+      color: #bef264;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-block;
+      margin-top: 8px;
+    }
     @media (max-width: 620px) {
-      .page {
-        padding: 12px;
-      }
-
-      .hero {
-        margin-bottom: 18px;
-      }
-
-      .actions {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .telegram {
-        grid-column: auto;
-      }
-
-      .btn {
-        min-height: 54px;
-      }
+      .page { padding: 12px; }
+      .hero { margin-bottom: 18px; }
+      .actions { grid-template-columns: 1fr; gap: 10px; }
+      .telegram { grid-column: auto; }
+      .btn { min-height: 54px; }
     }
   </style>
 </head>
-
 <body>
-
   <div class="page">
-
-    <!-- HERO -->
-
     <section class="hero">
-
-      <img
-        class="hero-image"
-        src="./k2b-hero.webp"
-        alt="Krumbs 2 Bricks"
-      >
-
+      <img class="hero-image" src="./k2b-hero.webp" alt="Krumbs 2 Bricks">
     </section>
-
-
-    <!-- BUTTONS -->
 
     <section class="actions">
-
-      <a
-        class="btn pumpfun"
-        href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        PUMP.FUN
-      </a>
-
-      <a
-        class="btn jupiter"
-        href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        JUPITER
-      </a>
-
-      <a
-        class="btn phantom"
-        href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        PHANTOM
-      </a>
-
-      <a
-        class="btn solflare"
-        href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        SOLFLARE
-      </a>
-
-      <a
-        class="btn verify"
-        href="https://verifyk2b.github.io/verifyk2b/verify/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        VERIFICATION HUB
-      </a>
-
-      <a
-        class="btn orca"
-        href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        ORCA LIQUIDITY POOL
-      </a>
-
-      <a
-        class="btn telegram"
-        href="https://t.me/YOUR_TELEGRAM"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TELEGRAM
-      </a>
-
+      <a class="btn pumpfun" href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">PUMP.FUN</a>
+      <a class="btn jupiter" href="https://jup.ag/tokens/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">JUPITER</a>
+      <a class="btn phantom" href="https://phantom.com/tokens/solana/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">PHANTOM</a>
+      <a class="btn solflare" href="https://www.solflare.com/prices/krumbs-2-bricks/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">SOLFLARE</a>
+      <a class="btn verify" href="https://krumbs2bricks.com/verify/" target="_blank" rel="noopener noreferrer">VERIFICATION HUB</a>
+      <a class="btn pool" href="https://dexscreener.com/solana/h733hrgpctezbtkylmbsf986czovqmohttqxwmsu1qtb" target="_blank" rel="noopener noreferrer">PUMPSWAP POOL</a>
+      <a class="btn pool" href="https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh" target="_blank" rel="noopener noreferrer">ORCA POOL</a>
+      <a class="btn telegram" href="https://t.me/K2BCommunity" target="_blank" rel="noopener noreferrer">TELEGRAM</a>
     </section>
 
+    <div class="mint">
+      <div class="mint-label">MINT / BUY ADDRESS</div>
+      <div class="mint-value">At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump</div>
+      <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">VIEW ON SOLSCAN</a>
+    </div>
   </div>
-
 </body>
 </html>
