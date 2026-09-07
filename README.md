@@ -1,185 +1,88 @@
 # Verify K2B
 
-**Verifiable on-chain information for K2B.**
+On-chain facts for K2B (Krumbs 2 Bricks) on Solana.
 
----
+Live pages:
+- Site: https://krumbs2bricks.com/
+- Verify: https://krumbs2bricks.com/verify/
 
-## Core Facts
+If this README and Solscan do not match, Solscan wins.
 
-- **Token:** K2B (Krumbs 2 Bricks)
-- **Chain:** Solana
-- **Supply:** Fixed 958,907,518.5  
-- No minting possible beyond fixed supply.
-- **Mint authority:** Revoked
-- **Freeze authority:** Revoked
-- **Founder-associated tokens:** Locked via Streamflow with predefined, on-chain release schedules.
-- **Admin authorities:** None (mint & freeze revoked)
+## Core facts
 
----
+- Token: K2B
+- Chain: Solana
+- Original supply: 1,000,000,000
+- Mint supply now: 958,907,518.51
+- Mint authority: revoked
+- Freeze authority: revoked
 
-## Verify
+## Mint / buy address
 
-<p>
-  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
-    <button style="
-      background:#1a1a1a;
-      color:#fff;
-      border:1px solid #555;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;">
-       Open Solscan (Token)
-    </button>
-  </a>
-</p>
+`At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump`
 
-<p>
-  <a href="https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank" rel="noopener noreferrer">
-    <button style="
-      background:#111;
-      color:#bbb;
-      border:1px solid #444;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;">
-       Open Pump.fun (Trading UI)
-    </button>
-  </a>
-</p>
----
+- [Solscan (mint)](https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump)
+- [Pump.fun](https://pump.fun/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump)
 
-## Mint / Buy Address
+## Burns
 
-<p>
-  <code style="font-size:13px;">
-    At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump
-  </code>
-</p>
+Incinerator token account (K2B ATA):
 
-<p>
-  <a href="https://solscan.io/token/At4L287tND4vLSURFeVz2fqhbvNgnE76nfFg7gy9pump" target="_blank">
-    <button style="
-      background:#1a1a1a;
-      color:#fff;
-      border:1px solid #555;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;
-    ">
-      View Mint on Solscan
-    </button>
-  </a>
-</p>
+`C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3`
 
-<p style="font-weight:bold;">VERIFY. DON’T TRUST.</p>
+This is the associated token account owned by Solana’s incinerator
+(`1nc1nerator11111111111111111111111111111111`).
+No private key. Tokens here cannot be moved.
 
+Balance: 169,821,597.91 K2B
 
----
+- [Incinerator ATA](https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3)
+- [Incinerator](https://solscan.io/account/1nc1nerator11111111111111111111111111111111)
 
-<h2>Locks (Streamflow)</h2>
+Sending tokens to the incinerator does not lower Solscan’s mint supply.
+That is why mint supply still shows 958,907,518.51.
+About 41,092,481.49 was separately burned at the mint.
+Combined, about 210.9M K2B is out of circulation.
 
-<p>
-  <a href="https://app.streamflow.finance/contract/solana/mainnet/5P7kHAQc8eUAMPnhmxrcekrJ6Mi9NUcTZsYVY3jugomk" target="_blank">
-    <button style="
-      background:#111;
-      color:#fff;
-      border:1px solid #444;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;
-    ">
-      View LP Lock (Streamflow)
-    </button>
-  </a>
-</p>
+## Token locks (Streamflow)
 
-<p>
-  <a href="https://app.streamflow.finance/contract/solana/mainnet/DhPS19jFRTSecSUvjyU3Z8vVSnxdLdf1n5spzit7YPfC" target="_blank">
-    <button style="
-      background:#111;
-      color:#fff;
-      border:1px solid #444;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;
-    ">
-      View Largest Token Lock
-    </button>
-  </a>
-</p>
+These are the current metadata accounts after the Feb 2026 migration.
+Old IDs `5P7k` / `DhPS` / `6tLv` were closed.
 
-<p>
-  <a href="https://app.streamflow.finance/contract/solana/mainnet/6tLvzGQL7em8wKnvwG3Gy6iqrcQJjoAwEvZtYFA759qf" target="_blank">
-    <button style="
-      background:#111;
-      color:#fff;
-      border:1px solid #444;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;
-    ">
-      View Second Largest Token Lock
-    </button>
-  </a>
-</p>
+- 100,000,000 K2B · unlock 2031-01-04 (\~5y)  
+  `HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ`  
+  [View 5y lock](https://app.streamflow.finance/contract/solana/mainnet/HRuWdSV9npJt5Kd16pGgQWA9cD5ZfEEnez9dpGx86QaJ)
 
-<p>
-  Additional token locks exist via Streamflow and are verifiable on-chain.
-</p>
+- 100,000,000 K2B · unlock 2036-01-04 (\~10y)  
+  `ARCTKw6W5msQzYRCgMkMsff7uYLxEkzzCqU8dr5fDFH1`  
+  [View 10y lock](https://app.streamflow.finance/contract/solana/mainnet/ARCTKw6W5msQzYRCgMkMsff7uYLxEkzzCqU8dr5fDFH1)
 
-<h2>K2B Token Burns</h2>
+- Raydium CLMM position NFT · unlock 2041-01-04 (\~15y)  
+  `2f4K6vcK14rHFn2tAJwK8pPJaWDF8Vhkse7umC4pLiU1`  
+  This is a Raydium concentrated-liquidity position NFT. It is not the Orca pool.  
+  [View 15y LP lock](https://app.streamflow.finance/contract/solana/mainnet/2f4K6vcK14rHFn2tAJwK8pPJaWDF8Vhkse7umC4pLiU1)
 
-<p>
-Tokens are permanently burned by sending them to the K2B burn wallet.
-This address is used exclusively for burns and is not used for transfers
-or operations.
-</p>
+## Liquidity pools
 
-<p><strong>K2B Burn Address:</strong></p>
+Separate venues. Amounts change. Check the links.
 
-<code>
-C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3
-</code>
-<br><br>
-<a class="btn btn-dark"
-   href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-   target="_blank" rel="noopener">
-  <p>
-  <a href="https://solscan.io/account/C9TePxZ41j2yDkDGgLxLT1ztLdvMpgpVNDSRv9cmq1K3"
-     target="_blank" rel="noopener noreferrer">
-    <button style="
-      background:#1a1a1a;
-      color:#ffffff;
-      border:1px solid #555;
-      padding:10px 16px;
-      border-radius:6px;
-      font-size:14px;
-      cursor:pointer;
-    ">
-      View Burn Address on Solscan
-    </button>
-  </a>
-</p>
+- PumpSwap (main trading pool): `H733HRgPCTeZbTKyLmbsf986czovQMoHtTQxwMSU1QTb`  
+  [Solscan](https://solscan.io/account/H733HRgPCTeZbTKyLmbsf986czovQMoHtTQxwMSU1QTb) · [Dexscreener](https://dexscreener.com/solana/h733hrgpctezbtkylmbsf986czovqmohttqxwmsu1qtb)
 
-<h4>Supply Notes</h4>
-<ul>
-  <li>Total supply unchanged</li>
-  <li>Circulating supply reduced</li>
-  <li>Mint authority revoked (no re-minting)</li>
-</ul>
+- Orca Whirlpool (WSOL-K2B): `4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh`  
+  [Solscan](https://solscan.io/account/4YXiuFu5qWDeUqKAMGFbSAM1eimADvjsS3HW2k7EqYnh)
 
----
+- Meteora: `E4gvAs2mjkdNk1fVqFVNnDp6AM36LQydaQCxr4v2ASRh`  
+  [Solscan](https://solscan.io/account/E4gvAs2mjkdNk1fVqFVNnDp6AM36LQydaQCxr4v2ASRh)
+
+- Raydium CLMM (Jan 5, 2026 — locked position pool): `Ds7HDw7Q9AZuQ9cyNTaSHhdVG1Sjw8pFgCDnJANGRE4n`  
+  [Solscan](https://solscan.io/account/Ds7HDw7Q9AZuQ9cyNTaSHhdVG1Sjw8pFgCDnJANGRE4n)
+
+- Original pump.fun bonding curve (historical): `sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g`  
+  [Solscan](https://solscan.io/account/sPJ7Ae8Z77xNR281gdFjfCScAN6RWCb3GinsvZ2v39g)
+
+Additional smaller Raydium CLMM and Meteora DAMM v2 pools exist. They are separate from the locks above.
 
 ## Scope
 
-This page documents on-chain facts only. No guarantees, promises, or projections.
-
-Updates are posted only when on-chain data changes.
-
-Information only. Verify independently.
+On-chain facts only. No guarantees. No projections.
